@@ -43,7 +43,6 @@ group :development, :test do
   gem 'listen',                '3.0.8'
   gem 'spring',                '1.7.2'
   gem 'spring-watcher-listen', '2.0.0'
-  gem 'win32console', '~> 1.3', '>= 1.3.2'
 end
 
 group :development do
@@ -65,3 +64,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'win32console', '~> 1.3', '>= 1.3.2' if Gem.win_platform?

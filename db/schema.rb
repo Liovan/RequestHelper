@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128151339) do
+ActiveRecord::Schema.define(version: 20170128160133) do
 
   create_table "features", force: :cascade do |t|
     t.string   "name",       limit: 45, null: false
@@ -59,11 +59,13 @@ ActiveRecord::Schema.define(version: 20170128151339) do
   end
 
   create_table "staffs", force: :cascade do |t|
-    t.string   "f_name",     limit: 25, null: false
-    t.string   "l_name",     limit: 30, null: false
+    t.string   "f_name",          limit: 25, null: false
+    t.string   "l_name",          limit: 30, null: false
     t.integer  "place_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.datetime "last_login"
+    t.string   "password_digest"
     t.index ["place_id"], name: "index_staffs_on_place_id"
   end
 
