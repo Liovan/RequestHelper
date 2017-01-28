@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128182642) do
+ActiveRecord::Schema.define(version: 20170128192134) do
 
   create_table "features", force: :cascade do |t|
     t.string   "name",       limit: 45, null: false
@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 20170128182642) do
     t.datetime "updated_at",            null: false
   end
 
-  create_table "features_places_joins", force: :cascade do |t|
+  create_table "features_places", id: false, force: :cascade do |t|
     t.integer "place_id"
     t.integer "feature_id"
-    t.index ["feature_id"], name: "index_features_places_joins_on_feature_id"
-    t.index ["place_id"], name: "index_features_places_joins_on_place_id"
+    t.index ["feature_id"], name: "index_features_places_on_feature_id"
+    t.index ["place_id"], name: "index_features_places_on_place_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -59,14 +59,14 @@ ActiveRecord::Schema.define(version: 20170128182642) do
   end
 
   create_table "staffs", force: :cascade do |t|
-    t.string   "f_name",          limit: 25, null: false
-    t.string   "l_name",          limit: 30, null: false
+    t.string   "f_name",          limit: 25,  null: false
+    t.string   "l_name",          limit: 30,  null: false
     t.integer  "place_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.datetime "last_login"
-    t.string   "password_digest"
-    t.string   "remember_digest"
+    t.string   "password_digest", limit: 255
+    t.string   "remember_digest", limit: 255
     t.index ["place_id"], name: "index_staffs_on_place_id"
   end
 
