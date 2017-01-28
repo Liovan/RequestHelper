@@ -2,50 +2,50 @@ module SessionsHelper
 
 #This module (helper) included in app controller
 
-  #logs in the given user
-  def log_in(user)
-    #user.id will be used in url And,
+  #logs in the given staff
+  def log_in(staff)
+    #staff.id will be used in url And,
     #in real world we don't want it.
-    #people will know how many users we have!
-    session[:user_id] = user.id
+    #people will know how many staffs we have!
+    session[:staff_id] = staff.id
   end
 
-  #Remembers a user in a persistent session.
-  def remember(user)
-    user.remember
-    cookies.permanent.signed[:user_id] = user.id
-    cookies.permanent[:remember_token] = user.remember_token
+  #Remembers a staff in a persistent session.
+  def remember(staff)
+    staff.remember
+    cookies.permanent.signed[:staff_id] = staff.id
+    cookies.permanent[:remember_token] = staff.remember_token
   end
 
-  #Returns the current logged-in user (if Any).
-  def current_user
-    if (user_id = session[:user_id])
+  #Returns the current logged-in staff (if Any).
+  def current_staff
+    if (staff_id = session[:staff_id])
       #Prevent database call spam by using an
       #instance variable *(memoization)*
-      @current_user ||= User.find_by(id: user_id)
-    elsif (user_id = cookies.signed[:user_id])
-      user = User.find_by(id: user_id)
-      if user && user.authenticated?(cookies[:remember_token])
-        log_in user
-        @current_user = user
+      @current_staff ||= Staff.find_by(id: staff_id)
+    elsif (staff_id = cookies.signed[:staff_id])
+      staff = Staff.find_by(id: staff_id)
+      if staff && staff.authenticated?(cookies[:remember_token])
+        log_in staff
+        @current_staff = staff
       end
     end
   end
 
   def logged_in?
-    !current_user.nil?
+    !current_staff.nil?
   end
 
-  def forget(user)
-    user.forget
-    cookies.delete(:user_id)
+  def forget(staff)
+    staff.forget
+    cookies.delete(:staff_id)
     cookies.delete(:remember_token)
   end
 
   def log_out
-    forget(current_user)
-    session.delete(:user_id) # session[:user_id] = nil
-    @current_user = nil
+    forget(current_staff)
+    session.delete(:staff_id) # session[:staff_id] = nil
+    @current_staff = nil
   end
 
 
