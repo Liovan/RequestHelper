@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128160133) do
+ActiveRecord::Schema.define(version: 20170128182642) do
 
   create_table "features", force: :cascade do |t|
     t.string   "name",       limit: 45, null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170128160133) do
     t.datetime "updated_at",                 null: false
     t.datetime "last_login"
     t.string   "password_digest"
+    t.string   "remember_digest"
     t.index ["place_id"], name: "index_staffs_on_place_id"
   end
 
