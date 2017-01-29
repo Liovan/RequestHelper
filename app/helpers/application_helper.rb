@@ -4,12 +4,12 @@ module ApplicationHelper
 	$APP_NAME = "درخواست"
 
   #return full title
-	def full_title(page_title = '')
+	def full_title(page_title)
 		base_title = $APP_NAME
 		if page_title.empty?
-			base_title
+			provide(:title,base_title)
 		else
-			"#{page_title} | #{base_title}"
+			provide(:title,"#{page_title} | #{base_title}")
 		end
 	end
 

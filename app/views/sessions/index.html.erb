@@ -1,0 +1,11 @@
+<% full_title "صفحه ورود" %>
+<div class="login">
+  <h1>صفحه ورود کارمندان</h1>
+  <%= form_tag controller: "sessions",action: "create",method: :post do %>
+
+      <%= text_field_tag :username,nil,placeholder:"نام کاربری",required:true %>
+      <%= password_field_tag :password,nil,placeholder:"رمز عبور",required:true %>
+
+    <button type="submit" class="btn btn-primary btn-block btn-large">ورود</button>
+  <%end%>
+</div>
