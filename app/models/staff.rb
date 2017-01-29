@@ -1,6 +1,5 @@
 class Staff < ApplicationRecord
-  has_many :places
-
+  belongs_to :place
 	attr_accessor :remember_token
 	validates :f_name, presence: {message: "نام نمی تواند خالی باشد."}, length: { maximum: 50, message:"نام می تواند حداکثر ۵۰ نویسه باشد" }
   validates :l_name, presence: {message: "نام نمی تواند خالی باشد."}, length: { maximum: 50, message:"نام خانوادگی می تواند حداکثر ۵۰ نویسه باشد" }

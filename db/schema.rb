@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170128192134) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "features", force: :cascade do |t|
     t.string   "name",       limit: 45, null: false
     t.datetime "created_at",            null: false
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20170128192134) do
   create_table "features_places", id: false, force: :cascade do |t|
     t.integer "place_id"
     t.integer "feature_id"
-    t.index ["feature_id"], name: "index_features_places_on_feature_id"
-    t.index ["place_id"], name: "index_features_places_on_place_id"
+    t.index ["feature_id"], name: "index_features_places_on_feature_id", using: :btree
+    t.index ["place_id"], name: "index_features_places_on_place_id", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
@@ -44,9 +47,9 @@ ActiveRecord::Schema.define(version: 20170128192134) do
     t.integer  "status_request", null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["message_id"], name: "index_refers_on_message_id"
-    t.index ["request_id"], name: "index_refers_on_request_id"
-    t.index ["staff_id"], name: "index_refers_on_staff_id"
+    t.index ["message_id"], name: "index_refers_on_message_id", using: :btree
+    t.index ["request_id"], name: "index_refers_on_request_id", using: :btree
+    t.index ["staff_id"], name: "index_refers_on_staff_id", using: :btree
   end
 
   create_table "requests", force: :cascade do |t|
@@ -54,8 +57,8 @@ ActiveRecord::Schema.define(version: 20170128192134) do
     t.integer  "feature_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["feature_id"], name: "index_requests_on_feature_id"
-    t.index ["student_id"], name: "index_requests_on_student_id"
+    t.index ["feature_id"], name: "index_requests_on_feature_id", using: :btree
+    t.index ["student_id"], name: "index_requests_on_student_id", using: :btree
   end
 
   create_table "staffs", force: :cascade do |t|
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 20170128192134) do
     t.datetime "last_login"
     t.string   "password_digest", limit: 255
     t.string   "remember_digest", limit: 255
-    t.index ["place_id"], name: "index_staffs_on_place_id"
+    t.index ["place_id"], name: "index_staffs_on_place_id", using: :btree
   end
 
   create_table "students", force: :cascade do |t|
