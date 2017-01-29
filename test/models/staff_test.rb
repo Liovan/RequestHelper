@@ -2,10 +2,11 @@ require 'test_helper'
 
 class StaffTest < ActiveSupport::TestCase
   def setup
-    @staff = Staff.new(f_name: "حسنعلی", l_name: "عبدخدایی جوینده", password: "foobar")
+    place=Place.new(name:"amozesh")
+    @staff = Staff.new(f_name: "mahdi", l_name: "alh",place: place, password: "foobar")
   end
 
-  test "should be valid " do
+  test "should be valid" do
     assert @staff.valid?
   end
 

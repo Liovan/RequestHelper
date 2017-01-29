@@ -1,12 +1,10 @@
 class Staff < ApplicationRecord
-  belongs_to :place
+  belongs_to :place, optional: true
 	attr_accessor :remember_token
 	validates :f_name, presence: {message: "نام نمی تواند خالی باشد."}, length: { maximum: 50, message:"نام می تواند حداکثر ۵۰ نویسه باشد" }
   validates :l_name, presence: {message: "نام نمی تواند خالی باشد."}, length: { maximum: 50, message:"نام خانوادگی می تواند حداکثر ۵۰ نویسه باشد" }
   has_secure_password validation: false
   validates :password, length: { minimum: 6, message: "رمز عبور باید حداقل ۶ نویسه باشد." }
-
-
 
   #Returns the hash digest of the given string.
 	#need for testing
