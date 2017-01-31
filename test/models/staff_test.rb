@@ -3,7 +3,7 @@ require 'test_helper'
 class StaffTest < ActiveSupport::TestCase
   def setup
     place=Place.new(name:"amozesh")
-    @staff = Staff.new(f_name: "mahdi", l_name: "alh",place: place, username: "Jaffari", password: "foobar")
+    @staff = Staff.new(f_name: "سید محمّد مهدی", l_name: "علیمرادی فرد اعلا",place: place, username: "mahdi", password: "foobar")
   end
 
   test "should be valid" do
@@ -39,7 +39,7 @@ class StaffTest < ActiveSupport::TestCase
 
   test "username should be unique" do
   	duplicate_staff = @staff.dup
-  	duplicate_staff.username.upcase! #= @staff.username.upcase 
+  	duplicate_staff.username.upcase! #= @staff.username.upcase
   	@staff.save
   	assert_not duplicate_staff.valid?
   end

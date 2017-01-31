@@ -3,11 +3,11 @@ class Staff < ApplicationRecord
   attr_accessor :remember_token
 
   validates :f_name, presence: {message: "نام نمی تواند خالی باشد."}, length: { maximum: 50, message:"نام می تواند حداکثر ۵۰ نویسه باشد" }
-  validates :l_name, presence: {message: "نام نمی تواند خالی باشد."}, length: { maximum: 50, message:"نام خانوادگی می تواند حداکثر ۵۰ نویسه باشد" }
+  validates :l_name, presence: {message: "نام خانوادگی نمی تواند خالی باشد."}, length: { maximum: 50, message:"نام خانوادگی می تواند حداکثر ۵۰ نویسه باشد" }
   has_secure_password validation: false
   validates :password, length: { minimum: 6, message: "رمز عبور باید حداقل ۶ نویسه باشد." }
-  validates :username, presence: {message: "نام نمی تواند خالی باشد."}, length: { within: 5..25, too_long:"نام خانوادگی می تواند حداکثر ۵۰ نویسه باشد", too_short:"نام خانوادگی می تواند حداکثر ۵۰ نویسه باشد" }, uniqueness: { case_sensitive: false, message: "پست الکترونیک قبلاْ استفاده شده است." }
-  
+  validates :username, presence: {message: "نام کاربری نمی تواند خالی باشد."}, length: { within: 5..25, too_long:"نام کاربری باید حداقل 5 نویسه باشد.", too_short:"نام کاربری می تواند حداکثر 25 نویسه باشد." }, uniqueness: { case_sensitive: false, message: "نام کاربری قبلاْ استفاده شده است." }
+
   #Returns the hash digest of the given string.
 	#need for testing
 	def Staff.digest(string)
