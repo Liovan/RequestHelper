@@ -190,7 +190,6 @@ GEM
       tzinfo (>= 1.0.0)
     uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
-    wdm (0.1.1)
     web-console (3.4.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -199,7 +198,6 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    win32console (1.3.2)
 
 PLATFORMS
   ruby
@@ -226,9 +224,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
-  wdm (>= 0.1.0)
   web-console (>= 3.3.0)
-  win32console (~> 1.3, >= 1.3.2)
 
 BUNDLED WITH
    1.14.3
