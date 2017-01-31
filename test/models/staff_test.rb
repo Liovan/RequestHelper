@@ -32,6 +32,10 @@ class StaffTest < ActiveSupport::TestCase
   	@staff.username = "a" * 26
   	assert_not @staff.valid?
   end
+  test "username should not be too short" do
+  	@staff.username = "a" * 4
+  	assert_not @staff.valid?
+  end
 
   test "username should be unique" do
   	duplicate_staff = @staff.dup
@@ -39,5 +43,11 @@ class StaffTest < ActiveSupport::TestCase
   	@staff.save
   	assert_not duplicate_staff.valid?
   end
+
+  test "password should not be too short" do
+  	@staff.password = "a" * 5
+  	assert_not @staff.valid?
+  end
+
 
 end
