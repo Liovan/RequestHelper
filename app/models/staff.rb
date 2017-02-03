@@ -2,11 +2,18 @@ class Staff < ApplicationRecord
   belongs_to :place, optional: true
   attr_accessor :remember_token
 
-  validates :f_name, presence: {message: "نام نمی تواند خالی باشد."}, length: { maximum: 50, message:"نام می تواند حداکثر ۵۰ نویسه باشد" }
-  validates :l_name, presence: {message: "نام خانوادگی نمی تواند خالی باشد."}, length: { maximum: 50, message:"نام خانوادگی می تواند حداکثر ۵۰ نویسه باشد" }
+  VALID_FARSI_REGEX = /\A[اآبپتثئجچحخدذرزژسشصضطظعغفقکگلمنوهیءأؤّ\s]+\z/
+  validates :f_name, presence: {message: "نام نمی تواند خالی باشد."},
+                     length: { maximum: 25, message:"نام می تواند حداکثر ۲۵ نویسه باشد" },
+                     format: {with: VALID_FARSI_REGEX, message: "نام باید فارسی باشد."}
+  validates :l_name, presence: {message: "نام خانوادگی نمی تواند خالی باشد."},
+                     length: { maximum: 30, message:"نام خانوادگی می تواند حداکثر ۳۰ نویسه باشد" },
+                     format: {with: VALID_FARSI_REGEX, message: "نام خانوادگی باید فارسی باشد."}
   has_secure_password validation: false
   validates :password, length: { minimum: 6, message: "رمز عبور باید حداقل ۶ نویسه باشد." }
-  validates :username, presence: {message: "نام کاربری نمی تواند خالی باشد."}, length: { within: 5..25, too_long:"نام کاربری باید حداقل 5 نویسه باشد.", too_short:"نام کاربری می تواند حداکثر 25 نویسه باشد." }, uniqueness: { case_sensitive: false, message: "نام کاربری قبلاْ استفاده شده است." }
+  validates :username, presence: {message: "نام کاربری نمی تواند خالی باشد."},
+                       length: { within: 5..25, too_long:"نام کاربری باید حداقل 5 نویسه باشد.", too_short:"نام کاربری می تواند حداکثر 25 نویسه باشد." },
+                       uniqueness: { case_sensitive: false, message: "نام کاربری قبلاْ استفاده شده است." }
 
   #Returns the hash digest of the given string.
 	#need for testing
