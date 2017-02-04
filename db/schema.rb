@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131142346) do
+ActiveRecord::Schema.define(version: 20170204094244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20170131142346) do
     t.string   "meli_code",             limit: 20, null: false
     t.string   "major_name",            limit: 40, null: false
     t.string   "city",                  limit: 35, null: false
-    t.string   "maghta",                limit: 18, null: false
+    t.integer  "maghta",                           null: false
     t.string   "student_code",          limit: 14, null: false
     t.date     "input_date_univercity"
     t.datetime "last_login_date"
