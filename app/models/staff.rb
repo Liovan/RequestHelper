@@ -15,6 +15,9 @@ class Staff < ApplicationRecord
                        length: { within: 5..25, too_long:"نام کاربری باید حداقل 5 نویسه باشد.", too_short:"نام کاربری می تواند حداکثر 25 نویسه باشد." },
                        uniqueness: { case_sensitive: false, message: "نام کاربری قبلاْ استفاده شده است." }
 
+	scope :sorted,lambda{order("f_name ASC")}
+
+
   #Returns the hash digest of the given string.
 	#need for testing
 	def Staff.digest(string)

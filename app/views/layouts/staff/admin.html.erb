@@ -5,35 +5,33 @@
   <title><%= yield :title %></title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <%= stylesheet_link_tag 'admin/font-awesome' ,'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'admin/font' ,'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'admin/bootstrap.min' ,'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'admin/AdminLTE' ,'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'admin/skins/_all-skins.min' ,'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'admin/bootstrap-rtl.min' ,'data-turbolinks-track': 'reload' %>
   <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= yield :stylesheet %>
-  <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'admin/html5shiv.min' , 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'admin/respond.min' , 'data-turbolinks-track': 'reload' %>
+  <%#= javascript_include_tag 'admin/respond.min' , 'data-turbolinks-track': 'reload' %>
   <%= yield :javascript %>
 </head>
-
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <body class="skin-purple sidebar-mini">
   <div class="wrapper">
-    <%= render(partial:"layouts/admin/header") %>
-    <%= render(partial:"layouts/admin/menu")%>
+    <%= render partial:"layouts/staff/header" %>
+    <%= render partial:"layouts/staff/menu" %>
     <div class="content-wrapper">
-
       <%= yield %>  <!-- ***************** Main Content ***************** -->
-
     </div>
-    <%= render partial:"layouts/admin/footer" %>
-    <%= javascript_include_tag 'admin/jQuery-2.1.4.min' , 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'admin/jquery-ui.min' , 'data-turbolinks-track': 'reload' %>
+    <%= render partial:"layouts/staff/footer" %>
+    <%#= javascript_include_tag 'admin/jQuery-2.1.4.min' , 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'admin/jquery-ui.min' , 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'admin/bootstrap.min' , 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'admin/app.min' , 'data-turbolinks-track': 'reload' %>
+    <%= yield :javascript_end_page %>
+    <%= yield :script_end_page %>
   </div>
 </body>
 </html>

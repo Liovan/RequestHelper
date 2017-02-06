@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :staffs
   get 'sessions/index'
   post 'sessions/create'
   delete 'sessions/destroy'
