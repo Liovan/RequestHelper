@@ -1,0 +1,7 @@
+<% if object && object.errors.size>0 %>
+    <div class="alert alert-warning fade in">
+    <% object.errors.full_messages.each do |msg| %>
+          <p><%=msg%></p>
+    <%end%>
+    </div>
+<%end%>

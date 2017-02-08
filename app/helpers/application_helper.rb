@@ -19,11 +19,14 @@ module ApplicationHelper
 	def javascript_end_page(*files) #todo add commit
 		content_for(:javascript_end_page){javascript_include_tag *files, 'data-turbolinks-track': 'reload' }
 	end
-	def script_end_page(string) #todo add commit
+	def script(string) #todo add commit
 		content_for(:script_end_page){ javascript_tag string }
 	end
   def stylesheet(*files)
     content_for(:stylesheet){stylesheet_link_tag(*files , 'data-turbolinks-track': 'reload')}
   end
+	def form_error(object)
+		render partial: 'layouts/error_message',locals: {object:object}
+	end
 
 end

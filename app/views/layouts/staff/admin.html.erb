@@ -15,7 +15,7 @@
   <%= yield :stylesheet %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'admin/html5shiv.min' , 'data-turbolinks-track': 'reload' %>
-  <%#= javascript_include_tag 'admin/respond.min' , 'data-turbolinks-track': 'reload' %>
+
   <%= yield :javascript %>
 </head>
 <body class="skin-purple sidebar-mini">
@@ -23,11 +23,18 @@
     <%= render partial:"layouts/staff/header" %>
     <%= render partial:"layouts/staff/menu" %>
     <div class="content-wrapper">
+        <% if flash[:success].present? && !flash[:success].nil? %>
+          <div class="alert alert-success alert-dismissable fade in">
+            <p><%=flash[:success] %></p>
+          </div>
+          <%elsif flash[:warning].present? && !flash[:warning].nil? %>
+          <div class="alert alert-warning alert-dismissable fade in">
+            <p><%=flash[:warning] %></p>
+          </div>
+        <%end%>
       <%= yield %>  <!-- ***************** Main Content ***************** -->
     </div>
     <%= render partial:"layouts/staff/footer" %>
-    <%#= javascript_include_tag 'admin/jQuery-2.1.4.min' , 'data-turbolinks-track': 'reload' %>
-    <%#= javascript_include_tag 'admin/jquery-ui.min' , 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'admin/bootstrap.min' , 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'admin/app.min' , 'data-turbolinks-track': 'reload' %>
     <%= yield :javascript_end_page %>
