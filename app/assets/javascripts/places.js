@@ -15,6 +15,4 @@ $(document).ready(function () {
 });
 function SelectPlace(id,name) {
   $("#EditPlace form input[id=place_name]").val(name);
-
-
 }

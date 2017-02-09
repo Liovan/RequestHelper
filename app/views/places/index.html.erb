@@ -1,6 +1,6 @@
 <% title 'مدیریت کارمندان' %>
 <% javascript "validator/validator.min" %>
-<% javascript "places" %>
+<% #javascript "places" %>
 <% script "$('#CreatePlace').validator();$('#EditPlace').validator();" %>
 <% form_error(@place) %>
 
@@ -19,31 +19,17 @@
         <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
       </div>
     </div>
-    <div class="box-body" style="display: block;">
-
-      <div class="col-lg-12">
+      <div class="box-body" style="display: block;">
+        <div class="col-lg-12 placesbody">
         <% @places.each do |place| %>
-            <div class="col-lg-2 inline">
-              <div class="col-lg-12 btn btn-info">
-                <i class="fa fa-user fa-5x"></i><br/>
-                <%= place.name %>
-                <div>
-                <%= button_tag class: "btn btn-warning","data-toggle":"modal","data-target":"#EditPlace",onclick:"SelectPlace('#{place.id}','#{place.name}');" do  %>
-                  <span class="fa fa-pencil-square-o"></span>
-                <%end%>
-                  <%= link_to place_path(place.id),class: "btn btn-danger",method: :destroy do  %>
-                  <span class="fa fa-times"></span>
-                  <%end%>
-                </div>
-              </div>
-            </div>
-
+        <%= render partial: "place",locals: {place:place} %> <!-- in ghesmat place haro list mikone -->
         <%end%>
+        </div>
       </div>
-    </div>
     </div>
 </section>
 
+<%= form_for :place,url:places_path,"data-toggle":"validator",role:"form",remote:true  do |item| %>
 <div id="CreatePlace" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -55,47 +41,18 @@
         </h4>
       </div>
       <div class="modal-body">
-        <section>
-          <%= form_for :place,url:places_path,"data-toggle":"validator",role:"form"  do |item| %>
               <div class="form-group form-inline">
-                <%= item.text_field :name,placeholder:"نام سمت",class:"form-control","data-error":"لطفاً فیلد نام را پر نمایید",required:true  %>
+                <%= item.text_field :name,placeholder:"نام سمت",class:"form-control PlaceName","data-error":"لطفاً فیلد نام را پر نمایید",required:true  %>
                 <div class="help-block with-errors" style="display:inline"><span style="color:#F52559">*</span> اجباری</div>
               </div>
-          <%end%>
-        </section>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="Sb" class="btn btn-success pull-right" data-dismiss="modal">ثبت</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div id="EditPlace" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-family: web_Yekan">
-          <span class="fa fa-users "></span>
-          <span style="color: #ffa049">ویرایش </span>سمت جدید
-        </h4>
-      </div>
-      <div class="modal-body">
-        <section>
-          <%= form_tag places_path,method: :patch,"data-toggle":"validator",role:"form" do %>
-              <div class="form-group form-inline">
-                <%= text_field_tag :place_name,nil,placeholder:"نام سمت",class:"form-control","data-error":"لطفاً فیلد نام را پر نمایید",required:true  %>
-                <div class="help-block with-errors" style="display:inline"><span style="color:#F52559">*</span> اجباری</div>
-              </div>
-          <%end%>
-        </section>
       </div>
       <div class="modal-footer">
-        <button type="button" id="Sb" class="btn btn-warning pull-right" data-dismiss="modal">ویرایش</button>
+        <%= submit_tag "ثبت",class:"btn btn-success pull-right" %>
         <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
       </div>
     </div>
   </div>
 </div>
+<%end%>
+
