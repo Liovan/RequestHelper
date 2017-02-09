@@ -7,7 +7,7 @@
 
 <section class="content">
   <section style="margin-bottom:4px">
-    <%= button_tag  class:"btn btn-primary","data-toggle":"modal","data-target":"#CreatePlace" do %>
+    <%= link_to  new_place_path,class:"btn btn-primary",remote:true do %>
         <span class="fa fa-plus" style="font-size: 20px"></span>
     <%end%>
   </section>
@@ -22,37 +22,16 @@
       <div class="box-body" style="display: block;">
         <div class="col-lg-12 placesbody">
         <% @places.each do |place| %>
-        <%= render partial: "place",locals: {place:place} %> <!-- in ghesmat place haro list mikone -->
+        <%= render partial: "place",locals: {place:place} %>
         <%end%>
         </div>
       </div>
     </div>
 </section>
 
-<%= form_for :place,url:places_path,"data-toggle":"validator",role:"form",remote:true  do |item| %>
-<div id="CreatePlace" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-family: web_Yekan">
-          <span class="fa fa-users "></span>
-          <span style="color: #02ae42">درج </span>سمت جدید
-        </h4>
-      </div>
-      <div class="modal-body">
-              <div class="form-group form-inline">
-                <%= item.text_field :name,placeholder:"نام سمت",class:"form-control PlaceName","data-error":"لطفاً فیلد نام را پر نمایید",required:true  %>
-                <div class="help-block with-errors" style="display:inline"><span style="color:#F52559">*</span> اجباری</div>
-              </div>
 
-      </div>
-      <div class="modal-footer">
-        <%= submit_tag "ثبت",class:"btn btn-success pull-right" %>
-        <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
-      </div>
-    </div>
-  </div>
+<div id="Placeform" class="modal fade" role="dialog">
+<!-- render form -->
 </div>
-<%end%>
+
 

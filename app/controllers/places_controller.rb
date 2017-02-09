@@ -2,9 +2,11 @@ class PlacesController < ApplicationController
   layout "staff/admin"
   def index
     @places=Place.all
-    @place=Place.new
   end
 
+  def new
+    @place=Place.new
+  end
   def create
     @place=Place.new(place_params)
       respond_to do |format|
@@ -15,8 +17,12 @@ class PlacesController < ApplicationController
           format.html{redirect_to places_path,warning:"عملیات با شکست مواجه شد"}
           format.js
         end
-        # redirect_to places_path
       end
+  end
+  def edit
+    if params[:id].present?
+    @place=Place.find(params[:id])
+    end
   end
   def update
     respond_to do |format|

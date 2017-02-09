@@ -1,5 +1,6 @@
-$("#EditPlace_<%=@place.id %>").modal('hide');
+
 $(".place_<%=@place.id %>").fadeOut(500,function(){
   $(this).remove();
   $(".placesbody:last-child").prepend('<%= j render partial: "place",locals: {place:@place}%>');
 });
+$(".Placeform").modal("hide");
