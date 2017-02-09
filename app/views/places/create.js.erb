@@ -1,4 +1,4 @@
-$("#CreatePlace").modal('hide');
+$("#Placeform").modal('hide');
 $(".PlaceName").val('');
 $(".placesbody:last").prepend('<%= j render partial: "place",locals: {place:@place}%>');
 $(".place_<%=@place.id %>").hide().fadeIn(1000);
