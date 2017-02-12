@@ -9,8 +9,9 @@ class Staff < ApplicationRecord
   validates :l_name, presence: {message: "نام خانوادگی نمی تواند خالی باشد."},
                      length: { maximum: 30, message:"نام خانوادگی می تواند حداکثر ۳۰ نویسه باشد" },
                      format: {with: VALID_FARSI_REGEX, message: "نام خانوادگی باید فارسی باشد."}
-  has_secure_password validation: false
-  validates :password, length: { minimum: 6, message: "رمز عبور باید حداقل ۶ نویسه باشد." }
+  has_secure_password
+  validates :password, length: { minimum: 6, message: "رمز عبور باید حداقل ۶ نویسه باشد." },on: :create
+
   validates :username, presence: {message: "نام کاربری نمی تواند خالی باشد."},
                        length: { within: 5..25, too_long:"نام کاربری باید حداقل 5 نویسه باشد.", too_short:"نام کاربری می تواند حداکثر 25 نویسه باشد." },
                        uniqueness: { case_sensitive: false, message: "نام کاربری قبلاْ استفاده شده است." }

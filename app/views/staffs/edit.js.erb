@@ -1,0 +1,30 @@
+if ($("#StaffForm form").length==0 ) {
+  $("#StaffForm").addClass("staff_form_edit");
+  $("#StaffForm").prepend("<%= j render partial: "staffs/form" %>");
+  $("#StaffForm .modal-title").prepend("<span class='fa fa-users'> </span>",
+      "<span id='title' style='color: #ffa049;padding-right: 3px'>ویرایش <span style='#33333'>کارمند جدید</span></span>");
+  $("#StaffForm .modal-footer input[type=submit]").val("ویرایش").addClass("btn-warning");
+  $("#StaffForm form #staff_password").removeAttr("required");
+  $("#StaffForm form #staff_password").removeAttr("data-error");
+  $("#StaffForm form #staff_password").removeAttr("max");
+  $("#StaffForm form #staff_password").removeAttr("min");
+  $("#StaffForm").modal("show");
+}
+else if (!$("#StaffForm form").hasClass("staff_form_edit"))
+{
+  $("#StaffForm form").remove();
+  $("#StaffForm").addClass("staff_form_edit");
+  $("#StaffForm").prepend("<%= j render partial: "staffs/form" %>");
+  $("#StaffForm .modal-title").prepend("<span class='fa fa-users'> </span>",
+      "<span id='title' style='color: #ffa049;padding-right: 3px'>ویرایش <span style='#33333'>کارمند جدید</span></span>");
+  $("#StaffForm .modal-footer input[type=submit]").val("ویرایش").addClass("btn-warning");
+  $("#StaffForm form #staff_password").removeAttr("required");
+  $("#StaffForm form #staff_password").removeAttr("data-error");
+  $("#StaffForm form #staff_password").removeAttr("max");
+  $("#StaffForm form #staff_password").removeAttr("min");
+
+  $("#StaffForm form .help-block:last").remove();
+  $("#StaffForm").modal("show");
+}
+else if($("#StaffForm form").hasClass("staff_form_edit"))
+  $("#StaffForm").modal("show");

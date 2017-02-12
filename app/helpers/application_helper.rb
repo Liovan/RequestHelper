@@ -26,7 +26,7 @@ module ApplicationHelper
     content_for(:stylesheet){stylesheet_link_tag(*files , 'data-turbolinks-track': 'reload')}
   end
 	def form_error(object)
-		render partial: 'layouts/error_message',locals: {object:object}
+		 	render partial: 'layouts/error_message',locals: {object:object}
 	end
 
 end

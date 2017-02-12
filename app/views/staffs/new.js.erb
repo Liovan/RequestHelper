@@ -1,0 +1,21 @@
+
+if ($("#StaffForm form").length==0 ) {
+  $("#StaffForm").addClass("staff_form_new");
+  $("#StaffForm").prepend("<%= j render partial: "staffs/form" %>");
+  $("#StaffForm .modal-title").prepend("<span class='fa fa-users'> </span>",
+      "<span id='title' style='color: #00a65a;padding-right: 3px'>ایجاد <span>کارمند جدید</span></span>");
+  $("#StaffForm .modal-footer input[type=submit]").val("ایجاد").addClass("btn-success");
+  $("#StaffForm").modal("show");
+}
+else if (!$("#StaffForm form").hasClass("staff_form_new"))
+{
+  $("#StaffForm form").remove();
+  $("#StaffForm").addClass("staff_form_new");
+  $("#StaffForm").prepend("<%= j render partial: "staffs/form" %>");
+  $("#StaffForm .modal-title").prepend("<span class='fa fa-users'> </span>",
+      "<span id='title' style='color: #00a65a;padding-right: 3px'>ایجاد <span>کارمند جدید</span></span>");
+  $("#StaffForm .modal-footer input[type=submit]").val("ایجاد").addClass("btn-success");
+  $("#StaffForm").modal("show");
+}
+else if ($("#StaffForm form").hasClass("staff_form_new"))
+  $("#StaffForm").modal("show");

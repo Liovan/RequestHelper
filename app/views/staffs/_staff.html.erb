@@ -1,0 +1,15 @@
+<tr class="staff_<%= staff.id %>">
+  <td><%= staff.f_name %></td>
+  <td><%= staff.l_name %></td>
+  <td><%= staff.place.name %></td>
+  <td><%= staff.username %></td>
+  <td><%= staff.last_login %></td>
+  <td>
+    <%= link_to  edit_staff_path(staff),class:"btn btn-warning btn-sm",remote:true do %>
+        <span class="fa fa-pencil-square-o" style="font-size: 18px"></span>
+    <%end%>
+    <%= link_to  staff,method: :delete,data:{confirm:"مطمئن هستید که میخواهید پاک کنید ؟"},class:"btn btn-danger btn-sm",remote:true  do %>
+        <span class="fa fa-times" style="font-size: 18px"></span>
+    <%end%>
+  </td>
+</tr>

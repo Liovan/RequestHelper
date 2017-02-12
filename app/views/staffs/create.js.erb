@@ -1,0 +1,8 @@
+$("#StaffForm").modal("hide");
+$("#StaffForm #staff_f_name").val('');
+$("#StaffForm #staff_l_name").val('');
+$("#StaffForm #staff_username").val('');
+$("#StaffForm #staff_password").val('');
+$(".box-body tbody").prepend("<%= j render partial: "staffs/staff",locals: {staff:@staff} %>");
+$(".box-body tbody .staff_<%= @staff.id %>").hide.fadeIn(800);
+

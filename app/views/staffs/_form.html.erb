@@ -1,0 +1,46 @@
+<%= form_for @staff,remote:true ,html:{"data-toggle":"validator",role:"form"} do |item| %>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="font-family: web_Yekan">
+
+          </h4>
+        </div>
+        <div class="modal-body">
+          <section>
+            <div class="form-group form-inline">
+              <%= item.text_field :f_name,placeholder:"نام",class:"form-control","data-error":"لطفاً فیلد نام را پر نمایید",required:true  %>
+              <div class="help-block with-errors" style="display:inline"><span style="color:#F52559">*</span> اجباری</div>
+            </div>
+            <div class="form-group form-inline">
+              <%= item.text_field :l_name,placeholder:"نام خانوادگی",class:"form-control","data-error":"لطفاً نام خانوادگی را پر نمایید",required:true %>
+              <div class="help-block with-errors" style="display:inline"><span style="color:#F52559">*</span> اجباری</div>
+            </div>
+            <div class="form-group form-inline">
+              <%= item.label :place_id,"سمت : " %>
+              <%= item.select :place_id,options_from_collection_for_select(Place.all,"id","name"),{},{class:"form-control"}  %>
+            </div>
+            <div class="form-group form-inline">
+              <%= item.text_field :username,placeholder:"نام کاربری (Username)",class:"form-control","data-error":"لطفاً نام کاربری را پر نمایید",required:true  %>
+              <div class="help-block with-errors" style="display:inline">
+                <span style="color:#F52559">*<span style="color:#717171">اجباری</span></span>
+                <div>نام کاربری باید بین 5 تا 25 کارکتر باشد</div>
+              </div>
+            </div>
+            <div class="form-group form-inline">
+              <%= item.password_field :password,placeholder:"رمز عبور (password)",class:"form-control","data-error":"رمز عبور باید حداقل 6 کارکتر باشد",max:25,min:5,required:true  %>
+              <div class="help-block with-errors" >
+                <span style="color:#F52559">*<span style="color:#717171">اجباری</span></span>
+                <div>رمز عبور باید حداقل 6 کارکتر باشد</div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="modal-footer">
+          <%= submit_tag "ثبت",class:"btn  pull-right" %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+        </div>
+      </div>
+    </div>
+<%end%>

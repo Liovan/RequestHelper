@@ -2,23 +2,17 @@
 <% javascript "admin/datatables/jquery.dataTables.min" %>
 <% javascript "admin/datatables/dataTables.bootstrap.min" %>
 <% javascript "validator/validator.min" %>
-<% javascript "staffs" %>
 <% stylesheet "admin/datatables/dataTables.bootstrap.min" %>
 <% script "$(document).ready(function(){$('#staff').DataTable({'language':lng_persian});});$('#CreateStaff').validator();" %>
-<% form_error(@staff) %>
+
+
 <section class="content">
   <section style="margin-bottom:4px">
-  <%= button_tag  class:"btn btn-primary","data-toggle":"modal","data-target":"#CreateStaff" do %>
+  <%= link_to  new_staff_path,class:"btn btn-primary",remote:true do %>
      <span class="fa fa-user-plus" style="font-size: 20px"></span>
      <!--<p> کارمند جدید</p>-->
   <%end%>
-
-
-    <%= button_tag  class:"btn btn-warning btn-sm","data-toggle":"modal","data-target":"#EditStaff" do %>
-        <span class="fa fa-pencil-square-o" style="font-size: 18px"></span>
-    <%end%>
   </section>
-
 <div class="box box-warning">
   <div class="box-header with-border">
     <h3 class="box-title">مشخصات کارمندان</h3>
@@ -36,19 +30,11 @@
         <th>نام کاربری</th>
         <th>آخرین تاریخ ورود</th>
         <th>عملیات</th>
-
       </tr>
       </thead>
       <tbody>
       <% @staffs.each do |staff| %>
-      <tr>
-        <td><%=staff.f_name %></td>
-        <td><%= staff.l_name %></td>
-        <td><%= Place.find(staff.place_id) if present? %></td>
-        <td><%= staff.username %></td>
-        <td><%= staff.last_login %></td>
-        <td><%= link_to "edit",edit_staff_path(staff.id),class: "btn btn-success"  %></td>
-      </tr>
+        <%= render partial: "staffs/staff",locals:{staff:staff} %>
       <%end%>
       </tbody>
     </table>
@@ -56,83 +42,6 @@
 </div>
 </section>
 
-<div id="CreateStaff" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-family: web_Yekan">
-          <span class="fa fa-user-plus"></span>
-          <span style="color: #02ae42">درج </span>کارمند
-        </h4>
-      </div>
-      <div class="modal-body">
-        <section>
-          <%= form_for :staff,url:staffs_path,"data-toggle":"validator",role:"form"  do |item| %>
-              <div class="form-group form-inline">
-                <%= item.text_field :f_name,placeholder:"نام",class:"form-control","data-error":"لطفاً فیلد نام را پر نمایید",required:true  %>
-                <div class="help-block with-errors" style="display:inline"><span style="color:#F52559">*</span> اجباری</div>
-              </div>
-                <div class="form-group form-inline">
-                <%= item.text_field :l_name,placeholder:"نام خانوادگی",class:"form-control","data-error":"لطفاً نام خانوادگی را پر نمایید",required:true %>
-                  <div class="help-block with-errors" style="display:inline"><span style="color:#F52559">*</span> اجباری</div>
-              </div>
-              <div class="form-group form-inline">
-                <%= item.label :place_id,"سمت : " %>
-                <%= item.select :place_id,options_from_collection_for_select(Place.all,"id","name"),{},{class:"form-control"}  %>
-              </div>
-              <div class="form-group form-inline">
-                <%= item.text_field :username,placeholder:"نام کاربری (Username)",class:"form-control","data-error":"لطفاً نام کاربری را پر نمایید",required:true  %>
-              <div class="help-block with-errors" style="display:inline"><span style="color:#F52559">*</span> اجباری</div>
-              </div>
-               <div class="form-group form-inline">
-                <%= item.password_field :password,placeholder:"رمز عبور (password)",class:"form-control","data-error":"رمز عبور باید بین 5 تا 25 حرف باشد",max:25,min:5,required:true  %>
-                <div class="help-block with-errors">
-                  <span style="color:#F52559">*<span style="color:#717171">اجباری</span></span>
-                    <div>رمز عبور باید بین 5 تا 25 حرف باشد</div>
-                 </div>
-              </div>
-          <%end%>
-        </section>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="Sb" class="btn btn-success pull-right" data-dismiss="modal">ثبت</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="EditStaff" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-family: web_Yekan">
-          <span class="fa fa-pencil-square-o"></span>
-          <span style="color: #F2C230">ویرایش </span>کارمند
-        </h4>
-      </div>
-      <div class="modal-body">
-        <section>
-          <%= form_tag url:new_staff_path,class:"form" do %>
-              <div class="form-group form-inline">
-                <%= text_field_tag :f_name,nil,placeholder:"نام",class:"form-control"  %>
-                <%= text_field_tag :l_name,nil,placeholder:"نام خانوادگی",class:"form-control"  %>
-                <%= label_tag :place_id,"سمت : " %>
-                <%= select_tag :place_id,options_from_collection_for_select(Place.all,"id","name"),class:"form-control"  %>
-              </div>
-              <div class="form-group form-inline">
-                <%= text_field_tag :username,nil,placeholder:"نام کاربری (Username)",class:"form-control"  %>
-                <%= password_field_tag :password,nil,placeholder:"رمز عبور (password)",class:"form-control"  %>
-              </div>
-          <%end%>
-        </section>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="Sb" class="btn btn-warning pull-right" data-dismiss="modal">ویرایش</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
-      </div>
-    </div>
-  </div>
+<div id="StaffForm" class="modal fade" role="dialog">
+<!-- render by js -->
 </div>
