@@ -53,7 +53,7 @@ class StaffTest < ActiveSupport::TestCase
 
   test "username should be unique" do
   	duplicate_staff = @staff.dup
-  	duplicate_staff.username.upcase! #= @staff.username.upcase
+  	duplicate_staff.username.upcase! # @staff.username.upcase
   	@staff.save
   	assert_not duplicate_staff.valid?
   end
