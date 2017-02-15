@@ -76,17 +76,17 @@ ActiveRecord::Schema.define(version: 20170131142346) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string   "f_name",                limit: 25, null: false
-    t.string   "l_name",                limit: 35, null: false
-    t.string   "father_name",           limit: 25, null: false
-    t.string   "meli_code",             limit: 20, null: false
-    t.string   "city",                  limit: 35, null: false
-    t.integer  "field",                            null: false
-    t.string   "student_code",          limit: 14, null: false
-    t.date     "input_date_univercity"
+    t.string   "f_name",          limit: 25, null: false
+    t.string   "l_name",          limit: 35, null: false
+    t.string   "father_name",     limit: 25, null: false
+    t.string   "meli_code",       limit: 20, null: false
+    t.string   "city",            limit: 35, null: false
+    t.integer  "field",                      null: false
+    t.string   "student_code",    limit: 14, null: false
+    t.date     "entrance_date"
     t.datetime "last_login_date"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["field"], name: "index_students_on_field", using: :btree
     t.index ["meli_code"], name: "index_students_on_meli_code", unique: true, using: :btree
     t.index ["student_code"], name: "index_students_on_student_code", unique: true, using: :btree

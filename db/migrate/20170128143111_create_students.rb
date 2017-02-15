@@ -9,7 +9,7 @@ class CreateStudents < ActiveRecord::Migration[5.0]
       t.string :city,limit:35,null:false
       t.integer :field, null:false
       t.string :student_code,limit:14,null:false
-      t.date :input_date_univercity
+      t.date :entrance_date
       t.timestamp :last_login_date,null:true
       t.timestamps
     end
