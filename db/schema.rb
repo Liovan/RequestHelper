@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131142346) do
+ActiveRecord::Schema.define(version: 20170216131613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,8 @@ ActiveRecord::Schema.define(version: 20170131142346) do
     t.datetime "last_login_date"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "password_digest"
+    t.string   "remember_digest"
     t.index ["field"], name: "index_students_on_field", using: :btree
     t.index ["meli_code"], name: "index_students_on_meli_code", unique: true, using: :btree
     t.index ["student_code"], name: "index_students_on_student_code", unique: true, using: :btree
