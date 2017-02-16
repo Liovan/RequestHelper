@@ -11,6 +11,8 @@ class Student < ApplicationRecord
   validates :father_name, presence: {message: "نام پدر نمی تواند خالی باشد."},
                           length: { maximum: 25, message:"نام پدر می تواند حداکثر ۲۵ نویسه باشد" },
                           format: {with: VALID_FARSI_REGEX, message: "نام پدر باید فارسی باشد."}
+  has_secure_password validation: false
+  validates :password, length: { minimum: 6, message: "رمز عبور باید حداقل ۶ نویسه باشد." }
   VALID_MELI_CODE_REGEX = /\A[0-9]{10}\z/
   validates :meli_code, presence: {message: "کدملی نمی تواند خالی باشد."},
                         length: {maximum: 20, message:"کدملی می تواند حداکثر ۲۰ نویسه باشد."},

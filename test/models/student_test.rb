@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StudentTest < ActiveSupport::TestCase
   def setup
-    @student = Student.new(f_name: "سید محمّد مهدی", l_name: "علیمرادی فرد اعلا", father_name: "سید محمد ابولفضل", meli_code: "1742261272")
+    @student = Student.new(f_name: "سید محمّد مهدی", l_name: "علیمرادی فرد اعلا", father_name: "سید محمد ابولفضل", meli_code: "1742261272", password: "foobar")
     @invalid_farsi_names = %w[abbasi jaffari رفیعی2]
   end
 
@@ -54,6 +54,11 @@ class StudentTest < ActiveSupport::TestCase
       @student.father_name = invalid_name
       assert_not @student.valid?, "#{invalid_name} should be invalid"
     end
+  end
+
+  test "password should not be too short" do
+    @staff.password = "a" * 5
+    assert_not @staff.valid?
   end
 
   test "meli_code should not be too long" do

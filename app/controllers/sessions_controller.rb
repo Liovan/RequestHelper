@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
 layout "staff/login"
-  def index
-
-  end
 
   def new
 
