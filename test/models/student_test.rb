@@ -57,8 +57,8 @@ class StudentTest < ActiveSupport::TestCase
   end
 
   test "password should not be too short" do
-    @staff.password = "a" * 5
-    assert_not @staff.valid?
+    @student.password = "a" * 5
+    assert_not @student.valid?
   end
 
   test "meli_code should not be too long" do

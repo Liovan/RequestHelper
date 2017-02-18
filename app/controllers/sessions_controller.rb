@@ -2,11 +2,12 @@ class SessionsController < ApplicationController
 layout "staff/login"
 
   def new
-
   end
 
   def create
-    staff = Staff.find_by(email: params[:session][:email])
+
+    staff = Staff.find_by(username: params[:session][:username])
+
     if staff && staff.authenticate(params[:session][:password])
       #log_in(staff)  check session helper
       log_in staff
