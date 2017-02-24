@@ -4,7 +4,7 @@ module ApplicationHelper
 	$APP_NAME = "سیستم مدیریت درخواست"
 
   #return full title
-	def full_title(page_title)
+	def title(page_title)
 		base_title = $APP_NAME
 		if page_title.empty?
 			provide(:title,base_title)
