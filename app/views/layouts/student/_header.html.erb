@@ -1,0 +1,49 @@
+<header>
+  <div class="col l12 m12">
+    <nav class="blue darken-4">
+      <div class="nav-wrapper">
+
+        <a href="#" data-activates="slide-out" class="button-collapse right">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul id="dropdown-profile" class="dropdown-content">
+          <li><a href="#!">پروفایل</a></li>
+          <li><a href="#!">خروج</a></li>
+        </ul>
+        <ul id="nav-mobile" class="hide-on-med-and-down right" style="margin-right: 10px">
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown-profile"><span class="material-icons">arrow_drop_down</span>پروفایل<i class="material-icons right">person</i></a></li>
+          <li><a href="badges.html"> وضعیت درخواست ها
+            <i class="material-icons right">offline_pin</i>
+          </a>
+          </li>
+          <li><a href="sass.html">صفحه اصلی<i class="material-icons right">chrome_reader_mode</i></a></li>
+          <li style="border-left: 2px solid #FFFFFF;padding: 0px 5px 0px 5px ">
+            <span style="color: #ffdc1f">سامانه ارسال درخواست</span>
+          </li>
+        </ul>
+        <ul id="slide-out" class="side-nav">
+          <li><div class="userView">
+            <div class="background">
+              <!--<img src="images/slidenav.PNG" width="100%" height="100%">-->
+              <%= image_tag "slidenav.png" %>
+            </div>
+            <a href="#!user">
+              <%= image_tag "user.png",class: "circle" %>
+            </a>
+            <a href="#!name"><span class="white-text name">مهدی علیزاده</span></a>
+          </div>
+          </li>
+          <li><a href="sass.html" class="right-align">صفحه اصلی<i class="material-icons ">chrome_reader_mode</i></a></li>
+          <li><a href="badges.html" class="right-align">وضعیت درخواست ها
+            <i class="material-icons ">offline_pin</i>
+          </a>
+          </li>
+          <li dir="rtl"><a href="collapsible.html" class="right-align">پروفایل<i class="material-icons ">person</i></a></li>
+          <li dir="rtl"><a href="collapsible.html" class="right-align">خروج<i class="material-icons">exit_to_app</i></a></li>
+
+
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

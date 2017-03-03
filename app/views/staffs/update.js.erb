@@ -1,1 +1,7 @@
-alert("dfgfd");
+$("#StaffForm").modal("hide");
+$(".staff_<%= @staff.id %> ").fadeOut(600);
+$(".staff_<%= @staff.id %> ").fadeIn(500);
+$(".staff_<%= @staff.id %> .f_name").text("<%= @staff.f_name %>");
+$(".staff_<%= @staff.id %> .l_name").text("<%= @staff.l_name %>");
+$(".staff_<%= @staff.id %> .place_name").text("<%= @staff.place.name %>");
+$(".staff_<%= @staff.id %> .username").text("<%= @staff.username %>");

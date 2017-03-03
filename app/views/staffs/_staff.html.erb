@@ -1,8 +1,8 @@
 <tr class="staff_<%= staff.id %>">
-  <td><%= staff.f_name %></td>
-  <td><%= staff.l_name %></td>
-  <td><%= staff.place.name %></td>
-  <td><%= staff.username %></td>
+  <td class="f_name"><%= staff.f_name %></td>
+  <td class="l_name"><%= staff.l_name %></td>
+  <td class="place_name"><%= staff.place.name %></td>
+  <td class="username"><%= staff.username %></td>
   <td><%= staff.last_login %></td>
   <td>
     <%= link_to  edit_staff_path(staff),class:"btn btn-warning btn-sm",remote:true do %>

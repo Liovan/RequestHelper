@@ -19,7 +19,7 @@
             </div>
             <div class="form-group form-inline">
               <%= item.label :place_id,"سمت : " %>
-              <%= item.select :place_id,options_from_collection_for_select(Place.all,"id","name"),{},{class:"form-control"}  %>
+              <%= item.collection_select :place_id,Place.all,:id,:name,{},class:"form-control" %>
             </div>
             <div class="form-group form-inline">
               <%= item.text_field :username,placeholder:"نام کاربری (Username)",class:"form-control","data-error":"لطفاً نام کاربری را پر نمایید",required:true  %>
