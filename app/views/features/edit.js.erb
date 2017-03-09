@@ -1,0 +1,9 @@
+if ($("#FeatureForm form").hasClass("new_feature")) {$("#FeatureForm form").remove()}
+else if ($("#FeatureForm form").hasClass("edit_feature")) {$("#FeatureForm").modal("show");}
+else {
+  $("#FeatureForm").prepend("<%= j render partial: "features/form" %>");
+  $("#FeatureForm .modal-title").prepend("<span class='fa fa-edit" + "'> </span>",
+      "<span id='title' style='color: #ffbc00;padding-right: 3px'>ویرایش <span>ماژول </span></span>");
+  $("#FeatureForm .modal-footer input[type=submit]").val("ویرایش").addClass("btn-warning");
+  $("#FeatureForm").modal("show");
+}

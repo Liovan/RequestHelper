@@ -1,0 +1,10 @@
+<tr class="feature_<%= feature.id %>">
+  <td class="name"><%= feature.name%></td>
+  <td><%=link_to edit_feature_path(feature.id),remote:true,class:"btn btn-warning" do %>
+    <span class="fa fa-edit"></span>
+        <%end%>
+<%=link_to feature_path(feature.id),method: :delete,data:{confirm:"مطمئن هستید که میخواهید پاک کنید ؟"},class:"btn btn-danger",remote:true do %>
+        <span class="fa fa-edit"></span>
+    <%end%>
+  </td>
+</tr>

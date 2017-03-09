@@ -1,0 +1,7 @@
+$("#FeatureForm").modal("hide");
+$(".feature_<%= @feature.id %>").fadeOut(600);
+$(".feature_<%= @feature.id %>").fadeIn(500);
+$(".feature_<%= @feature.id %> .name").text("<%= @feature.name %>");
+
+
+

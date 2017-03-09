@@ -41,12 +41,26 @@
       </li>
       <li class="treeview">
         <a href="#">
+          <i class="fa fa-dashboard"></i> <span>ماژول ها</span> <i class="fa fa-angle-left pull-left"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="active">
+            <%= link_to features_path do %>
+                <i class="fa fa-toggle-left"></i>
+                <span>ماژول ها</span>
+                <%end%>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
           <i class="fa fa-dashboard"></i> <span>بخش آمار</span> <i class="fa fa-angle-left pull-left"></i>
         </a>
         <ul class="treeview-menu">
           <li class="active"><a href="index.html"><i class="fa fa-toggle-left"></i>آمار دانشجویان</a></li>
         </ul>
       </li>
+
     </ul>
   </section>
   <!-- /.sidebar -->

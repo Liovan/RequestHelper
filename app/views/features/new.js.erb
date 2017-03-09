@@ -1,0 +1,10 @@
+  if ($("#FeatureForm form").hasClass("edit_feature")) {$("#FeatureForm form").remove()}
+  else if ($("#FeatureForm form").hasClass("new_feature")) { $("#FeatureForm").modal("show");}
+else
+  {
+  $("#FeatureForm").prepend("<%= j render partial: "features/form" %>");
+  $("#FeatureForm .modal-title").prepend("<span class='fa fa-plus-circle"+ "'> </span>",
+      "<span id='title' style='color: #00a65a;padding-right: 3px'>ایجاد <span>ماژول جدید</span></span>");
+  $("#FeatureForm .modal-footer input[type=submit]").val("ایجاد").addClass("btn-success");
+  $("#FeatureForm").modal("show");
+  }
