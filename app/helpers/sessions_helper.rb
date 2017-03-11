@@ -3,18 +3,27 @@ module SessionsHelper
 #This module (helper) included in app controller
 
   #logs in the given staff
-  def log_in(staff)
+  def log_in(user)
     #staff.id will be used in url And,
     #in real world we don't want it.
     #people will know how many staffs we have!
-    session[:staff_id] = staff.id
+    if user.class==Staff
+      session[:staff_id] = user.id
+    else
+      session[:student_id] = user.id
   end
 
   #Remembers a staff in a persistent session.
-  def remember(staff)
-    staff.remember
-    cookies.permanent.signed[:staff_id] = staff.id
-    cookies.permanent[:remember_token] = staff.remember_token
+  def remember(user)
+    user.remember
+
+    if user.class==Staff
+      cookies.permanent.signed[:staff_id] = user.id
+    else
+      cookies.permanent.signed[:student_id] = user.id
+    end
+
+    cookies.permanent[:remember_token] = user.remember_token
   end
 
   #Returns the current logged-in staff (if Any).
@@ -36,8 +45,9 @@ module SessionsHelper
     !current_staff.nil?
   end
 
-  def forget(staff)
-    staff.forget
+  def forget(user)
+    user.forget
+    cookies.delete(:student_id)
     cookies.delete(:staff_id)
     cookies.delete(:remember_token)
   end
