@@ -16,7 +16,7 @@
       <li class="header">ناوبری اصلی</li>
       <li class="active treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span> مدیریت کارمندان</span> <i class="fa fa-angle-left pull-left"></i>
+          <i class="fa fa-users"></i> <span> مدیریت کارمندان</span> <i class="fa fa-angle-left pull-left"></i>
         </a>
         <ul class="treeview-menu">
           <li class="active"><a href="<%= staffs_path %>"><i class="fa fa-toggle-left"></i>  کارمندان</a></li>
@@ -25,23 +25,20 @@
       </li>
       <li class=" treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>مدیریت درخواست ها</span> <i class="fa fa-angle-left pull-left"></i>
+          <i class="fa fa-location-arrow"></i> <span> درخواست دانشجویان</span> <i class="fa fa-angle-left pull-left"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="active"><a href="index.html"><i class="fa fa-toggle-left"></i>درخواست</a></li>
-        </ul>
-      </li>
-      <li class=" treeview">
-        <a href="#">
-          <i class="fa fa-dashboard"></i> <span> درخواست دانشجویان</span> <i class="fa fa-angle-left pull-left"></i>
-        </a>
-        <ul class="treeview-menu">
-          <li class="active"><a href="index.html"><i class="fa fa-toggle-left"></i>درخواست اشتغال به تحصیل</a></li>
+          <li class="active">
+            <%= link_to requests_path do %>
+                <i class="fa fa-toggle-left"></i>
+                <span>درخواست اشتغال به تحصیل</span>
+            <%end%>
+          </li>
         </ul>
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>ماژول ها</span> <i class="fa fa-angle-left pull-left"></i>
+          <i class="fa fa-database"></i> <span>ماژول ها</span> <i class="fa fa-angle-left pull-left"></i>
         </a>
         <ul class="treeview-menu">
           <li class="active">
@@ -54,13 +51,20 @@
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>بخش آمار</span> <i class="fa fa-angle-left pull-left"></i>
+          <i class="fa fa-bar-chart"></i> <span>بخش آمار</span> <i class="fa fa-angle-left pull-left"></i>
         </a>
         <ul class="treeview-menu">
           <li class="active"><a href="index.html"><i class="fa fa-toggle-left"></i>آمار دانشجویان</a></li>
         </ul>
       </li>
-
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-mortar-board"></i> <span>ورود دانشجو ها</span> <i class="fa fa-angle-left pull-left"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="active"><a href="index.html"><i class="fa fa-toggle-left"></i>دانشجو ها</a></li>
+        </ul>
+      </li>
     </ul>
   </section>
   <!-- /.sidebar -->
