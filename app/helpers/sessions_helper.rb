@@ -11,6 +11,7 @@ module SessionsHelper
       session[:staff_id] = user.id
     else
       session[:student_id] = user.id
+    end
   end
 
   #Remembers a staff in a persistent session.
@@ -22,40 +23,52 @@ module SessionsHelper
     else
       cookies.permanent.signed[:student_id] = user.id
     end
-
     cookies.permanent[:remember_token] = user.remember_token
   end
 
   #Returns the current logged-in staff (if Any).
-  def current_staff
-    if (staff_id = session[:staff_id])
+  def current_user
+    if (student_id = session[:student_id])           #student via session
       #Prevent database call spam by using an
       #instance variable *(memoization)*
-      @current_staff ||= Staff.find_by(id: staff_id)
-    elsif (staff_id = cookies.signed[:staff_id])
+      @current_user ||= Student.find_by(id: student_id)
+
+    elsif (staff_id = session[:staff_id])            #staff via session
+      @current_user ||= Staff.find_by(id: staff_id)
+
+    elsif (student_id = cookies.signed[:student_id]) #student via remember_token
+      student = Student.find_by(id: student_id)
+      if student && student.authenticated?(cookies[:remember_token])
+        log_in student
+        @current_user = student
+      end
+
+    elsif (staff_id = cookies.signed[:staff_id])    #staff via remember_token
       staff = Staff.find_by(id: staff_id)
       if staff && staff.authenticated?(cookies[:remember_token])
         log_in staff
-        @current_staff = staff
+        @current_user = staff
       end
+
     end
   end
 
   def logged_in?
-    !current_staff.nil?
+    !current_user.nil?
   end
 
   def forget(user)
     user.forget
-    cookies.delete(:student_id)
-    cookies.delete(:staff_id)
+    cookies.delete(:student_id) #for student
+    cookies.delete(:staff_id)   #for staff
     cookies.delete(:remember_token)
   end
 
   def log_out
-    forget(current_staff)
+    forget(current_user)
     session.delete(:staff_id) # session[:staff_id] = nil
-    @current_staff = nil
+    session.delete(:student_id) # session[:student_id] = nil
+    @current_user = nil
   end
 
 
