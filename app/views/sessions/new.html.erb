@@ -1,11 +1,73 @@
 <% title "صفحه ورود" %>
-<div class="login">
-  <h1>صفحه ورود کارمندان</h1>
-  <%= form_for(:session) do |f| %>
+<% stylesheet "sessions" %>
+<% script "$(document).ready(function(){
+    $('ul.tabs').tabs();
+  });" %>
 
-      <%= f.text_field :username,placeholder:"نام کاربری",required:true %>
-      <%= f.password_field :password,placeholder:"رمز عبور",required:true %>
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs tabs-fixed-width">
+      <li class="tab col s3"><a class="active" href="#student">ورود دانشجو</a></li>
+      <li class="tab col s3"><a  href="#employee">ورود کارمند</a></li>
+    </ul>
+  </div>
+  <div id="student" class="col s12" style="direction: rtl" >
+    <div class="col s6 card-panel center-block" style="margin-left:22%">
+      <%= form_tag  sessions_path do  %>
+          <%= hidden_field_tag :type,true%>
+          <div class='input-field col s12'>
+            <div class='input-field col s12' >
+              <%= text_field_tag :student_code,"",required:true,class:"validate" %>
+              <%= label_tag :student_code,"لطفاً کد دانشجویی خود را وارد نمایید",class:"right" %>
+            </div>
+          </div>
+          <div class='input-field col s12'>
+            <div class='input-field col s12'>
+              <%= password_field_tag :password,"",required:true,class:"validate" %>
+              <%= label_tag :password,"لطفاً رمز عبور خود را وارد نمایید",class:"right" %>
+            </div>
+          </div>
+          <div>
+          <%= submit_tag  "ورود", class:"btn btn-primary btn-block btn-large" %>
+          </div>
+      <%end%>
 
-     <%= f.submit "ورود", class:"btn btn-primary btn-block btn-large" %>
-  <%end%>
+      <div class="card-panel cyan accent-4" >
+        <span style="color: #CC0000">*</span>
+        <span class="red-text text-darken-4">نکته :</span>
+        <span class="white-text">برای وارد شدن داخل فیلد رمز عبور ، کد ملی خود را وارد نمایید</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="employee" class="col s12" style="direction: rtl">
+    <div class="col s6 card-panel  center-block" style="margin-left:22%;padding-bottom: 20px">
+
+      <%= form_tag  sessions_path do  %>
+          <div class='input-field col s12'>
+            <div class='input-field col s12' >
+              <%= text_field_tag :username,"",required:true,class:"validate" %>
+              <%= label_tag :usernmae,"لطفاً نام کاربری  خود را وارد نمایید",class:"right" %>
+            </div>
+          </div>
+          <div class='input-field col s12'>
+            <div class='input-field col s12'>
+              <%= password_field_tag :password,"",required:true,class:"validate" %>
+              <%= label_tag :password,"لطفاً رمز عبور خود را وارد نمایید",class:"right" %>
+            </div>
+          </div>
+          <div>
+            <%= submit_tag  "ورود", class:"btn btn-primary btn-block btn-large" %>
+          </div>
+      <%end%>
+
+
+
+
+    </div>
+  </div>
 </div>
+
+
+
+

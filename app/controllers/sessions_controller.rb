@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
-layout "staff/login"
-
+layout "login/index"
+  def index
+    render layout: "staff/admin"
+  end
   def new
+
   end
 
   def create

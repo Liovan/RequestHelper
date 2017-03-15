@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   #sets Global app's name
-	$APP_NAME = "سیستم مدیریت درخواست"
+	$APP_NAME = "سامانه پایش درخواست ها"
 
   #return full title
 	def title(page_title)
