@@ -5,12 +5,7 @@
   });" %>
 
 <div class="row">
-  <div class="col s12">
-    <ul class="tabs tabs-fixed-width">
-      <li class="tab col s3"><a class="active" href="#student">ورود دانشجو</a></li>
-      <li class="tab col s3"><a  href="#employee">ورود کارمند</a></li>
-    </ul>
-  </div>
+
   <div id="student" class="col s12" style="direction: rtl" >
     <div class="col s6 card-panel center-block" style="margin-left:22%">
       <%= form_tag  sessions_path do  %>
@@ -27,16 +22,21 @@
               <%= label_tag :password,"لطفاً رمز عبور خود را وارد نمایید",class:"right" %>
             </div>
           </div>
-          <div>
+          <div class='input-field col s12'>
+              <%= check_box_tag :remember_me %>
+              <%= label_tag :remember_me,"مرا فراموش نکن " %>
+          </div>
+          <div class='input-field col s12'>
           <%= submit_tag  "ورود", class:"btn btn-primary btn-block btn-large" %>
           </div>
       <%end%>
-
+      <div class="col l12">
       <div class="card-panel cyan accent-4" >
         <span style="color: #CC0000">*</span>
         <span class="red-text text-darken-4">نکته :</span>
         <span class="white-text">برای وارد شدن داخل فیلد رمز عبور ، کد ملی خود را وارد نمایید</span>
       </div>
+        </div>
     </div>
   </div>
 
@@ -56,13 +56,14 @@
               <%= label_tag :password,"لطفاً رمز عبور خود را وارد نمایید",class:"right" %>
             </div>
           </div>
-          <div>
+          <div class='input-field col s12'>
+            <%= check_box_tag :remember_me %>
+            <%= label_tag :remember_me,"مرا فراموش نکن " %>
+          </div>
+          <div class='input-field col s12'>
             <%= submit_tag  "ورود", class:"btn btn-primary btn-block btn-large" %>
           </div>
       <%end%>
-
-
-
 
     </div>
   </div>

@@ -1,0 +1,5 @@
+$("#NeedForm").modal("hide");
+$(".need_<%= @need.id %>").fadeOut(600);
+$(".need_<%= @need.id %>").fadeIn(500);
+$(".need_<%= @need.id %> .name").text("<%= @need.name %>");
+$(".need_<%= @need.id %> .type").text("<%=types_need.key(@need.input_type)  %>");

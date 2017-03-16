@@ -1,6 +1,7 @@
 <tr class="feature_<%= feature.id %>">
   <td><%= feature.id%></td>
   <td class="name"><%= feature.name%></td>
+  <td class="need"><%= link_to "پیش نیاز ها",feature_needs_path(feature.id),class:"btn btn-info" %></td>
   <td><%=link_to edit_feature_path(feature.id),remote:true,class:"btn btn-warning" do %>
     <span class="fa fa-edit"></span>
         <%end%>
