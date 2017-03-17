@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
   end
 
   def new
-  @request=Request.new(requea)
+  @request=Request.new(request_params)
   end
 
   def create
@@ -19,8 +19,10 @@ class RequestsController < ApplicationController
 
   def destroy
   end
+
   private
   def request_params
-    params.require(:request).permit(:student_id,:feature_id,:is_cancel)
+    params.require(:request).permit(:student_id,:feature_id,:status,:module_pointer)
   end
+
 end

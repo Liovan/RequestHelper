@@ -1,11 +1,12 @@
 <% title "صفحه اصلی" %>
-<%= script "$('.button-collapse').sideNav({edge: 'right'});" %>
-<div class="row">
-  <%# Feature.all.each do |features| %>
-  <div class="col l4 m5 s12">
+<% script "$('.button-collapse').sideNav({edge: 'right'});" %>
+<% script "" %>
+<div class="row" >
+  <% Feature.all.each do |features| %>
+  <div class="col l4 m5 s12" >
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light teal lighten-1 activator features" style="height: 200px;">
-        <h6 style="text-align: center;color: #ffffff">اشتغال به تحصیل</h6>
+        <h6 style="text-align: center;color: #ffffff"><%=features.name %></h6>
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-3">
@@ -17,15 +18,29 @@
           <span class="card-title grey-text text-darken-4 ">
            <i class="material-icons right">close</i></span>
         <p>
-        <form>
-          <div class="input-field col l5" >
-            <label class="" for="a" >نام پدر</label>
-            <input type="text"  id="a">
-          </div>
-        </form>
+       <%= form_for @request,html:{style:"direction:rtl",class:"direction:rtl"} do |item| %>
+              <%= hidden_field_tag :type_request,features.id %>
+            <% features.needs.each do |need| %>
+              <div class="input-field col l12" >
+                <% if need.input_type==1 %>
+                <input type="number"  class="validate" min="0" name="form_<%=need.id%>"  id="form_<%=need.id%>">
+                <% elsif need.input_type==2%>
+                    <input type="text"  class="validate" name="form_<%=need.id%>" id="form_<%=need.id%>">
+                <% elsif need.input_type==3%>
+                    <input type="checkbox" name="form_<%=need.id%>"  id="form_<%=need.id%>">
+                <%end%>
+                <label for="form_<%=need.id %>"  class="right" style="margin-top: 15px"><%= need.name %></label>
+              </div>
+            <%end%>
+
+            <div class=" input-field col l12 center-align" style="margin-top: 15px" >
+              <hr>
+            <%= item.submit "ارسال",class:"btn green darken-1" %>
+            </div>
+        <%end%>
         </p>
       </div>
     </div>
   </div>
-  <%#end%>
+  <%end%>
 </div>

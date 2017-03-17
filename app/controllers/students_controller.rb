@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   layout "student/admin"
   def index
+    @request=Request.new
   end
 
   def create
