@@ -17,11 +17,9 @@ layout "login/index"
 
     if user && user.authenticate(params[:password])
       #log_in(staff)  check session helper
-      log_in (user)
-      #using Helper
+      log_in user
       params[:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to students_path
-      #NOTE Must be checked
+      redirect_to requests_path
 
     else
       if user.class==Staff
