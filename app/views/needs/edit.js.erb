@@ -1,0 +1,16 @@
+if ($("#NeedForm form").hasClass("new_need")) {$("#NeedForm form").remove()}
+else if ($("#NeedForm form").hasClass("edit_need")) {
+  $("#NeedForm form").remove();
+  $("#NeedForm").prepend("<%= j render partial: "needs/form" %>");
+  $("#NeedForm .modal-title").prepend("<span class='fa fa-edit" + "'> </span>",
+      "<span id='title' style='color: #ffbc00;padding-right: 3px'>ویرایش <span>پیش نیاز </span></span>");
+  $("#NeedForm .modal-footer input[type=submit]").val("ویرایش").addClass("btn-warning");
+  $("#NeedForm").modal("show");
+}
+else {
+  $("#NeedForm").prepend("<%= j render partial: "needs/form" %>");
+  $("#NeedForm .modal-title").prepend("<span class='fa fa-edit" + "'> </span>",
+      "<span id='title' style='color: #ffbc00;padding-right: 3px'>ویرایش <span>پیش نیاز </span></span>");
+  $("#NeedForm .modal-footer input[type=submit]").val("ویرایش").addClass("btn-warning");
+  $("#NeedForm").modal("show");
+}

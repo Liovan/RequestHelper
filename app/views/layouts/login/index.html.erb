@@ -13,7 +13,21 @@
   <%= yield :javascript %>
 </head>
 <body>
+<div class="col s12">
+  <ul class="tabs tabs-fixed-width">
+    <li class="tab col s3"><a class="active" href="#student">ورود دانشجو</a></li>
+    <li class="tab col s3"><a  href="#employee">ورود کارمند</a></li>
+  </ul>
+</div>
+<% if flash[:danger]!=nil %>
+<div style="margin-left: 35%">
+  <span class="text-flow"  style="background-color:#E84D4D;color: #ffffff;margin-top: 1%;padding: 2px;border-radius: 0px 0px 10px 10px ">
+  <%=flash[:danger] %>
+  </span>
+</div>
+<%end%>
 <%= yield %>
+
 <footer dir="ltr">
   <%= debug(params) if Rails.env.development? %>
 </footer>

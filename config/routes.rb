@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-
   root 'staffs#index'
   get  'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :staffs
   resources :places
-  resources :features
+  resources :features do
+    resources :needs
+  end
   resources :students
   resources :requests
   resources :sessions

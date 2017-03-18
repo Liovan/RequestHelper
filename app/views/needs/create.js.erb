@@ -1,0 +1,4 @@
+$("#NeedForm").modal("hide");
+$("#NeedForm form #name").val('');
+$("tbody").prepend("<%= j render partial: "needs/need",locals: {need:@need,feature:params[:feature_id]} %>");
+$("tbody .need_<%= @need.id %>").hide.fadeIn(800);

@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170311102543) do
 
   create_table "needs", force: :cascade do |t|
     t.string  "name"
-    t.boolean "input_type"
+    t.integer "input_type", limit: 2
     t.integer "feature_id"
     t.index ["feature_id"], name: "index_needs_on_feature_id", using: :btree
   end
