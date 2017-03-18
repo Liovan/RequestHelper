@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309131106) do
+ActiveRecord::Schema.define(version: 20170311102543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,9 +51,8 @@ ActiveRecord::Schema.define(version: 20170309131106) do
     t.integer  "staff_id"
     t.integer  "message_id"
     t.integer  "request_id"
-    t.integer  "status_request", null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["message_id"], name: "index_refers_on_message_id", using: :btree
     t.index ["request_id"], name: "index_refers_on_request_id", using: :btree
     t.index ["staff_id"], name: "index_refers_on_staff_id", using: :btree
@@ -62,9 +61,10 @@ ActiveRecord::Schema.define(version: 20170309131106) do
   create_table "requests", force: :cascade do |t|
     t.integer  "student_id"
     t.integer  "feature_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "is_cancel"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "status"
+    t.integer  "module_pointer"
     t.index ["feature_id"], name: "index_requests_on_feature_id", using: :btree
     t.index ["student_id"], name: "index_requests_on_student_id", using: :btree
   end

@@ -84,7 +84,7 @@ class StudentTest < ActiveSupport::TestCase
     end
   end
   test "meli_code should be unique" do
-    --skip-test-unit
+    --skip-test-unit #TODO unique test for meli_code
     duplicate_student = @student.dup
     duplicate_student.meli_code = @student.meli_code.upcase
     @student.save

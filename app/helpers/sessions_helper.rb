@@ -9,7 +9,7 @@ module SessionsHelper
     #people will know how many staffs we have!
     if user.class==Staff
       session[:staff_id] = user.id
-    else
+    elsif user.class==Student
       session[:student_id] = user.id
     end
   end
@@ -20,7 +20,7 @@ module SessionsHelper
 
     if user.class==Staff
       cookies.permanent.signed[:staff_id] = user.id
-    else
+    elsif user.class==Student
       cookies.permanent.signed[:student_id] = user.id
     end
     cookies.permanent[:remember_token] = user.remember_token

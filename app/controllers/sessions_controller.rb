@@ -20,7 +20,7 @@ layout "login/index"
       log_in (user)
       #using Helper
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user #NOTE Must be checked
+      redirect_to requests_path
     else
       if user.class==Staff
       #flash.now works with rendering (when no redirect)
