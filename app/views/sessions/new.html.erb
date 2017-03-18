@@ -8,26 +8,25 @@
 
   <div id="student" class="col s12" style="direction: rtl" >
     <div class="col s6 card-panel center-block" style="margin-left:22%">
-      <%= form_tag  sessions_path do  %>
-          <%= hidden_field_tag :type,true%>
+      <%= form_for :session,url:sessions_path do |item|  %>
           <div class='input-field col s12'>
-            <div class='input-field col s12' >
-              <%= text_field_tag :student_code,"",required:true,class:"validate" %>
-              <%= label_tag :student_code,"لطفاً کد دانشجویی خود را وارد نمایید",class:"right" %>
+            <div class='input-field col s12'>
+              <%= item.text_field :student_code,required:true,class:"validate" %>
+              <%= item.label :student_code,"لطفاً کد دانشجویی خود را وارد نمایید",class:"right" %>
             </div>
           </div>
           <div class='input-field col s12'>
             <div class='input-field col s12'>
-              <%= password_field_tag :password,"",required:true,class:"validate" %>
-              <%= label_tag :password,"لطفاً رمز عبور خود را وارد نمایید",class:"right" %>
+              <%= item.password_field :password,required:true,class:"validate" %>
+              <%= item.label :password,"لطفاً رمز عبور خود را وارد نمایید",class:"right" %>
             </div>
           </div>
           <div class='input-field col s12'>
-              <%= check_box_tag :remember_me %>
-              <%= label_tag :remember_me,"مرا فراموش نکن " %>
+              <%= item.check_box :remember_me %>
+              <%= item.label :remember_me,"مرا فراموش نکن " %>
           </div>
           <div class='input-field col s12'>
-          <%= submit_tag  "ورود", class:"btn btn-primary btn-block btn-large" %>
+          <%= item.submit  "ورود", class:"btn btn-primary btn-block btn-large" %>
           </div>
       <%end%>
       <div class="col l12">
@@ -42,26 +41,26 @@
 
   <div id="employee" class="col s12" style="direction: rtl">
     <div class="col s6 card-panel  center-block" style="margin-left:22%;padding-bottom: 20px">
-
-      <%= form_tag  sessions_path do  %>
+      <%= form_for :session,url:sessions_path do |item| %>
+          <%= item.hidden_field :type,value:true%>
           <div class='input-field col s12'>
             <div class='input-field col s12' >
-              <%= text_field_tag :username,"",required:true,class:"validate" %>
-              <%= label_tag :usernmae,"لطفاً نام کاربری  خود را وارد نمایید",class:"right" %>
+              <%= item.text_field :username,required:true,class:"validate" %>
+              <%= item.label :usernmae,"لطفاً نام کاربری  خود را وارد نمایید",class:"right" %>
             </div>
           </div>
           <div class='input-field col s12'>
             <div class='input-field col s12'>
-              <%= password_field_tag :password,"",required:true,class:"validate" %>
-              <%= label_tag :password,"لطفاً رمز عبور خود را وارد نمایید",class:"right" %>
+              <%= item.password_field :password,required:true,class:"validate" %>
+              <%= item.label :password,"لطفاً رمز عبور خود را وارد نمایید",class:"right" %>
             </div>
           </div>
           <div class='input-field col s12'>
-            <%= check_box_tag :remember_me %>
-            <%= label_tag :remember_me,"مرا فراموش نکن " %>
+            <%= item.check_box :remember_me %>
+            <%= item.label :remember_me,"مرا فراموش نکن " %>
           </div>
           <div class='input-field col s12'>
-            <%= submit_tag  "ورود", class:"btn btn-primary btn-block btn-large" %>
+            <%= item.submit  "ورود", class:"btn btn-primary btn-block btn-large" %>
           </div>
       <%end%>
 

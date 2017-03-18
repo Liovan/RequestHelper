@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
      4=>'لغو شد'
     }
   end
+  def get_field_student # Field of Study for student
+    {
+        1=>'نرم افزار کامپیوتر' ,
+        2=>'حسابداری',
+        3=>'ICT',
+        4=>'الکترونیک'
+    }
+  end
 end

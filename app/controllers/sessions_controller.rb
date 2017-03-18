@@ -20,7 +20,6 @@ layout "login/index"
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to requests_path
-
     else
       #flash.now works with rendering (when no redirect)
       #NOTE for security reason we show same message to both invalid requests
