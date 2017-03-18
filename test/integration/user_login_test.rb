@@ -8,7 +8,9 @@ class StaffLoginTest < ActionDispatch::IntegrationTest
   test "staff login with invalid information" do
     get login_path
     assert_template 'sessions/new'
-    post login_path, session: {username: "", password: ""}
+    post login_path, session: {username: "", password: "", type: "ss"}
+    assert_redirected_to new_session_path
+    follow_redirect!
     assert_template 'sessions/new'
     assert_not flash.empty?
     get root_path
@@ -18,7 +20,7 @@ class StaffLoginTest < ActionDispatch::IntegrationTest
   test "staff login with valid information" do
     get login_path
     assert_template 'sessions/new'
-    post login_path, session: {username: @staff.username, password: 'password'}
+    post login_path, session: {username: @staff.username, password: 'password', type: "ss"}
     assert_redirected_to requests_path
     follow_redirect!
     assert_template 'requests/index'

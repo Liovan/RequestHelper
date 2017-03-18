@@ -9,27 +9,23 @@ layout "login/index"
 
   def create
     #Type of user
-    if params[:type] != nil
-      user = Student.find_by(student_code: params[:student_code])
+    if params[:session][:type] == nil
+      user = Student.find_by(student_code: params[:session][:student_code])
     else
-      user = Staff.find_by(username: params[:username])
+      user = Staff.find_by(username: params[:session][:username])
     end
 
-    if user && user.authenticate(params[:password])
+    if user && user.authenticate(params[:session][:password])
       #log_in(staff)  check session helper
       log_in user
-      params[:remember_me] == '1' ? remember(user) : forget(user)
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to requests_path
 
     else
-      if user.class==Staff
       #flash.now works with rendering (when no redirect)
+      #NOTE for security reason we show same message to both invalid requests
       flash[:danger]  = "ترکیب نام کاربری/رمز عبور نامعتبر است"
-      else
-      flash[:danger]  = "شماره دانشجویی یا رمز عبور نامعتبر است"
-      end
-      render 'new'
-      # redirect_to new_session_path
+      redirect_to new_session_path
     end
   end
 
