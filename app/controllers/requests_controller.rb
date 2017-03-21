@@ -2,7 +2,9 @@ class RequestsController < ApplicationController
   layout "staff/admin"
    before_action :for_student,only: :create
   def index
-    @requests=Request.all
+    place=current_user.place
+    @requests=Request.find_module_pointer(place.id)
+
   end
 
   def new
@@ -11,8 +13,6 @@ class RequestsController < ApplicationController
 
   def create
     student=session[:student_id]
-    status=Request.where("student_id=?",student)
-    if status.nil? || status.last.status!=1 # check request student for valid request
     feature=Feature.find(params[:feature_id])
     first_confirm=get_module_routes[feature.id].first # get first value in module routes helper
     status=1
@@ -26,15 +26,10 @@ class RequestsController < ApplicationController
               format.html{redirect_to students_path,danger:"متاًسفانه درخواست شما فرستاده نشد"}
               format.js
               end
-           end
+          end
       end
-    else
-      respond_to do |format|
-        format.html{redirect_to students_path,danger:"شما قبلاً این نوع درخواست را فرستادید لطفاً کمی صبر کنید تا درخواست شما رسیدگی شود"}
-        format.js
-      end
-    end
   end
+
 
   def edit
   end

@@ -14,11 +14,13 @@ class Student < ApplicationRecord
                           format: {with: VALID_FARSI_REGEX, message: "نام پدر باید فارسی باشد."}
   has_secure_password validation: false
   validates :password, length: { minimum: 6, message: "رمز عبور باید حداقل ۶ نویسه باشد." }
+
   VALID_MELI_CODE_REGEX = /\A[0-9]{10}\z/
   validates :meli_code, presence: {message: "کدملی نمی تواند خالی باشد."},
                         length: {maximum: 20, message:"کدملی می تواند حداکثر ۲۰ نویسه باشد."},
                         format: {with: VALID_MELI_CODE_REGEX, message: "کدملی نامعتبر است."},
                         uniqueness: {case_sensitive: false, message: "کدملی قبلا استفاده شده است."}
+  validate :national_code
 
 
   #Returns the hash digest of the given string.
@@ -53,4 +55,22 @@ class Student < ApplicationRecord
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
+  private
+  def national_code
+    return false unless meli_code.match(/^\d+$/)
+    if meli_code.length>=8 && meli_code.length<10
+      meli_code.prepend('00')
+    end
+    code=meli_code.reverse!
+    temp=0
+    length=code.length
+    length.downto(2) do |i|
+      temp+=code[i-1].to_i * i
+    end
+    devide=temp%11
+    control_number=code[0].to_i
+    unless devide<2 && control_number==devide || devide>=2 && control_number==11-devide
+      errors.add :meli_code,"کد ملی نامعتبر میباشد"
+    end
+  end
 end

@@ -13,7 +13,7 @@ class StaffsController < ApplicationController
     @staff=Staff.new(staff_params)
       respond_to do |format|
         if  @staff.save
-          format.html{redirect_to staffs_path,flash[:success]="ok"}
+          format.html{redirect_to staffs_path,flash[:success]="عملیات با موفقیت انجام شد"}
           format.js
         else
           format.html{redirect_to staffs_path,warning:"متاسفانه عملیات با شکست مواجه شده است"}
