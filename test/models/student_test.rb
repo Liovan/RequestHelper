@@ -2,7 +2,10 @@ require 'test_helper'
 
 class StudentTest < ActiveSupport::TestCase
   def setup
-    @student = Student.new(f_name: "سید محمّد مهدی", l_name: "علیمرادی فرد اعلا", father_name: "سید محمد ابولفضل", meli_code: "1742261272", password: "foobar")
+    @student = Student.new(f_name: "سید محمّد مهدی", l_name: "علیمرادی فرد اعلا",
+                           father_name: "سید محمد ابولفضل", meli_code: "1742261272",
+                           password: "foobar", city: "تهران", field: 1,
+                           student_code: 123456)
     @invalid_farsi_names = %w[abbasi jaffari رفیعی2]
   end
 
@@ -84,12 +87,11 @@ class StudentTest < ActiveSupport::TestCase
     end
   end
   test "meli_code should be unique" do
-    --skip-test-unit #TODO unique test for meli_code
     duplicate_student = @student.dup
     duplicate_student.meli_code = @student.meli_code.upcase
     @student.save
     assert_not duplicate_student.valid?
   end
-
+  #TODO CITY, FIELD, meli_code'S FORMAT
 
 end

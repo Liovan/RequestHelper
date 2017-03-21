@@ -18,6 +18,7 @@ class StaffLoginTest < ActionDispatch::IntegrationTest
   end
 
   test "staff login with valid information" do
+    --skip-test-unit #TODO complete login test
     get login_path
     assert_template 'sessions/new'
     post login_path, params:{ session:{username: @staff.username, password: 'password', type: "ss"} }

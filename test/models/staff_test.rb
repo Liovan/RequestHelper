@@ -11,11 +11,11 @@ class StaffTest < ActiveSupport::TestCase
     assert @staff.valid?
   end
 
-  test "l_name should be presense" do
+  test "l_name should be presence" do
   	@staff.l_name = "       "
   	assert_not @staff.valid?
   end
-  test "f_name should be presense" do
+  test "f_name should be presence" do
   	@staff.f_name = "       "
   	assert_not @staff.valid?
   end
