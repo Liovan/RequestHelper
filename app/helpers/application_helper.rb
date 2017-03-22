@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+include StatusHelper
   #sets Global app's name
 	$APP_NAME = "سامانه پایش درخواست ها"
 

@@ -16,7 +16,7 @@
 
             <div class="form-group form-inline">
               <%= item.label :input_type,"نوع فیلد :" %>
-              <%= item.select :input_type,types_need.collect { |key,value| [key,value] },include_blank:true,class:"form-control","data-error":"لطفاً نوع فیلد را انتخاب نمایید",required:true  %>
+              <%= item.select :input_type,types_need.collect { |key,value| [value,key] },include_blank:true,class:"form-control","data-error":"لطفاً نوع فیلد را انتخاب نمایید",required:true  %>
               <div class="help-block with-errors" style="display:inline"><span style="color:#F52559">*</span> اجباری</div>
             </div>
           </section>

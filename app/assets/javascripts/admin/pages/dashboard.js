@@ -19,7 +19,7 @@ $(function () {
   });
   $(".connectedSortable .box-header, .connectedSortable .nav-tabs-custom").css("cursor", "move");
 
-  //jQuery UI sortable for the todo list
+
   $(".todo-list").sortable({
     placeholder: "sort-highlight",
     handle: ".handle",
@@ -195,7 +195,7 @@ $(function () {
     line.redraw();
   });
 
-  /* The todo list plugin */
+
   $(".todo-list").todolist({
     onCheck: function (ele) {
       window.console.log("The element has been checked");

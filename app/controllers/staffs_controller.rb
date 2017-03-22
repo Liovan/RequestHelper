@@ -1,6 +1,7 @@
 class StaffsController < ApplicationController
   layout "staff/admin"
   def index
+
     @staffs=Staff.sorted
 
   end

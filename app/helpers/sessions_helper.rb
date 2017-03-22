@@ -1,5 +1,5 @@
 module SessionsHelper
-
+  $current_user=nil
 #This module (helper) included in app controller
 
   #logs in the given staff
@@ -17,7 +17,6 @@ module SessionsHelper
   #Remembers a staff in a persistent session.
   def remember(user)
     user.remember
-
     if user.class==Staff
       cookies.permanent.signed[:staff_id] = user.id
     elsif user.class==Student
@@ -31,23 +30,23 @@ module SessionsHelper
     if (student_id = session[:student_id])           #student via session
       #Prevent database call spam by using an
       #instance variable *(memoization)*
-      @current_user ||= Student.find_by(id: student_id)
+      $current_user ||= Student.find_by(id: student_id)
 
     elsif (staff_id = session[:staff_id])            #staff via session
-      @current_user ||= Staff.find_by(id: staff_id)
+      $current_user ||= Staff.find_by(id: staff_id)
 
     elsif (student_id = cookies.signed[:student_id]) #student via remember_token
       student = Student.find_by(id: student_id)
       if student && student.authenticated?(cookies[:remember_token])
         log_in student
-        @current_user = student
+        $current_user = student
       end
 
     elsif (staff_id = cookies.signed[:staff_id])    #staff via remember_token
       staff = Staff.find_by(id: staff_id)
       if staff && staff.authenticated?(cookies[:remember_token])
         log_in staff
-        @current_user = staff
+        $current_user = staff
       end
 
     end
