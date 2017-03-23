@@ -1,13 +1,14 @@
 class RequestsController < ApplicationController
+  before_action :confirm_logged_in,except: :create
   layout "staff/admin"
-   before_action :for_student,only: :create
+
   def index
     place=current_user.place
     @requests=Request.find_module_pointer(place.id)
   end
 
   def new
-  @request=Request.new(request_params)
+  # @request=Request.new(request_params)
   end
 
   def create
@@ -71,17 +72,5 @@ class RequestsController < ApplicationController
   def request_params
     params.require(:request).permit(:feature_id)
   end
-  def for_student
-    unless session[:student_id].present?
-      respond_to do |format|
-        format.html{redirect_to login_path,danger:"لطفاً برای دسترسی به این بخش ابتدا به سیستم وارد شوید"}
-      end
-      return false
-    end
-    return true
-  end
-
-
-
 
 end

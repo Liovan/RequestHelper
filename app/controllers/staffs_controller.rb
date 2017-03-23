@@ -1,9 +1,8 @@
 class StaffsController < ApplicationController
+  before_action :confirm_logged_in
   layout "staff/admin"
   def index
-
     @staffs=Staff.sorted
-
   end
 
   def new

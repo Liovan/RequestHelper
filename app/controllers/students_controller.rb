@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
+  before_action :confirm_logged_in
   layout "student/admin"
   def index
-
     @request=Request.new
   end
 

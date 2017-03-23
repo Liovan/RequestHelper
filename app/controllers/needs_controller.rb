@@ -1,4 +1,5 @@
 class NeedsController < ApplicationController
+  before_action :confirm_logged_in
   layout "staff/admin"
   def index
     if params[:feature_id].present?

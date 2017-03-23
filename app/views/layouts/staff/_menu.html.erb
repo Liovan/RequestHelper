@@ -4,10 +4,10 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-right image">
-        <%= image_tag "PanelAdmin/user.jpg",class: "img-circle" %>
+        <%= image_tag "user",class: "img-circle" %>
       </div>
       <div class="pull-left info">
-        <p>محمد شریفی</p>
+        <p><%= "#{current_user.f_name} #{current_user.l_name}" if present? %></p>
         <a href="#"><i class="fa fa-circle text-success"></i> آنلاین</a>
       </div>
     </div>
@@ -28,11 +28,7 @@
           <i class="fa fa-location-arrow"></i> <span> درخواست دانشجویان</span> <i class="fa fa-angle-left pull-left"></i>
         </a>
         <ul class="treeview-menu">
-
-            <%= link_to requests_path do %>
-                <i class="fa fa-toggle-left"></i>
-                <span>درخواست اشتغال به تحصیل</span>
-            <%end%>
+          <li class="active"><a href="<%= requests_path %>"><i class="fa fa-toggle-left"></i>  درخواست اشتغال به تحصیل</a></li>
           </li>
         </ul>
       </li>

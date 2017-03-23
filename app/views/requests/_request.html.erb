@@ -1,7 +1,9 @@
 <tr>
   <td><%= request.student.f_name %></td>
   <td><%= request.student.l_name %></td>
-  <td><%= request.student.city %></td>
+  <td><%= request.student.student_code %></td>
+  <td><%= request.student.student_code %></td>
+  <td><%= get_field_student[request.student.field] %></td>
   <td><%= request.feature.name %></td>
   <td>
     <%= link_to new_request_path,class:"btn btn-success" do %>

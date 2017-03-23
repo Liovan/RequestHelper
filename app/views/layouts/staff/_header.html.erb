@@ -1,10 +1,10 @@
 <header class="main-header">
 
-  <a href="index2.html" class="logo">
+  <a href="" class="logo">
 
     <span class="logo-mini"><span class="fa fa-users"></span></span>
 
-    <span class="logo-lg"><span>سیستم مدیریت </span> <span style="color: #ffffff;font-weight: bold">درخواست ها</span></span>
+    <span class="logo-lg"><span style="font-family: web_Yekan" >سامانه پایش </span> <span style="color: #ffffff;font-weight: bold;font-family: web_Yekan">درخواست ها</span></span>
   </a>
 
   <nav class="navbar navbar-static-top" role="navigation">
@@ -17,25 +17,21 @@
 
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <%= image_tag "PanelAdmin/user.jpg",class: "user-image" %>
-            <span class="hidden-xs">محمد شریفی</span>
+            <%= image_tag "user",class: "user-image" %>
+            <span class="hidden-xs"><%= "#{current_user.f_name} #{current_user.l_name}" if present? %></span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
-              <%= image_tag "PanelAdmin/user.jpg",class: "img-circle" %>
+              <%= image_tag "user",class: "img-circle" %>
               <p>
-                محمد شریفی - توسعه دهنده سمت کاربر
-                <small>Member since Nov. 2012</small>
+                <span><%= current_user.l_name if present? %></span>
               </p>
             </li>
 
             <li class="user-footer">
-              <div class="pull-right">
-                <a href="#" class="btn btn-default btn-flat">Profile</a>
-              </div>
               <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                <%= link_to "خروج",logout_path,method: :delete,class:"btn btn-default btn-flat" %>
               </div>
             </li>
           </ul>

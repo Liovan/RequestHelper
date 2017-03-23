@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+  before_action :confirm_logged_in
   layout "staff/admin"
   def index
     @places=Place.all
