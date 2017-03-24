@@ -1,5 +1,5 @@
 class FeaturesController < ApplicationController
-  before_action :confirm_logged_in
+  before_action :staff_logged_in
   layout "staff/admin"
   def index
     @features=Feature.all

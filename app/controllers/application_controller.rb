@@ -4,13 +4,25 @@ class ApplicationController < ActionController::Base
   include StatusHelper
 
 private
-  def confirm_logged_in
-  unless session[:staff_id] || session[:student_id] || cookies.signed[:staff_id] || cookies.signed[:student_id]
+  def student_logged_in
 
-      redirect_to login_path,danger:"لطفاً وارد سایت شوید"
-      return false
-    else
-      return true
-    end
+      unless session[:student_id] || cookies.signed[:student_id] && current_user.class!=Student
+        redirect_to login_path,danger:"لطفاً وارد سایت شوید"
+        return false
+      else
+        return true
+      end
+
   end
+
+  def staff_logged_in
+
+      unless session[:staff_id] || cookies.signed[:staff_id] && current_user.class!=Staff
+        redirect_to login_path,danger:"لطفاً وارد سایت شوید"
+        return false
+      else
+        return true
+      end
+    end
+
 end

@@ -1,6 +1,12 @@
 class SessionsController < ApplicationController
- before_action :confirm_logged_in,only: [:index]
-     layout "login/index"
+ before_action :staff_logged_in
+
+ before_action :logged,except: :index
+
+
+ # before_action :student_logged_in,only: :index
+
+  layout "login/index"
   def index
     render layout: "staff/admin"
   end
@@ -37,6 +43,19 @@ class SessionsController < ApplicationController
     log_out if logged_in?  #Prevent error. if staff logged out already
     redirect_to root_url
   end
+  private
+  def logged
+
+      if current_user.class==Student
+        redirect_to students_path
+      else
+        redirect_to sessions_path
+        return true
+      end
+    return true
+    end
+
+
 
 
 end
