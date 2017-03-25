@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
- before_action :staff_logged_in
+ before_action :staff_logged_in,only: :index
 
  before_action :logged,except: :index
 
@@ -45,17 +45,13 @@ class SessionsController < ApplicationController
   end
   private
   def logged
-
-      if current_user.class==Student
+    case current_user.class
+      when Student
         redirect_to students_path
-      else
-        redirect_to sessions_path
-        return true
-      end
-    return true
+      when Staff
+      redirect_to sessions_path
     end
+    return true
 
-
-
-
+    end
 end
