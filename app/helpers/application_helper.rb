@@ -1,9 +1,10 @@
 module ApplicationHelper
-include StatusHelper
+
   #sets Global app's name
 	$APP_NAME = "پایش درخواست ها"
 
   #return full title
+
 	def title(page_title)
 		base_title = $APP_NAME
 		if page_title.empty?

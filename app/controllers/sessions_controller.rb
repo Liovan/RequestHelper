@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       #log_in(staff)  check session helper
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      if user.class==Student
+      if user_type==Student
         redirect_to students_path
       else
         redirect_to sessions_path
