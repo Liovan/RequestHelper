@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
-  before_action :staff_logged_in #,except: :create
-  before_action :student_logged_in #,only: :create
+  before_action :staff_logged_in ,except: :create
+  before_action :student_logged_in ,only: :create
   layout "staff/admin"
 
   def index

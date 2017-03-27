@@ -17,6 +17,7 @@ private
 
   def staff_logged_in
 
+
       unless session[:staff_id] || cookies.signed[:staff_id] && current_user.class!=Staff
         redirect_to login_path,danger:"لطفاً وارد سایت شوید"
         return false
