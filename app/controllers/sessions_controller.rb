@@ -1,10 +1,6 @@
 class SessionsController < ApplicationController
  before_action :staff_logged_in,only: :index
-
  before_action :auto_login,only: :new
-
-
- # before_action :student_logged_in,only: :index
 
   layout "login/index"
   def index
@@ -45,7 +41,7 @@ class SessionsController < ApplicationController
   end
   private
   def auto_login
-      case current_user.class.to_s
+      case user_type.to_s
         when "Student"
            current_user
           redirect_to students_path

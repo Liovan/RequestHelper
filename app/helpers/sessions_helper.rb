@@ -51,6 +51,13 @@ module SessionsHelper
     end
   end
 
+
+  def user_type #Return class current user
+    current_user.class
+  end
+
+
+
   def logged_in?
     !current_user.nil?
   end
