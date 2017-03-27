@@ -21,8 +21,9 @@ class Student < ApplicationRecord
                         format: {with: VALID_MELI_CODE_REGEX, message: "کدملی نامعتبر است."},
                         uniqueness: {case_sensitive: false, message: "کدملی قبلا استفاده شده است."}
   validate :national_code
-
-
+  validates :student_code, presence: {message: "شماره دانشجویی نمی تواند خالی باشد."},
+                           length: {maximum: 14, message: "شماره دانشجویی می تواند حداکثر 14 نویسه باشد."},
+                           uniqueness: {case_sensitive: false, message: "شماره دانشجویی قبلاً استفاده شده است."}
   #Returns the hash digest of the given string.
   #need for testing
   def Student.digest(string)

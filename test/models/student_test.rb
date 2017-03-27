@@ -88,10 +88,10 @@ class StudentTest < ActiveSupport::TestCase
   end
   test "meli_code should be unique" do
     duplicate_student = @student.dup
-    duplicate_student.meli_code = @student.meli_code.upcase
+    duplicate_student.l_name = "جعفر"
     @student.save
     assert_not duplicate_student.valid?
   end
-  #TODO CITY, FIELD, meli_code'S FORMAT
+  #TODO CITY, FIELD, student_code
 
 end
