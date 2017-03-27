@@ -18,7 +18,8 @@ module StatusHelper
         1=>'نرم افزار کامپیوتر' ,
         2=>'حسابداری',
         3=>'ICT',
-        4=>'الکترونیک'
+        4=>'الکترونیک',
+        5=> 'IT'
     }
   end
   def types_need # for  type input field for needs
