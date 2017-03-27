@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
  before_action :staff_logged_in,only: :index
 
- before_action :logged,except: :index
+ before_action :auto_login,only: :new
 
 
  # before_action :student_logged_in,only: :index
@@ -41,17 +41,17 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?  #Prevent error. if staff logged out already
-    redirect_to root_url
+     redirect_to root_url
   end
   private
-  def logged
-    case current_user.class
-      when Student
-        redirect_to students_path
-      when Staff
-      redirect_to sessions_path
-    end
-    return true
-
+  def auto_login
+      case current_user.class.to_s
+        when "Student"
+           current_user
+          redirect_to students_path
+        when "Staff" then
+           current_user
+          redirect_to sessions_path
+      end
     end
 end
