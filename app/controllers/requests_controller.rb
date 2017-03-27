@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
 
   def index
     place=current_user.place
-    @requests=Request.find_module_pointer(place.id)
+    @requests=Request.place_related(place.id)
   end
 
   def new
@@ -64,6 +64,18 @@ class RequestsController < ApplicationController
   end
 
   def update
+
+    case params[:type]
+    when "Confirm"
+      #تایید
+    when "Reject"
+      #رد کردن
+    when "Certficate"
+      #صدور گواهی
+    else
+      #ورودی_اشتباه
+    end
+
   end
 
   def destroy
