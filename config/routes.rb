@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'forms/index'
 
-  get 'forms/show'
 
   root 'sessions#new'
   get  'login' => 'sessions#new'
@@ -15,5 +13,6 @@ Rails.application.routes.draw do
   resources :students
   resources :requests
   resources :sessions
+  resources :forms
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

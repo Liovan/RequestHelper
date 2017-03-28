@@ -6,7 +6,8 @@
   <td><%= get_field_student[request.student.field] %></td>
   <td><%= request.feature.name %></td>
   <td>
-    <%= link_to request_path(id: request.id, type: "Certficate"), method: :put ,class:"btn btn-success" do %>
+    <%#= link_to request_path(id: request.id, type: "Certficate"), method: :put ,class:"btn btn-success" do %>
+    <%= link_to "#",onclick:"newWindow=window.open('#{forms_path(request_id:request.id)}');newWindow.print();",class:"btn btn-success" do %>
         <i class="fa fa-print" aria-hidden="true"></i>
         <span>صدور</span>
     <%end%>
