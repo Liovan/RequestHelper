@@ -13,11 +13,10 @@ class FeaturesController < ApplicationController
    respond_to do |format|
      if @feature.save
        format.html{redirect_to features_path,success:"عملیات با موفقیت انجام شد"}
-       format.js
+       format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
      else
-       redirect_to features_path
-        format.html{redirect_to features_path,warning:"عملیات با موفقیت انجام نشد"}
-        format.js
+        format.html{redirect_to features_path,danger:"عملیات با موفقیت انجام نشد"}
+        format.js{flash.now[:danger]="عملیات با موفقیت انجام نشد"}
      end
    end
   end
@@ -28,10 +27,10 @@ class FeaturesController < ApplicationController
       respond_to do |format|
         if @feature.update_attributes(feature_params)
           format.html{redirect_to feature_path,success:"عملیات با موفقیت انجام شد"}
-          format.js
+          format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
         else
-          format.html{redirect_to feature_path,success:"عملیات با موفقیت انجام نشد"}
-          format.js
+          format.html{redirect_to feature_path,danger:"عملیات با موفقیت انجام نشد"}
+          format.js{flash.now[:danger]="عملیات با موفقیت انجام نشد"}
         end
       end
     end
@@ -49,10 +48,10 @@ class FeaturesController < ApplicationController
       respond_to do |format|
         if @feature.destroy
         format.html{redirect_to features_path,success:"عملیات با موفقیت انجام شد"}
-        format.js
+        format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
         else
-          format.html{redirect_to features_path,warning:"عملیات با شکست مواجه شد"}
-          format.js
+          format.html{redirect_to features_path,danger:"عملیات با شکست مواجه شد"}
+          format.js{flash.now[:danger]="عملیات با شکست مواجه شد"}
         end
       end
     end

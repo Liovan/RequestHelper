@@ -1,4 +1,8 @@
 $("#FeatureForm").modal("hide");
 $("#FeatureForm form #feature_name").val('');
+
+$("#alert_respond").text('').fadeOut(300).fadeIn(100);
+$("#alert_respond").prepend("<%= j render partial: "layouts/flash_message" %>");
+
 $("tbody").prepend("<%= j render partial: "features/feature",locals: {feature:@feature} %>");
 $("tbody .feature_<%= @feature.id %>").hide.fadeIn(800);

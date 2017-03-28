@@ -2,6 +2,9 @@ $("#FeatureForm").modal("hide");
 $(".feature_<%= @feature.id %>").fadeOut(600);
 $(".feature_<%= @feature.id %>").fadeIn(500);
 $(".feature_<%= @feature.id %> .name").text("<%= @feature.name %>");
+$("#alert_respond").text('').fadeOut(300).fadeIn(100);
+$("#alert_respond").prepend("<%= j render partial: "layouts/flash_message" %>");
+
 
 
 

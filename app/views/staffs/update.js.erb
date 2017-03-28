@@ -7,4 +7,3 @@ $(".staff_<%= @staff.id %> .place_name").text("<%= @staff.place.name %>");
 $(".staff_<%= @staff.id %> .username").text("<%= @staff.username %>");
 $("#alert_respond").text('').fadeOut(300).fadeIn(100);
 $("#alert_respond").prepend("<%= j render partial: "layouts/flash_message" %>");
-$("#alert_respond").removeClass("hidden");

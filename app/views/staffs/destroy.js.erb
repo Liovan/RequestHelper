@@ -2,5 +2,4 @@ $(".box-body tbody .staff_<%= @staff.id %>").fadeOut(300,function () {
   $(this).remove();
   $("#alert_respond").text('').fadeOut(300).fadeIn(100);
   $("#alert_respond").prepend("<%= j render partial: "layouts/flash_message" %>");
-  $("#alert_respond").removeClass("hidden");
 });

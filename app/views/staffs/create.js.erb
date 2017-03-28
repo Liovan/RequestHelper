@@ -7,7 +7,6 @@ $("#StaffForm #staff_password").val('');
 
 $("#alert_respond").text('').fadeOut(300).fadeIn(100);
 $("#alert_respond").prepend("<%= j render partial: "layouts/flash_message" %>");
-$("#alert_respond").removeClass("hidden");
 
 $(".box-body tbody").prepend("<%= j render partial: "staffs/staff",locals: {staff:@staff} %>");
 $(".box-body tbody .staff_<%= @staff.id %>").hide.fadeIn(800);
