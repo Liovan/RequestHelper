@@ -13,10 +13,10 @@ class PlacesController < ApplicationController
       respond_to do |format|
         if @place.valid? && @place.save
          format.html{redirect_to places_path,success:"با موفقیت اضافه شد #{@place.name} سمت "}
-         format.js
+         format.js{flash.now[:success]="با موفقیت اضافه شد #{@place.name} سمت "}
         else
-          format.html{redirect_to places_path,warning:"عملیات با شکست مواجه شد"}
-          format.js
+          format.html{redirect_to places_path,danger:"عملیات با شکست مواجه شد"}
+          format.js{flash.now[:danger]="عملیات با شکست مواجه شد"}
         end
       end
   end
@@ -30,10 +30,10 @@ class PlacesController < ApplicationController
       @place=Place.find(params[:id])
         if @place.update_attributes(place_params)
           format.html{redirect_to places_path,success:"عملیات با موفقیت انجام شد"}
-          format.js
+          format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
         else
-          format.html{redirect_to places_path,warning:"عملیات با شکست مواجه شد"}
-          format.js
+          format.html{redirect_to places_path,danger:"عملیات با شکست مواجه شد"}
+          format.js{flash.now[:danger]="عملیات با شکست مواجه شد"}
         end
       end
   end
@@ -44,10 +44,10 @@ class PlacesController < ApplicationController
           @place=Place.find(params[:id])
           if @place.destroy
           format.html{redirect_to places_path,success:"عملیات با موفقیت انجام شد"}
-          format.js
+          format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
           else
-          format.html{redirect_to places_path,warning:"عملیات با شکست مواجه شد"}
-          format.js
+          format.html{redirect_to places_path,danger:"عملیات با شکست مواجه شد"}
+          format.js{flash.now[:danger]="عملیات با شکست مواجه شد"}
         end
       end
     end

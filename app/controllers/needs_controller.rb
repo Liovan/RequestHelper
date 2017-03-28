@@ -27,10 +27,10 @@ class NeedsController < ApplicationController
       respond_to do |format|
         if @need.save
           format.html{redirect_to feature_needs_path(params[:feature_id]),success: "عملیات با موفقیت انجام شد"}
-          format.js
+          format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
         else
           format.html{redirect_to feature_needs_path(params[:feature_id]),danger: "متاسفانه عملیات با موفقیت انجام نشد"}
-          format.js
+          format.js{flash.now[:danger]="متاسفانه عملیات با موفقیت انجام نشد"}
         end
       end
     end
@@ -50,10 +50,10 @@ class NeedsController < ApplicationController
       respond_to do |format|
         if @need.update_attributes(need_params)
             format.html{redirect_to feature_needs_path(params[:feature_id]),success:"عملیات با موفقیت انجام شد"}
-            format.js
+            format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
         else
-          format.html{redirect_to feature_needs_path(params[:feature_id]),success:"متاسفانه عملیات با موفقیت انجام نشد"}
-          format.js
+          format.html{redirect_to feature_needs_path(params[:feature_id]),danger:"متاسفانه عملیات با موفقیت انجام نشد"}
+          format.js{flash.now[:danger]="متاسفانه عملیات با موفقیت انجام نشد"}
         end
       end
     end
@@ -65,10 +65,10 @@ class NeedsController < ApplicationController
       respond_to do |format|
         if @need.destroy
           format.html{redirect_to feature_needs_path(params[:feature_id]),success:"عملیات با موفقیت انجام شد"}
-          format.js
+          format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
         else
-          format.html{redirect_to feature_needs_path(params[:feature_id]),success:"متاسفانه عملیات با موفقیت انجام نشد"}
-          format.js
+          format.html{redirect_to feature_needs_path(params[:feature_id]),danger:"متاسفانه عملیات با موفقیت انجام نشد"}
+          format.js{flash.now[:danger]="متاسفانه عملیات با موفقیت انجام نشد"}
         end
       end
     end

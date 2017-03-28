@@ -1,4 +1,6 @@
 $("#Placeform").modal('hide');
 $(".PlaceName").val('');
+$("#alert_respond").text('').fadeOut(300).fadeIn(100);
+$("#alert_respond").prepend("<%= j render partial: "layouts/flash_message" %>");
 $(".placesbody:last").prepend('<%= j render partial: "place",locals: {place:@place}%>');
 $(".place_<%=@place.id %>").hide().fadeIn(1000);

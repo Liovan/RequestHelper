@@ -1,4 +1,7 @@
 $("#NeedForm").modal("hide");
 $("#NeedForm form #name").val('');
+$("#alert_respond").text('').fadeOut(300).fadeIn(100);
+$("#alert_respond").prepend("<%= j render partial: "layouts/flash_message" %>");
+
 $("tbody").prepend("<%= j render partial: "needs/need",locals: {need:@need,feature:params[:feature_id]} %>");
 $("tbody .need_<%= @need.id %>").hide.fadeIn(800);

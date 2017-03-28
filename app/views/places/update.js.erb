@@ -1,5 +1,7 @@
 $(".place_<%=@place.id %>").fadeOut(500,function(){
   $(this).remove();
+  $("#alert_respond").text('').fadeOut(300).fadeIn(100);
+  $("#alert_respond").prepend("<%= j render partial: "layouts/flash_message" %>");
   $(".placesbody:last-child").prepend('<%= j render partial: "place",locals: {place:@place}%>');
 });
 $("#Placeform").modal("hide");
