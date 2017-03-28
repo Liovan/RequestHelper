@@ -3,7 +3,6 @@ class StaffsController < ApplicationController
   layout "staff/admin"
   def index
     @staffs=Staff.sorted
-
   end
 
   def new
@@ -13,12 +12,12 @@ class StaffsController < ApplicationController
   def create
     @staff=Staff.new(staff_params)
       respond_to do |format|
-        if  @staff.save
-          format.html{redirect_to staffs_path,flash[:success]="عملیات با موفقیت انجام شد"}
-          format.js
+        if @staff.save
+          format.html{redirect_to staffs_path,success:"عملیات با موفقیت انجام شد"}
+          format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
         else
           format.html{redirect_to staffs_path,warning:"متاسفانه عملیات با شکست مواجه شده است"}
-          format.js
+          format.js{flash.now[:warning]="متاسفانه عملیات با شکست مواجه شده است"}
         end
       end
   end
@@ -35,10 +34,10 @@ class StaffsController < ApplicationController
       respond_to do |format|
         if @staff.update_attributes(staff_params)
           format.html{redirect_to staffs_path,success:"ویرایش با موفقیت انجام شد"}
-          format.js
+          format.js{flash.now[:success]="ویرایش با موفقیت انجام شد"}
         else
           format.html{redirect_to staffs_path,warning:"متاسفانه عملیات ویرایش با موفقیت انجام نشد ، لطفاً با راهبر تماس گیرید"}
-          format.js
+          format.js{flash.now[:danger]="متاسفانه عملیات ویرایش با موفقیت انجام نشد ، لطفاً با راهبر تماس گیرید"}
         end
       end
     end
@@ -50,10 +49,10 @@ class StaffsController < ApplicationController
       respond_to do |format|
         if @staff.destroy
           format.html{redirect_to staffs_path,success:"حذف با موفقیت انجام شد"}
-          format.js
+          format.js{flash[:success]="حذف با موفقیت انجام شد"}
         else
           format.html{redirect_to staffs_path,warning:"متاسفانه عملیات حذف با موفقیت انجام نشد"}
-          format.js
+          format.js{flash[:warning]="متاسفانه عملیات حذف با موفقیت انجام نشد"}
         end
       end
     end

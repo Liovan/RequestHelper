@@ -23,15 +23,7 @@
     <%= render partial:"layouts/staff/header" %>
     <%= render partial:"layouts/staff/menu" %>
     <div class="content-wrapper">
-      <% if flash[:success].present? && !flash[:success].nil? %>
-          <div class="alert alert-success alert-dismissable fade in">
-            <p><%=flash[:success] %></p>
-          </div>
-      <%elsif flash[:warning].present? && !flash[:warning].nil? %>
-          <div class="alert alert-warning alert-dismissable fade in">
-            <p><%=flash[:warning] %></p>
-          </div>
-      <%end%>
+
       <%= yield %>  <!-- ***************** Main Content ***************** -->
 
       <div class="row" style="direction: ltr">
