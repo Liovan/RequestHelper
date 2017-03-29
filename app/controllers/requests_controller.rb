@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
   def create
     student=current_user
     feature=Feature.find(params[:feature_id])
-    first_confirm=get_module_routes[feature.id].first # get first value in module routes helper-]
+    first_confirm=get_module_routes(feature.id).first # get first value in module routes helper-]
     status=1
         if !feature.nil?
           valid=false
@@ -67,7 +67,7 @@ class RequestsController < ApplicationController
     req = Request.find(params[:id])
     mod = get_module_routes(req.feature_id)
     unless user_type==Staff && req.module_pointer == @current_user.place_id && req.status ==  1  #if you aren't staff user OR insufficient place OR request's status isnt 'in progress'
-      redirect_to redirect_to request.referer || requests_path,danger: "شما اجازه تغییر این درخواست را ندارید."
+       redirect_to request.referer || requests_path,danger: "شما اجازه تغییر این درخواست را ندارید."
       return;
     end
 
@@ -78,12 +78,14 @@ class RequestsController < ApplicationController
           req.module_pointer = mod[mod.index(req.module_pointer)+1] #Approve
           req.save
           refer = Refer.create(staff_id: @current_user.id, request_id: req.id) #Logging #TODO add message_id
-        else
-          Request.transaction do
-            req.status = 2 #Certificate
-            req.save
-            refer = Refer.create(staff_id: @current_user.id, request_id: req.id)#TODO add message_id
-        end
+          end
+      else
+            Request.transaction do
+              req.status = 2 #Certificate
+              req.save
+              refer = Refer.create(staff_id: @current_user.id, request_id: req.id)#TODO add message_id
+            end
+
       end
 
     when "Reject"
@@ -97,12 +99,12 @@ class RequestsController < ApplicationController
       #صدور گواهی
       #status -> certificated
       #refers
-    else
+    # else
       #ورودی_اشتباه
-    end
+    # end
     redirect_to request.referer || requests_path
   end
-
+end
   def destroy
   end
 
