@@ -1,16 +1,15 @@
 module StatusHelper
 
-  def get_module_routes  # [ 1(id module) => [id palces ] ]
-    {
-        1=>[2,3,5]
-    }
+  def get_module_routes(module_id)  # [ 1(id module) => [id palces ] ]
+      h = { 1=>[1,3,5] }
+      return h[module_id]
   end
   def get_message_status # status message for request
     {
         1=>'در حال بررسی',
-        2=>'تایید شد',
-        3=>'رد شد',
-        4=>'لغو شد'
+        2=>'تایید شده',
+        3=>'رد شده',
+        4=>'لغو شده'
     }
   end
   def get_field_student # Field of Study for student

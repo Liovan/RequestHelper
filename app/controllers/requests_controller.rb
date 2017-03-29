@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
 
   def index
     place=current_user.place
-    @requests=Request.place_related(place.id)
+    @requests=Request.active_place_related(place.id)
   end
 
   def new
@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
   def create
     student=current_user
     feature=Feature.find(params[:feature_id])
-    first_confirm=get_module_routes[feature.id].first # get first value in module routes helper
+    first_confirm=get_module_routes[feature.id].first # get first value in module routes helper-]
     status=1
         if !feature.nil?
           valid=false
@@ -34,7 +34,7 @@ class RequestsController < ApplicationController
                    # if it was valid go for save data
                 if valid==true
                   Request.transaction do
-                      if request=Request.create(student_id:student.id,feature_id:feature.id,status:status,module_pointer:first_confirm)
+                      if request=Request.create(student_id:student.id,feature_id:feature.id,status:status,module_pointer: first_confirm)
                           if ResultStudent.create(request_id:request.id,need_id:need.id,value:params[:"form_#{need.id}"])
                               redirect_to students_path,success:"در خواست شما با موفقیت ارسال شد"
                             else
@@ -64,18 +64,43 @@ class RequestsController < ApplicationController
   end
 
   def update
+    req = Request.find(params[:id])
+    mod = get_module_routes(req.feature_id)
+    unless user_type==Staff && req.module_pointer == @current_user.place_id && req.status ==  1  #if you aren't staff user OR insufficient place OR request's status isnt 'in progress'
+      redirect_to redirect_to request.referer || requests_path,danger: "شما اجازه تغییر این درخواست را ندارید."
+      return;
+    end
 
     case params[:type]
     when "Confirm"
-      #تایید
+      if mod.size > mod.index(req.module_pointer)
+        Request.transaction do
+          req.module_pointer = mod[mod.index(req.module_pointer)+1] #Approve
+          req.save
+          refer = Refer.create(staff_id: @current_user.id, request_id: req.id) #Logging #TODO add message_id
+        else
+          Request.transaction do
+            req.status = 2 #Certificate
+            req.save
+            refer = Refer.create(staff_id: @current_user.id, request_id: req.id)#TODO add message_id
+        end
+      end
+
     when "Reject"
-      #رد کردن
-    when "Certficate"
+      Request.transaction do
+        req.status = 3 #Rejected
+        req.save
+        refer = Refer.create(staff_id: @current_user.id, request_id: req.id)#TODO add message_id
+      end
+
+    when "Certificate"
       #صدور گواهی
+      #status -> certificated
+      #refers
     else
       #ورودی_اشتباه
     end
-
+    redirect_to request.referer || requests_path
   end
 
   def destroy
