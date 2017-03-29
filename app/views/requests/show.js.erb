@@ -1,0 +1,5 @@
+$("#DetailsRequest .modal-body").text('');
+$("#DetailsRequest .modal-title").text('');
+$("#DetailsRequest").modal("show");
+$("#DetailsRequest .modal-title").text( "<%=@request.student.f_name %>  <%=@request.student.l_name %> ");
+$("#DetailsRequest .modal-body").prepend("<%= j render partial: "requests/details",locals: {request:@request} %>");

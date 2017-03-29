@@ -7,7 +7,13 @@ class RequestsController < ApplicationController
     place=current_user.place
     @requests=Request.active_place_related(place.id)
   end
-
+  def show
+     @request=Request.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
   def new
   # @request=Request.new(request_params)
   end
@@ -29,7 +35,7 @@ class RequestsController < ApplicationController
                     when types_need.key("کارکتر")
                       params[:"form_#{need.id}"].match(/\A[اآبپتثئجچحخدذرزژسشصضطظعغفقکگلمنوهیءأؤّ\s]+\z/)!=nil ? valid=true : valid=false
                     when types_need.key("گزینه")
-                      params[:"form_#{need.id}"]==true || params[:"form_#{need.id}"]==false ? valid=true : valid=false
+                      params[:"form_#{need.id}"]==true || params[:"form_#{need.id}"]==false || params[:"form_#{need.id}"]==nil ? valid=true : valid=false
                   end
                    # if it was valid go for save data
                 if valid==true

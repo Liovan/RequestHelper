@@ -5,6 +5,12 @@
 <% stylesheet "admin/datatables/dataTables.bootstrap.min" %>
 <% script "$(document).ready(function(){$('#requests').DataTable({'language':lng_persian});})"%>
 <section class="content">
+  <section style="margin-bottom:4px">
+
+    <%= link_to  sessions_path,class:"btn btn-primary" do %>
+        <span class="fa fa-chevron-left" style="font-size: 20px"></span>
+    <%end%>
+  </section>
   <div class="box box-info">
     <div class="box-header with-border">
       <h3 class="box-title">درخواست دانشجو ها</h3>
@@ -20,8 +26,8 @@
           <th>نام</th>
           <th>نام خانوادگی</th>
           <th>کد دانشجویی</th>
-          <th>کد ملی</th>
           <th>رشته</th>
+          <th>جزئییات</th>
           <th>نوع درخواست</th> <!-- madule -->
           <th>عملیات</th>
         </tr>
@@ -35,3 +41,26 @@
     </div>
   </div>
 </section>
+
+
+
+<div id="DetailsRequest" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #00C0EF">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="color: #ffffff;font-family: web_Yekan"> student name </h4>
+      </div>
+      <div class="modal-body">
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">بستن</button>
+      </div>
+    </div>
+
+  </div>
+</div>
