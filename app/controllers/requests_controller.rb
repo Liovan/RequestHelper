@@ -85,7 +85,6 @@ class RequestsController < ApplicationController
               req.save
               refer = Refer.create(staff_id: @current_user.id, request_id: req.id)#TODO add message_id
             end
-
       end
 
     when "Reject"
@@ -99,12 +98,12 @@ class RequestsController < ApplicationController
       #صدور گواهی
       #status -> certificated
       #refers
-    # else
+    else
       #ورودی_اشتباه
-    # end
+    end
     redirect_to request.referer || requests_path
   end
-end
+
   def destroy
   end
 
