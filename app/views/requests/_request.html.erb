@@ -3,7 +3,7 @@
   <td><%= request.student.l_name %></td>
   <td><%= request.student.student_code %></td>
   <td><%= request.student.student_code %></td>
-  <td><%= get_field_student[request.student.field] %></td>
+  <td><%= get_field_student[request.student.field][:major] %></td>
   <td><%= request.feature.name %></td>
   <td>
     <%#= link_to request_path(id: request.id, type: "Certficate"), method: :put ,class:"btn btn-success" do %>

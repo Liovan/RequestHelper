@@ -14,11 +14,17 @@ module StatusHelper
   end
   def get_field_student # Field of Study for student
     {
-        1=>'نرم افزار کامپیوتر' ,
-        2=>'حسابداری',
-        3=>'ICT',
-        4=>'الکترونیک',
-        5=> 'IT'
+        1=>{ :major => 'نرم افزار/کامپیوتر', :grade => 'کاردانی'},
+        2=>{ :major => 'حسابداری', :grade => 'کاردانی'},
+        3=>{ :major => 'ICT', :grade => 'کاردانی'},
+        4=>{ :major => 'الکترونیک', :grade => 'کاردانی'},
+        5=> { :major => 'IT', :grade => 'کاردانی'},
+
+        11=>{ :major => 'نرم افزار/کامپیوتر', :grade => 'کارشناسی'},
+        12=>{ :major => 'حسابداری', :grade => 'کارشناسی'},
+        13=>{ :major => 'ICT', :grade => 'کارشناسی'},
+        14=>{ :major => 'الکترونیک', :grade => 'کارشناسی'},
+        15=> { :major => 'IT', :grade => 'کارشناسی'}
     }
   end
   def types_need # for  type input field for needs
