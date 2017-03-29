@@ -7,7 +7,7 @@
       <% request.result_students.each do |result| %>
       <td><%=
         if need.input_type==3
-        result.value==nil ?  "خیر" : "بله"
+        result.value=='f' ?  "خیر" : "بله"
           else
             result.value
          end
