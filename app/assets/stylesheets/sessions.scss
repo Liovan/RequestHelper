@@ -1,10 +1,13 @@
 
 body{
-  background:#97a4a5;
+  background:url("back-login.jpg");
+  background-size: cover ;
+  background-repeat: no-repeat;
+
 }
 .indicator{
-  background-color: #f9324a !important ;
-  padding: 1px;
+  background-color: #757575 !important ;
+  padding: 2px;
 }
 
 .input-field input[type=date]:focus + label,

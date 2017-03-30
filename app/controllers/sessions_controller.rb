@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
 
   def create
     #Type of user
+
     if params[:session][:type] == nil
       user = Student.find_by(student_code: params[:session][:student_code])
     else
@@ -19,8 +20,15 @@ class SessionsController < ApplicationController
     end
 
     if user && user.authenticate(params[:session][:password])
+      user.last_login_date=Time.now
+      if !user.save
+        flash[:danger]  = "عملیات ناموفق بود لطفاً مجدداً تلاش کنید"
+        redirect_to new_session_path
+        return false
+      end
       #log_in(staff)  check session helper
       log_in user
+
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       if user_type==Student
         redirect_to students_path

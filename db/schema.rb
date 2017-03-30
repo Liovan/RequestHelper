@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311102543) do
+ActiveRecord::Schema.define(version: 20170330115033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20170311102543) do
     t.datetime "updated_at",                  null: false
     t.string   "username",                    null: false
     t.string   "remember_digest"
-    t.datetime "last_login"
+    t.datetime "last_login_date"
     t.string   "password_digest", limit: 255
     t.index ["place_id"], name: "index_staffs_on_place_id", using: :btree
     t.index ["username"], name: "index_staffs_on_username", unique: true, using: :btree
