@@ -13,7 +13,7 @@ class NeedsController < ApplicationController
       if params[:feature_id].present?
         @feature=Feature.find(params[:feature_id])
         @need=Need.new
-        @types_need=types_need
+        @requirement_types=requirement_types
         respond_to do |format|
           format.html
           format.js
@@ -40,7 +40,7 @@ class NeedsController < ApplicationController
     if params[:feature_id].present?
       @feature=Feature.find(params[:feature_id])
       @need=Need.find(params[:id])
-      @types_need=types_need
+      @requirement_types=requirement_types
     end
   end
 

@@ -2,7 +2,7 @@
   <td><%= request.student.f_name %></td>
   <td><%= request.student.l_name %></td>
   <td><%= request.student.student_code %></td>
-  <td><%= get_field_student[request.student.field][:major] %></td>
+  <td><%= field_of_study[request.student.field][:major] %></td>
   <td><%= link_to "جزئییات",request_path(request.id),remote:true,class:"btn btn-xs btn-warning"%></td>
   <td><%= request.feature.name %></td>
   <td>
