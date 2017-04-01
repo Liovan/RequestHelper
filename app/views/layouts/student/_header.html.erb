@@ -3,14 +3,16 @@
     <nav class="blue darken-4">
       <div class="nav-wrapper">
 
-        <a href="#" data-activates="slide-out" class="button-collapse right">
-          <i class="material-icons">menu</i>
-        </a>
+
+          <%= link_to "","data-activates":"slide-out",class:"button-collapse right" do %>
+              <i class="material-icons">menu</i>
+          <%end%>
+
+
         <ul id="dropdown-profile" class="dropdown-content">
-          <!--<li><a href="#!">پروفایل</a></li>-->
+          <li><a href="#!">پروفایل</a></li>
           <li>
             <%= link_to "خروج",logout_path,method: :delete %>
-
           </li>
         </ul>
         <ul id="nav-mobile" class="hide-on-med-and-down right" style="margin-right: 10px">
@@ -35,19 +37,30 @@
               <!--<img src="images/slidenav.PNG" width="100%" height="100%">-->
               <%= image_tag "slidenav.png" %>
             </div>
-            <a href="#!user">
+            <div>
               <%= image_tag "user.png",class: "circle" %>
-            </a>
-            <a href="#!name"><span class="white-text name">مهدی علیزاده</span></a>
+              <span class="white-text name" style="text-align: right"><%= current_user.l_name%></span>
+            </div>
+
           </div>
           </li>
-          <li><a href="sass.html" class="right-align">صفحه اصلی<i class="material-icons ">chrome_reader_mode</i></a></li>
-          <li><a href="badges.html" class="right-align">وضعیت درخواست ها
-            <i class="material-icons ">offline_pin</i>
-          </a>
+          <li>
+            <%= link_to students_path,class:"right-align" do %>
+              <span>صفحه اصلی</span>
+              <i class="material-icons ">chrome_reader_mode</i>
+            <%end%>
           </li>
-          <li dir="rtl"><a href="collapsible.html" class="right-align">پروفایل<i class="material-icons ">person</i></a></li>
-          <li dir="rtl"><a href="collapsible.html" class="right-align">خروج<i class="material-icons">exit_to_app</i></a></li>
+          <li>
+            <%= link_to request_students_path,class:"right-align" do %>
+              <span>وضعیت درخواست ها</span>
+            <i class="material-icons ">offline_pin</i>
+            <%end%>
+          </li>
+          <li dir="rtl">
+            <%= link_to logout_path,class:"right-align" do %>
+              <span>خروج</span><i class="material-icons">exit_to_app</i>
+            <%end%>
+          </li>
 
 
         </ul>

@@ -1,11 +1,39 @@
+<% title 'وضعیت درخواست ها' %>
+<% stylesheet "request_students" %>
+<% javascript "admin/datatables/jquery.dataTables.min" %>
+<div style="background-color: #ffffff;">
+  <table id="requests" class="highlight centered responsive-table"  border="1" style="direction: rtl">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>نوع درخواست</th>
+      <th>تاریخ ارسال درخواست</th>
 
-<ul class="collapsible" data-collapsible="accordion">
-  <li>
-    <div class="collapsible-header"><span class="new badge">4</span><i class="material-icons">filter_drama</i>First</div>
-    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-  </li>
-  <li>
-    <div class="collapsible-header"><span class="badge">1</span><i class="material-icons">place</i>Second</div>
-    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-  </li>
-</ul>
+      <th>وضعیت</th>
+      <th>عملیات</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @requests.each do |req| %>
+      <tr>
+        <td><%=req.id+12  %></td>
+        <td><%= req.feature.name %></td>
+        <td><%= req.created_at.to_date.to_parsi.strftime "%A/%d/%B %Y" %></td>
+
+        <td>
+          <% case req.status %>
+            <% when 1 %>
+          <span class="badge cyan darken-1 white-text" style="margin-right: 45%">در حال بررسی</span>
+            <% when 2 %>
+              <span class="badge green white-text" style="margin-right: 45%">تایید شده</span>
+          <% when 3 %>
+              <span class="badge red darken-1 white-text" style="margin-right: 45%">رد شده</span>
+          <% when 4 %>
+              <span class="badge  amber white-text" style="margin-right: 45%">لغو شده</span>
+          <%end%>
+        </td>
+        <td><a href="" class="btn btn-wave">پیغام</a> </td>
+      </tr>
+        <%end%>
+  </table>
+</div>

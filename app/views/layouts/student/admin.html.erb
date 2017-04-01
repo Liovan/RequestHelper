@@ -8,8 +8,10 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= stylesheet_link_tag  "student/materialize",'data-turbolinks-track': 'reload'  %>
   <%= stylesheet_link_tag  "students.css",'data-turbolinks-track': 'reload'  %>
+  <%= yield :stylesheet %>
   <%= javascript_include_tag "application",'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag "student/materialize.min",'data-turbolinks-track': 'reload' %>
+  <%= yield :javascript %>
 </head>
 <body>
 <%= render partial:"layouts/student/header" %>
@@ -18,5 +20,6 @@
 </div>
 <%= render partial:"layouts/student/footer" %>
 <%= yield :script_end_page %>
+
 </body>
 </html>

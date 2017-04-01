@@ -1,7 +1,6 @@
 module ApplicationHelper
-
   #sets Global app's name
-	$APP_NAME = "پایش درخواست ها"
+	$APP_NAME = " پایش درخواست ها"
 
   #return full title
 
