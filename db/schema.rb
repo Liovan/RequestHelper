@@ -21,13 +21,6 @@ ActiveRecord::Schema.define(version: 20170330115033) do
     t.datetime "updated_at",            null: false
   end
 
-  create_table "features_places", id: false, force: :cascade do |t|
-    t.integer "place_id"
-    t.integer "feature_id"
-    t.index ["feature_id"], name: "index_features_places_on_feature_id", using: :btree
-    t.index ["place_id"], name: "index_features_places_on_place_id", using: :btree
-  end
-
   create_table "messages", force: :cascade do |t|
     t.text     "text",       null: false
     t.datetime "created_at", null: false
@@ -36,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170330115033) do
 
   create_table "needs", force: :cascade do |t|
     t.string  "name"
-    t.boolean "input_type"
+    t.integer "input_type", limit: 2
     t.integer "feature_id"
     t.index ["feature_id"], name: "index_needs_on_feature_id", using: :btree
   end
@@ -85,10 +78,10 @@ ActiveRecord::Schema.define(version: 20170330115033) do
     t.integer  "place_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.datetime "last_login_date"
-    t.string   "password_digest", limit: 255
     t.string   "username",                    null: false
     t.string   "remember_digest"
+    t.datetime "last_login_date"
+    t.string   "password_digest", limit: 255
     t.index ["place_id"], name: "index_staffs_on_place_id", using: :btree
     t.index ["username"], name: "index_staffs_on_username", unique: true, using: :btree
   end
@@ -112,8 +105,6 @@ ActiveRecord::Schema.define(version: 20170330115033) do
     t.index ["student_code"], name: "index_students_on_student_code", unique: true, using: :btree
   end
 
-  add_foreign_key "features_places", "features"
-  add_foreign_key "features_places", "places"
   add_foreign_key "needs", "features"
   add_foreign_key "refers", "messages"
   add_foreign_key "refers", "requests"

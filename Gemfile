@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 
 gem 'parsi-date', '~> 0.3.1' # for convert miladi to shamsi date
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

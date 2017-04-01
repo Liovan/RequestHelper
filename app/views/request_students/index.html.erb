@@ -1,4 +1,5 @@
 <% title 'وضعیت درخواست ها' %>
+
 <% stylesheet "request_students" %>
 <% javascript "admin/datatables/jquery.dataTables.min" %>
 <div style="background-color: #ffffff;">
@@ -18,8 +19,7 @@
       <tr>
         <td><%=req.id+12  %></td>
         <td><%= req.feature.name %></td>
-        <td><%= req.created_at.to_date.to_parsi.strftime "%A/%d/%B %Y" %></td>
-
+        <td><%= req.created_at.to_date.to_parsi.strftime "%A/%d/%B/%Y" %></td>
         <td>
           <% case req.status %>
             <% when 1 %>
@@ -36,4 +36,7 @@
       </tr>
         <%end%>
   </table>
+  <div class="apple_pagination">
+    <%= will_paginate @requests, previous_label:t("قبلی"), next_label: t("بعدی") %>
+  </div>
 </div>
