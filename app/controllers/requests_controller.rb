@@ -30,17 +30,17 @@ class RequestsController < ApplicationController
 
             if !params[:"form_#{need.id}"].present? && need.input_type==3 || params[:"form_#{need.id}"].present? && need.input_type!=3
                 # validation for dynamic result student
-                # types_need => 1: number , 2: character , 3: check box (true ot false)
+                # requirement_types => 1: number , 2: character , 3: check box (true ot false)
               unless params[:"form_#{need.id}"].present?
                 params[:"form_#{need.id}"]=false
               end
 
                   case need.input_type
-                    when types_need.key("عدد")
+                    when requirement_types.key("عدد")
                       params[:"form_#{need.id}"].match(/\A[+-]?\d+?(\.\d+)?\Z/)!=nil ? valid=true : valid=false
-                    when types_need.key("کارکتر")
+                    when requirement_types.key("کارکتر")
                       params[:"form_#{need.id}"].match(/\A[اآبپتثئجچحخدذرزژسشصضطظعغفقکگلمنوهیءأؤّ\s]+\z/)!=nil ? valid=true : valid=false
-                    when types_need.key("گزینه")
+                    when requirement_types.key("گزینه")
                       params[:"form_#{need.id}"]==true || params[:"form_#{need.id}"]==false ? valid=true : valid=false
                   end
 

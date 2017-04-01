@@ -1,6 +1,6 @@
 <tr class="need_<%= need.id %>">
   <td class="name"><%= need.name %></td>
-  <td class="type"><%= types_need[need.input_type] %></td>
+  <td class="type"><%= requirement_types[need.input_type] %></td>
   <td>
     <%= link_to  edit_feature_need_path(feature,need.id),class:"btn btn-warning btn-sm",remote:true do %>
         <span class="fa fa-pencil-square-o" style="font-size: 18px"></span>

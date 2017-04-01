@@ -12,7 +12,7 @@ module StatusHelper
         4=>'لغو شده'
     }
   end
-  def get_field_student # Field of Study for student
+  def field_of_study # Field of Study for student
     {
         1=>{ :major => 'نرم افزار/کامپیوتر', :grade => 'کاردانی'},
         2=>{ :major => 'حسابداری', :grade => 'کاردانی'},
@@ -27,7 +27,7 @@ module StatusHelper
         15=>{ :major => 'IT', :grade => 'کارشناسی'}
     }
   end
-  def types_need # for  type input field for needs
+  def requirement_types # for  type input field for needs
     {
         1=>'عدد',
         2=>'کارکتر',
