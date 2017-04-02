@@ -3,13 +3,14 @@
   <td class="l_name"><%= staff.l_name %></td>
   <td class="place_name"><%= staff.place.name %></td>
   <td class="username"><%= staff.username %></td>
-  <td><%= staff.last_login %></td>
+  <td><%= time_ago_in_words(staff.last_login_date, include_seconds: true)%></td>
   <td>
     <%= link_to  edit_staff_path(staff),class:"btn btn-warning btn-sm",remote:true do %>
         <span class="fa fa-pencil-square-o" style="font-size: 18px"></span>
     <%end%>
     <%= link_to  staff,method: :delete,data:{confirm:"مطمئن هستید که میخواهید پاک کنید ؟"},class:"btn btn-danger btn-sm",remote:true  do %>
         <span class="fa fa-times" style="font-size: 18px"></span>
+
     <%end%>
   </td>
 </tr>

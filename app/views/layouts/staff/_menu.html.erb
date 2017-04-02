@@ -8,18 +8,21 @@
       </div>
       <div class="pull-left info">
         <p><%= "#{current_user.f_name} #{current_user.l_name}" if present? %></p>
-        <a href="#"><i class="fa fa-circle text-success"></i> آنلاین</a>
+        <span style="font-size: 10px"><i class="fa fa-circle text-success"></i>
+        <span>آخرین ورود:</span>
+          <span><%= time_ago_in_words(current_user.last_login_date)%></span>
+        </span>
       </div>
     </div>
 
     <ul class="sidebar-menu">
-      <li class="header">ناوبری اصلی</li>
-      <li class="active treeview">
+      <li class="header">فهرست اصلی</li>
+      <li class="treeview">
         <a href="#">
           <i class="fa fa-users"></i> <span> مدیریت کارمندان</span> <i class="fa fa-angle-left pull-left"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="active"><a href="<%= staffs_path %>"><i class="fa fa-toggle-left"></i>  کارمندان</a></li>
+          <li><a href="<%= staffs_path %>"><i class="fa fa-toggle-left"></i>  کارمندان</a></li>
           <li><a href="<%= places_path %>"><i class="fa fa-toggle-left"></i>  سمت</a></li>
         </ul>
       </li>

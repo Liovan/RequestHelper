@@ -3,34 +3,31 @@
     <nav class="blue darken-4">
       <div class="nav-wrapper">
 
-
           <%= link_to "","data-activates":"slide-out",class:"button-collapse right" do %>
               <i class="material-icons">menu</i>
           <%end%>
-
-
-        <ul id="dropdown-profile" class="dropdown-content">
-          <li><a href="#!">پروفایل</a></li>
+        <ul id="nav-mobile" class="hide-on-med-and-down right" >
           <li>
-            <%= link_to "خروج",logout_path,method: :delete %>
+            <%= link_to logout_path,method: :delete do %>
+                <span>خروج</span>
+                <i class="material-icons right">exit_to_app</i>
+            <%end%>
           </li>
-        </ul>
-        <ul id="nav-mobile" class="hide-on-med-and-down right" style="margin-right: 10px">
-          <li><a class="dropdown-button" href="#!" data-activates="dropdown-profile"><span class="material-icons">arrow_drop_down</span>پروفایل<i class="material-icons right">person</i></a></li>
-          <li><a href="badges.html"> وضعیت درخواست ها
+          <li><a href="<%= request_students_path %>"> وضعیت درخواست ها
             <i class="material-icons right">offline_pin</i>
           </a>
           </li>
-          <li><a href="sass.html">صفحه اصلی<i class="material-icons right">chrome_reader_mode</i></a></li>
+          <li><a href="<%= students_path %>">صفحه اصلی<i class="material-icons right">chrome_reader_mode</i></a></li>
           <li style="border-left: 2px solid #FFFFFF;padding: 0px 5px 0px 5px ">
             <span style="color: #ffdc1f">سامانه <%= $APP_NAME %></span>
           </li>
-          <li>
-             <span class="text-center">
-              <%= image_tag "logo-without-text.png",size: "50x50",style: "margin-top:10px" %>
-            </span>
-          </li>
+
         </ul>
+
+
+
+        <!-- for mini display -->
+
         <ul id="slide-out" class="side-nav">
           <li><div class="userView">
             <div class="background">
@@ -64,6 +61,10 @@
 
 
         </ul>
+
+
+
+
       </div>
     </nav>
   </div>

@@ -4,7 +4,7 @@
 <% javascript "validator/validator.min" %>
 <% stylesheet "admin/datatables/dataTables.bootstrap.min" %>
 <% script "$(document).ready(function(){$('#staff').DataTable({'language':lng_persian});});$('#StaffForm').validator();" %>
-
+<% I18n.locale = :fa %>
 
 <section class="content">
   <section style="margin-bottom:4px">
@@ -12,12 +12,13 @@
      <span class="fa fa-user-plus" style="font-size: 20px"></span>
   <%end%>
     <%= link_to  sessions_path,class:"btn btn-primary" do %>
-        <span class="fa fa-user-plus" style="font-size: 20px"></span>
+        <span class="fa fa-chevron-left" style="font-size: 20px"></span>
     <%end%>
   </section>
 <div class="box box-warning">
   <div class="box-header with-border">
-    <h3 class="box-title">مشخصات کارمندان</h3>
+    <h3 class="box-title">
+      مشخصات کارمندان</h3>
     <div class="box-tools pull-right">
       <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
     </div>
