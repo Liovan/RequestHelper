@@ -38,7 +38,9 @@
       </thead>
       <tbody>
       <% @staffs.each do |staff| %>
+        <%  unless staff.place==nil %>
         <%= render partial: "staffs/staff",locals:{staff:staff} %>
+        <%end%>
       <%end%>
       </tbody>
     </table>
