@@ -1,7 +1,7 @@
 module StatusHelper
 
   def get_module_routes(module_id)  # input module_id and Return array for  module id
-      h = { 1=>[2],2=>[2] }
+      h = { 1=>[1, 2],2=>[2] }
       return h[module_id]
   end
   def get_message_status # status message for request
