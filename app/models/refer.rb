@@ -1,5 +1,5 @@
 class Refer < ApplicationRecord
   has_many :staffs
-  has_many :messages
+  belongs_to :message
   has_many :requests
 end

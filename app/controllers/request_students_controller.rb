@@ -7,5 +7,8 @@ class RequestStudentsController < ApplicationController
   end
 
   def show
+    if params[:id].present?
+      @request=Request.find(params[:id])
+    end
   end
 end

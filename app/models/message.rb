@@ -1,4 +1,4 @@
 class Message < ApplicationRecord
-  belongs_to :refer
+  has_many :refers
   validates :text,presence: true
 end

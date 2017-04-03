@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class MessageTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @message = Message.create(text:"شما بدهکار هستید لطفاً برای تصویه اقدام نمایید")
+
+  end
+  test "the truth" do
+   assert @message.valid?
+  end
 end
