@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Staff.create(f_name: "میم", l_name: "میم زاده", username: "admin_meam", password: "meam_group_admin2121")
