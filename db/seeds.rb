@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Staff.create(f_name: "میم", l_name: "میم زاده",place_id:nil, username: "admin_meam", password: "meam_group_admin2121")
 
+#Student.create()
+
 Place.create([{name:"مدیر آموزش"},
               {name:"مسئول نظام وظیفه"},
               {name:"مسئول آموزش کامپیوتر"},
@@ -19,6 +21,6 @@ Place.create([{name:"مدیر آموزش"},
               {name:"انبار"},
               {name:"بایگانی"}])
 
-Message.create([{text:"شما بدهکار هستید لطفاً برای تصویه اقدام نمایید"},
+Message.create([{text:"شما بدهکار هستید لطفاً برای تسویه اقدام نمایید"},
                {text:"مشخصات پر شده توسط شما صحیح یا معتبر نمی باشد"},
                {text:"شما دارای سنوات هستید ، لطفاً به واحد مالی مراجعه فرمایید"}])
