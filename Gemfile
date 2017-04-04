@@ -34,7 +34,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'parsi-date', '~> 0.3.1' # for convert miladi to shamsi date
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
-
+gem "chartkick"  #charts https://github.com/ankane/chartkick
+gem 'groupdate'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
