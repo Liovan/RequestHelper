@@ -1,13 +1,13 @@
-<% if flash[:success].present? && !flash[:success].nil? %>
+<% if flash.now[:success].present? && !flash.now[:success].nil? %>
     <div class="alert alert-success alert-dismissable fade in">
-      <p><%=flash[:success] %></p>
+      <p><%=flash.now[:success] %></p>
     </div>
-<%elsif flash[:danger].present? && !flash[:danger].nil? %>
+<%elsif flash.now[:danger].present? && !flash.now[:danger].nil? %>
     <div class="alert alert-danger alert-dismissable fade in">
-      <p><%=flash[:danger] %></p>
+      <p><%=flash.now[:danger] %></p>
     </div>
-<%elsif flash[:warning].present? &&  !flash[:warning].nil? %>
+<%elsif flash.now[:warning].present? &&  !flash.now[:warning].nil? %>
     <div class="alert alert-warning alert-dismissable fade in">
-      <p><%=flash[:warning] %></p>
+      <p><%=flash.now[:warning] %></p>
     </div>
 <%end%>

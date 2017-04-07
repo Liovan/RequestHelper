@@ -7,17 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Staff.create(f_name: "میم", l_name: "میم زاده",place_id:nil, username: "admin_meam", password: "meam_group_admin2121")
 
-Place.create([{name:"مدیر آموزش"},
-              {name:"مسئول نظام وظیفه"},
-              {name:"مسئول آموزش کامپیوتر"},
-              {name:"مسئول آموزش الکترونیک"},
-              {name:"مسئول آموزش حسابداری"},
-              {name:"ریاست"},
-              {name:"امور مالی"},
-              {name:"دبیرخانه"},
-              {name:"انبار داری"},
-              {name:"انبار"},
-              {name:"بایگانی"}])
+Place.create([{id:1,name:"مدیر آموزش"},
+              {id:2,name:"مسئول نظام وظیفه"},
+              {id:3,name:"مسئول آموزش کامپیوتر"},
+              {id:4,name:"مسئول آموزش الکترونیک"},
+              {id:5,name:"مسئول آموزش حسابداری"},
+              {id:6,name:"ریاست"},
+              {id:7,name:"امور مالی"},
+              {id:8,name:"دبیرخانه"},
+              {id:9,name:"انبار داری"},
+              {id:10,name:"انبار"},
+              {id:11,name:"بایگانی"}])
+
+Feature.create(id:1,name:"اشتغال به تحصیل")
+
 
 Message.create([{text:"شما بدهکار هستید لطفاً برای تصویه اقدام نمایید"},
                {text:"مشخصات پر شده توسط شما صحیح یا معتبر نمی باشد"},

@@ -1,0 +1,4 @@
+$("#alert_respond").text('');
+$("#count_batch").hide(100).fadeIn(800).text('0');
+var el='<div class="alert alert-success alert-dismissable fade in"><p><%=flash[:success] %></p></div>';
+$("#alert_respond").append(el);

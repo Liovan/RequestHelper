@@ -2,7 +2,9 @@
 <% javascript "admin/datatables/jquery.dataTables.min" %>
 <% javascript "admin/datatables/dataTables.bootstrap.min" %>
 <% javascript "validator/validator.min" %>
+<% javascript "requests" %>
 <% stylesheet "admin/datatables/dataTables.bootstrap.min" %>
+<% stylesheet "requests" %>
 <% script "$(document).ready(function(){$('#requests').DataTable({'language':lng_persian});})"%>
 <section class="content">
   <section style="margin-bottom:4px">
@@ -10,6 +12,7 @@
     <%= link_to  sessions_path,class:"btn btn-primary" do %>
         <span class="fa fa-chevron-left" style="font-size: 20px"></span>
     <%end%>
+
   </section>
   <div class="box box-info">
     <div class="box-header with-border">
@@ -20,6 +23,33 @@
     </div>
 
     <div class="box-body" style="overflow-x: auto">
+      <div id="alert_respond"></div>
+      <section>
+        <div class="col-lg-12">
+            <div class="bacth_print col-lg-4" style="">
+              <i class="glyphicon glyphicon-print"></i>
+              <span>لیست چاپی <strong> : </strong></span>
+              <span id="count_batch"> <%=@batch.count%> </span>
+                <a class="btn btn-primary pull-left" href="<%= batch_print_requests_path %>" target="_blank" title="چاپ لیست"><i class="fa fa-print" ></i></a>
+
+
+              <%= link_to batch_pdf_requests_path(format:"pdf"),target:"_blank",class:"btn btn-primary pull-left",title:"دریافت نسخه pdf از لیست" do%>
+                  <i class="fa fa-file-pdf-o"></i>
+              <%end%>
+
+              <%= link_to request_path(id:-1,type: "Confirm"),method: :put,class:"btn btn-success pull-left",title:"تایید لیست درخواست" do%>
+                  <i class="fa fa-check-square-o fa-lg"></i>
+              <%end%>
+
+              <%= link_to delete_batch_requests_path,remote:true,method: :delete,class:"btn btn-danger pull-left",title:"پاک کردن تمامی درخواست ها از لیست چاپ" do%>
+                  <i class="fa fa-trash-o"></i>
+             <%end%>
+
+            </div>
+
+        </div>
+      </section>
+
       <table id="requests" class="table table-striped table-bordered table-responsive table-hover" border="1">
         <thead>
         <tr>

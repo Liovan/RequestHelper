@@ -4,8 +4,11 @@ class RequestsController < ApplicationController
   layout "staff/admin"
 
   def index
+# clear_batch
     place=current_user.place
     @requests=Request.active_place_related(place.id)
+    @batch=get_batch
+
   end
   def show
      @request=Request.find(params[:id])
@@ -79,42 +82,41 @@ class RequestsController < ApplicationController
   end
 
   def update
-    req = Request.find(params[:id])
-    mod = get_module_routes(req.feature_id)
-    unless user_type==Staff && req.module_pointer == @current_user.place_id && req.status ==  1  #if you aren't staff user OR insufficient place OR request's status isnt 'in progress'
-       redirect_to request.referer || requests_path,danger: "شما اجازه تغییر این درخواست را ندارید."
-      return;
-    end
+
+    req = Request.find(params[:id]) unless params[:id]=='-1'    # param[:id] : -1=> Confirm for all requests
+
+    # unless user_type==Staff && req.module_pointer == @current_user.place_id && req.status ==  1  #if you aren't staff user OR insufficient place OR request's status isnt 'in progress'
+    #    redirect_to request.referer || requests_path,danger: "شما اجازه تغییر این درخواست را ندارید."
+    #   return
+    # end
 
     case params[:type]
-    when "Confirm"
-      if mod.size > mod.index(req.module_pointer)
-        Request.transaction do
-          req.module_pointer = mod[mod.index(req.module_pointer)+1] #Approve
-          req.save
-          refer = Refer.create(staff_id: @current_user.id, request_id: req.id) #Logging #TODO add message_id
-          end
-      else
+      when "Confirm"
+        get_requests_batch.each do |rq|
+          mod = get_module_routes(rq.feature_id)
+          if mod.size > mod.index(rq.module_pointer)+1
+
             Request.transaction do
-              req.status = 2 #Certificate
-              req.save
-              refer = Refer.create(staff_id: @current_user.id, request_id: req.id)#TODO add message_id
-            end
-      end
+              rq.module_pointer = mod[mod.index(rq.module_pointer)+1] #Approve
+              rq.save
+               Refer.create(staff_id: current_user.id, request_id: rq.id) #Logging #TODO add message_id
+              end
+          else
+                Request.transaction do
+                  rq.status = 2 #Certificate
+                  rq.save
+                   Refer.create(staff_id:current_user.id, request_id: rq.id)#TODO add message_id
+                end
+          end
+        end
 
     when "Reject"
       Request.transaction do
         req.status = 3 #Rejected
         req.save
-        refer = Refer.create(staff_id: @current_user.id, request_id: req.id)#TODO add message_id
+        Refer.create(staff_id: current_user.id, request_id: req.id)#TODO add message_id
       end
 
-    when "Certificate"
-      #صدور گواهی
-      #status -> certificated
-      #refers
-    else
-      #ورودی_اشتباه
     end
     redirect_to request.referer || requests_path
   end
@@ -122,9 +124,94 @@ class RequestsController < ApplicationController
   def destroy
   end
 
+
+  def batch_pdf
+
+
+    # respond_to do |format|   buggy
+    #   format.html
+    #   format.pdf do
+    #     render :pdf => "invoice"
+    #     # render pdf:"asa",template:"forms/index.html.erb", :formats => [:html], :locals => { :forms=>requests }
+    #     # render pdf: "file_name"   # Excluding ".pdf" extension.
+    #   end
+    # end
+
+  end
+
+  def batch_print
+
+  render "forms/index",layout: "form/index",locals: {forms:get_requests_batch}
+
+  end
+
+  def batch
+    if params[:id].present?
+      respond_to do |format|
+          unless has_batch?(params[:id])
+             add_batch(params[:id])
+             @batch=get_batch
+             format.js{flash.now[:success]="درخواست با موفقیت در لیست چاپی قرار گرفت"}
+          else
+            @batch=get_batch
+            format.js{flash.now[:warning]="این درخواست در لیست قبلاً قرار داده شده"}
+          end
+        end
+    end
+  end
+
+  def delete_batch
+    clear_batch # clear session batch print
+      respond_to do |format|
+        format.js{flash.now[:success]="لیست چاپی با موفقیت پاک شد"}
+      end
+  end
+
+
   private
   def request_params
     params.require(:request).permit(:feature_id)
   end
+
+
+  # Function for batch print and confirm
+
+  def get_requests_batch # return requests as type active record into batch
+    Request.find_by_array(get_batch).to_a
+  end
+
+  def batch_nil?
+    cookies[:batch_print].nil? || cookies[:batch_print].blank?
+  end
+
+  def get_batch
+    unless batch_nil?
+      cookies[:batch_print].split('&')
+    else
+      return []
+    end
+  end
+
+  def has_batch?(parameter)
+    get_batch.include?(parameter)
+  end
+
+  def add_batch(parameter)
+    return false if parameter.nil?
+    unless batch_nil?
+      # nilnist
+      cookies[:batch_print] += "&#{parameter}"
+    else
+      # nile
+      cookies[:batch_print]=parameter
+    end
+  end
+
+  def clear_batch
+   cookies.delete(:batch_print) unless batch_nil?
+  end
+
+
+
 
 end

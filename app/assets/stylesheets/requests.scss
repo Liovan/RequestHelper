@@ -1,3 +1,15 @@
 // Place all the styles related to the Requests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.bacth_print{
+  background-color: #363636;
+  color: white;
+  height: 15%;
+  border-radius: 30px 5px 5px 30px ;
+  padding: 5px;
+  margin: 2px 5px 15px 5px;
+}
+.bacth_print a{
+  margin: 1px 3px 1px 3px ;
+  border-radius: 30px;
+}

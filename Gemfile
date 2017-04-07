@@ -34,8 +34,10 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'parsi-date', '~> 0.3.1' # for convert miladi to shamsi date
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
-
-
+# gem 'wicked_pdf'
+# gem 'wkhtmltopdf-binary', '~> 0.9.9.3'
+gem 'wicked_pdf', '~> 1.1'
+gem 'wkhtmltopdf-binary', '~> 0.12.3.1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
