@@ -83,7 +83,7 @@ class RequestsController < ApplicationController
 
   def update
 
-    req = Request.find(params[:id]) unless params[:id]=='-1'    # param[:id] : -1=> Confirm for all requests
+
 
     # unless user_type==Staff && req.module_pointer == @current_user.place_id && req.status ==  1  #if you aren't staff user OR insufficient place OR request's status isnt 'in progress'
     #    redirect_to request.referer || requests_path,danger: "شما اجازه تغییر این درخواست را ندارید."
@@ -92,23 +92,47 @@ class RequestsController < ApplicationController
 
     case params[:type]
       when "Confirm"
-        get_requests_batch.each do |rq|
-          mod = get_module_routes(rq.feature_id)
-          if mod.size > mod.index(rq.module_pointer)+1
-
+        
+        unless params[:id]=='-1'     # param[:id] != -1 => Confirm for one requests ( staffs unless staff.last)
+          req = Request.find(params[:id])
+          mod = get_module_routes(req.feature_id)
+          if mod.size > mod.index(req.module_pointer)+1
             Request.transaction do
-              rq.module_pointer = mod[mod.index(rq.module_pointer)+1] #Approve
-              rq.save
-               Refer.create(staff_id: current_user.id, request_id: rq.id) #Logging #TODO add message_id
-              end
+              req.module_pointer = mod[mod.index(req.module_pointer)+1] #Approve
+              req.save
+              Refer.create(staff_id: current_user.id, request_id: req.id) #Logging #TODO add message_id
+            end
           else
-                Request.transaction do
-                  rq.status = 2 #Certificate
-                  rq.save
-                   Refer.create(staff_id:current_user.id, request_id: rq.id)#TODO add message_id
-                end
+            Request.transaction do
+              req.status = 2 #Certificate
+              req.save
+              Refer.create(staff_id:current_user.id, request_id: req.id)#TODO add message_id
+            end
+          end
+          
+        else  # param[:id] : -1=> Confirm for all requests
+          
+          get_requests_batch.each do |rq|
+            mod = get_module_routes(rq.feature_id)
+            if mod.size > mod.index(rq.module_pointer)+1
+
+              Request.transaction do
+                rq.module_pointer = mod[mod.index(rq.module_pointer)+1] #Approve
+                rq.save
+                Refer.create(staff_id: current_user.id, request_id: rq.id) #Logging #TODO add message_id
+              end
+            else
+              Request.transaction do
+                rq.status = 2 #Certificate
+                rq.save
+                Refer.create(staff_id:current_user.id, request_id: rq.id)#TODO add message_id
+              end
+            end
           end
         end
+          
+        
+        
 
     when "Reject"
       Request.transaction do
@@ -145,7 +169,7 @@ class RequestsController < ApplicationController
 
   end
 
-  def batch
+  def batch # create request to batch
     if params[:id].present?
       respond_to do |format|
           unless has_batch?(params[:id])

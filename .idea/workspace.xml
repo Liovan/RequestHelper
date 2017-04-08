@@ -6,177 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73065b98-da78-4bb2-82fb-121564c9b8c0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/RequestHelper.iml" afterPath="$PROJECT_DIR$/.idea/RequestHelper.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Development__RequestHelper.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Development__RequestHelper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Production__RequestHelper.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Production__RequestHelper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/spec__RequestHelper.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/spec__RequestHelper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/test__RequestHelper.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/test__RequestHelper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Guardfile" afterPath="$PROJECT_DIR$/Guardfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/config/manifest.js" afterPath="$PROJECT_DIR$/app/assets/config/manifest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/admin/app.min.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/admin/app.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/admin/bootstrap.min.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/admin/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/admin/jQuery-2.1.4.min.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/admin/jQuery-2.1.4.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/admin/jquery-ui.min.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/admin/jquery-ui.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/admin/pages/dashboard.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/admin/pages/dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/admin/pages/dashboard2.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/admin/pages/dashboard2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/cable.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/cable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/sessions.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/sessions.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/AdminLTE.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/AdminLTE.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/bootstrap-rtl.min.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/bootstrap-rtl.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/bootstrap.min.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/font.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/font.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/_all-skins.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/_all-skins.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-black-light.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-black-light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-black.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-black.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-blue-light.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-blue-light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-blue.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-blue.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-green-light.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-green-light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-green.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-green.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-purple-light.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-purple-light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-purple.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-purple.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-red-light.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-red-light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-red.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-red.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-yellow-light.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-yellow-light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-yellow.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/skins/skin-yellow.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/forms.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/forms.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/sessions.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/sessions.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/students.css.erb" afterPath="$PROJECT_DIR$/app/assets/stylesheets/students.css.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/channels/application_cable/channel.rb" afterPath="$PROJECT_DIR$/app/channels/application_cable/channel.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/channels/application_cable/connection.rb" afterPath="$PROJECT_DIR$/app/channels/application_cable/connection.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/needs_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/needs_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/requests_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/requests_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/sessions_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/sessions_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/status_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/status_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/application_job.rb" afterPath="$PROJECT_DIR$/app/jobs/application_job.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/application_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/application_mailer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/application_record.rb" afterPath="$PROJECT_DIR$/app/models/application_record.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/feature.rb" afterPath="$PROJECT_DIR$/app/models/feature.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/need.rb" afterPath="$PROJECT_DIR$/app/models/need.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/place.rb" afterPath="$PROJECT_DIR$/app/models/place.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/request.rb" afterPath="$PROJECT_DIR$/app/models/request.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/staff.rb" afterPath="$PROJECT_DIR$/app/models/staff.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/student.rb" afterPath="$PROJECT_DIR$/app/models/student.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/features/_feature.html.erb" afterPath="$PROJECT_DIR$/app/views/features/_feature.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/features/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/features/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/features/index.html.erb" afterPath="$PROJECT_DIR$/app/views/features/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/features/new.js.erb" afterPath="$PROJECT_DIR$/app/views/features/new.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/forms/_eshteghal.html.erb" afterPath="$PROJECT_DIR$/app/views/forms/_eshteghal.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_error_message.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_error_message.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_flash_message.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_flash_message.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/form/index.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/form/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/login/index.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/login/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/mailer.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/mailer.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/mailer.text.erb" afterPath="$PROJECT_DIR$/app/views/layouts/mailer.text.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/staff/_footer.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/staff/_footer.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/staff/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/staff/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/staff/_menu.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/staff/_menu.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/staff/admin.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/staff/admin.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/student/_footer.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/student/_footer.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/student/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/student/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/student/admin.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/student/admin.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/needs/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/needs/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/needs/_need.html.erb" afterPath="$PROJECT_DIR$/app/views/needs/_need.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/needs/update.js.erb" afterPath="$PROJECT_DIR$/app/views/needs/update.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/places/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/places/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/places/_place.html.erb" afterPath="$PROJECT_DIR$/app/views/places/_place.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/places/create.js.erb" afterPath="$PROJECT_DIR$/app/views/places/create.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/places/destroy.js.erb" afterPath="$PROJECT_DIR$/app/views/places/destroy.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/places/edit.js.erb" afterPath="$PROJECT_DIR$/app/views/places/edit.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/places/new.js.erb" afterPath="$PROJECT_DIR$/app/views/places/new.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/places/update.js.erb" afterPath="$PROJECT_DIR$/app/views/places/update.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/requests/_details.html.erb" afterPath="$PROJECT_DIR$/app/views/requests/_details.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/requests/_request.html.erb" afterPath="$PROJECT_DIR$/app/views/requests/_request.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/requests/batch.js.erb" afterPath="$PROJECT_DIR$/app/views/requests/batch.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/requests/delete_batch.js.erb" afterPath="$PROJECT_DIR$/app/views/requests/delete_batch.js.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/requests/index.html.erb" afterPath="$PROJECT_DIR$/app/views/requests/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/requests/show.js.erb" afterPath="$PROJECT_DIR$/app/views/requests/show.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sessions/index.html.erb" afterPath="$PROJECT_DIR$/app/views/sessions/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sessions/new.html.erb" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/staffs/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/staffs/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/staffs/_staff.html.erb" afterPath="$PROJECT_DIR$/app/views/staffs/_staff.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/staffs/create.js.erb" afterPath="$PROJECT_DIR$/app/views/staffs/create.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/staffs/destroy.js.erb" afterPath="$PROJECT_DIR$/app/views/staffs/destroy.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/staffs/edit.js.erb" afterPath="$PROJECT_DIR$/app/views/staffs/edit.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/staffs/index.html.erb" afterPath="$PROJECT_DIR$/app/views/staffs/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/staffs/new.js.erb" afterPath="$PROJECT_DIR$/app/views/staffs/new.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/staffs/update.js.erb" afterPath="$PROJECT_DIR$/app/views/staffs/update.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/students/index.html.erb" afterPath="$PROJECT_DIR$/app/views/students/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bundle" afterPath="$PROJECT_DIR$/bin/bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/rails" afterPath="$PROJECT_DIR$/bin/rails" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/rake" afterPath="$PROJECT_DIR$/bin/rake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/setup" afterPath="$PROJECT_DIR$/bin/setup" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/update" afterPath="$PROJECT_DIR$/bin/update" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.ru" afterPath="$PROJECT_DIR$/config.ru" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/boot.rb" afterPath="$PROJECT_DIR$/config/boot.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/cable.yml" afterPath="$PROJECT_DIR$/config/cable.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environment.rb" afterPath="$PROJECT_DIR$/config/environment.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/test.rb" afterPath="$PROJECT_DIR$/config/environments/test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/application_controller_renderer.rb" afterPath="$PROJECT_DIR$/config/initializers/application_controller_renderer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/assets.rb" afterPath="$PROJECT_DIR$/config/initializers/assets.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/backtrace_silencers.rb" afterPath="$PROJECT_DIR$/config/initializers/backtrace_silencers.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/cookies_serializer.rb" afterPath="$PROJECT_DIR$/config/initializers/cookies_serializer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/filter_parameter_logging.rb" afterPath="$PROJECT_DIR$/config/initializers/filter_parameter_logging.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/inflections.rb" afterPath="$PROJECT_DIR$/config/initializers/inflections.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/mime_types.rb" afterPath="$PROJECT_DIR$/config/initializers/mime_types.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/new_framework_defaults.rb" afterPath="$PROJECT_DIR$/config/initializers/new_framework_defaults.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/session_store.rb" afterPath="$PROJECT_DIR$/config/initializers/session_store.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/wrap_parameters.rb" afterPath="$PROJECT_DIR$/config/initializers/wrap_parameters.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/en.yml" afterPath="$PROJECT_DIR$/config/locales/en.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/fa.yml" afterPath="$PROJECT_DIR$/config/locales/fa.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/puma.rb" afterPath="$PROJECT_DIR$/config/puma.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/secrets.yml" afterPath="$PROJECT_DIR$/config/secrets.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20170128143111_create_students.rb" afterPath="$PROJECT_DIR$/db/migrate/20170128143111_create_students.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20170128160133_add_columns_to_staff.rb" afterPath="$PROJECT_DIR$/db/migrate/20170128160133_add_columns_to_staff.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20170131142346_add_index_to_staffs_username.rb" afterPath="$PROJECT_DIR$/db/migrate/20170131142346_add_index_to_staffs_username.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20170216131613_add_columns_to_student.rb" afterPath="$PROJECT_DIR$/db/migrate/20170216131613_add_columns_to_student.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/404.html" afterPath="$PROJECT_DIR$/public/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/422.html" afterPath="$PROJECT_DIR$/public/422.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/500.html" afterPath="$PROJECT_DIR$/public/500.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/robots.txt" afterPath="$PROJECT_DIR$/public/robots.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/features_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/features_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/needs_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/needs_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/places_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/places_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/requests_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/requests_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/sessions_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/sessions_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/staffs_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/staffs_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/students_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/students_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/needs.yml" afterPath="$PROJECT_DIR$/test/fixtures/needs.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/places.yml" afterPath="$PROJECT_DIR$/test/fixtures/places.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/result_students.yml" afterPath="$PROJECT_DIR$/test/fixtures/result_students.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/staffs.yml" afterPath="$PROJECT_DIR$/test/fixtures/staffs.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/integration/user_login_test.rb" afterPath="$PROJECT_DIR$/test/integration/user_login_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/feature_test.rb" afterPath="$PROJECT_DIR$/test/models/feature_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/need_test.rb" afterPath="$PROJECT_DIR$/test/models/need_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/place_test.rb" afterPath="$PROJECT_DIR$/test/models/place_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/staff_test.rb" afterPath="$PROJECT_DIR$/test/models/staff_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/student_test.rb" afterPath="$PROJECT_DIR$/test/models/student_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_helper.rb" afterPath="$PROJECT_DIR$/test/test_helper.rb" />
     </list>
     <ignored path="RequestHelper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -211,11 +46,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="requests_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="requests_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/requests_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+            <state relative-caret-position="326">
+              <caret line="93" column="19" lean-forward="false" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="status_helper.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/helpers/status_helper.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -234,6 +79,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find># clear_batch</find>
+      <find>rq</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -266,7 +112,6 @@
         <option value="$PROJECT_DIR$/app/views/layouts/student/admin.html.erb" />
         <option value="$PROJECT_DIR$/app/views/staffs/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/staffs/_staff.html.erb" />
-        <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/requests.coffee" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/requests.scss" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/requests.js" />
@@ -290,12 +135,13 @@
         <option value="$PROJECT_DIR$/config/initializers/wicked_pdf.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/requests/_request.html.erb" />
         <option value="$PROJECT_DIR$/app/models/request.rb" />
-        <option value="$PROJECT_DIR$/app/views/requests/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/helpers/status_helper.rb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
+        <option value="$PROJECT_DIR$/app/views/requests/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/requests_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/requests/_request.html.erb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/app/helpers/status_helper.rb" />
       </list>
     </option>
   </component>
@@ -391,11 +237,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -410,6 +252,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RequestHelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RequestHelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RequestHelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RequestHelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,7 +308,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="settings.editor.splitter.proportion" value="0.26926735" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -774,12 +652,12 @@
       <workItem from="1491655962030" duration="7000" />
       <workItem from="1491656008973" duration="5000" />
       <workItem from="1491656767866" duration="2184000" />
-      <workItem from="1491659532236" duration="3012000" />
+      <workItem from="1491659532236" duration="6094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="733785000" />
+    <option name="totallyTimeSpent" value="736867000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -843,21 +721,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/staffs/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/requests.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -974,13 +837,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/requests/batch.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="44" lean-forward="false" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/forms.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1057,32 +913,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/requests/_request.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/status_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="116" lean-forward="false" selection-start-line="7" selection-start-column="96" selection-end-line="7" selection-end-column="116" />
           <folding />
         </state>
       </provider>
@@ -1127,14 +961,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/requests/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="39" column="62" lean-forward="false" selection-start-line="39" selection-start-column="62" selection-end-line="39" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/staffs/_staff.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1143,10 +969,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/requests/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/request_students_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/requests/create.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/requests/batch.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="44" lean-forward="false" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/requests/_request.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/requests_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="93" column="19" lean-forward="false" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+          <caret line="7" column="49" lean-forward="false" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/status_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
           <folding />
         </state>
       </provider>
