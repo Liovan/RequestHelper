@@ -5,8 +5,8 @@ class RequestsController < ApplicationController
 
   def index
 # clear_batch
-    place=current_user.place
-    @requests=Request.active_place_related(place.id)
+    place=current_user.place.id unless present?
+    @requests=Request.active_place_related(place)
     @batch=get_batch
 
   end
