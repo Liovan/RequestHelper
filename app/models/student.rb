@@ -13,6 +13,7 @@ class Student < ApplicationRecord
                           length: { maximum: 25, message:"نام پدر می تواند حداکثر ۲۵ نویسه باشد" },
                           format: {with: VALID_FARSI_REGEX, message: "نام پدر باید فارسی باشد."}
   has_secure_password validation: false
+  
   validates :password, length: { minimum: 6, message: "رمز عبور باید حداقل ۶ نویسه باشد." }
 
   VALID_MELI_CODE_REGEX = /\A[0-9]{10}\z/
@@ -73,5 +74,6 @@ class Student < ApplicationRecord
     unless devide<2 && control_number==devide || devide>=2 && control_number==11-devide
       errors.add :meli_code,"کد ملی نامعتبر میباشد"
     end
+    code=meli_code.reverse!
   end
 end

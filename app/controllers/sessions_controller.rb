@@ -20,8 +20,7 @@ class SessionsController < ApplicationController
     end
 
     if user && user.authenticate(params[:session][:password])
-      user.last_login_date=Time.now
-      if !user.save
+      if !user.update_attribute(:last_login_date,Time.now)
         flash[:danger]  = "عملیات ناموفق بود لطفاً مجدداً تلاش کنید"
         redirect_to new_session_path
         return false

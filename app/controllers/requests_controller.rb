@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
 
   def index
 # clear_batch
-    place=current_user.place.id unless present?
+    place=current_user.place_id if present?
     @requests=Request.active_place_related(place)
     @batch=get_batch
 
@@ -89,12 +89,10 @@ class RequestsController < ApplicationController
     #    redirect_to request.referer || requests_path,danger: "شما اجازه تغییر این درخواست را ندارید."
     #   return
     # end
-
+    req = Request.find(params[:id]) unless params[:id].to_i==-1 # return request if params[:id] != -1
     case params[:type]
       when "Confirm"
-        
-        unless params[:id]=='-1'     # param[:id] != -1 => Confirm for one requests ( staffs unless staff.last)
-          req = Request.find(params[:id])
+        unless params[:id]=='-1'     # param[:id] != -1 => Confirm for one requests ( staffs != staff.last)
           mod = get_module_routes(req.feature_id)
           if mod.size > mod.index(req.module_pointer)+1
             Request.transaction do
@@ -130,10 +128,6 @@ class RequestsController < ApplicationController
             end
           end
         end
-          
-        
-        
-
     when "Reject"
       Request.transaction do
         req.status = 3 #Rejected
@@ -164,7 +158,7 @@ class RequestsController < ApplicationController
   end
 
   def batch_print
-
+    
   render "forms/index",layout: "form/index",locals: {forms:get_requests_batch}
 
   end

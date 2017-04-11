@@ -5,7 +5,7 @@
 <div id="print_form">
   <% forms.each do |req| %>
     <% case req.feature.id %>
-      <% when 2 %>
+      <% when 1 %>
           <%= render partial: "forms/eshteghal",locals: {request:req} %>
           <p style="page-break-after:always;"></p>
     <%end%>

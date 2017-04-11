@@ -1,8 +1,9 @@
 module StatusHelper
 
-  def get_module_routes(module_id)  # input module_id and Return array for  module id
+  def get_module_routes(module_id=nil)  # input module_id and Return array for  module id
       h = { 1=>[7,1] } 
-      return h[module_id]
+      return h[module_id] unless module_id==nil # if module_id != nil search by key
+      return h # if module_id == nil return hash
   end
   def get_message_status # status message for request
     {

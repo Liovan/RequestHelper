@@ -7,5 +7,29 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Rails RequestHelper: test" uuid="0521dc54-6ff4-44f4-b06a-4ad39f3a2062">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/request_hepler_test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails RequestHelper: development" uuid="98e4182b-b152-40eb-96dc-bd960429e6b6">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/request_hepler_development</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails RequestHelper: production" uuid="ec0f2498-b00f-41b7-a2b9-931035b822ff">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/request_hepler_production</jdbc-url>
+    </data-source>
   </component>
 </project>

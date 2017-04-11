@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+# This file should contain all the record creation needed to seed the database with its default values.request_hepler_development
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
@@ -25,3 +25,5 @@ Feature.create(id:1,name:"اشتغال به تحصیل")
 Message.create([{text:"شما بدهکار هستید لطفاً برای تسویه اقدام نمایید"},
                {text:"مشخصات پر شده توسط شما صحیح یا معتبر نمی باشد"},
                {text:"شما دارای سنوات هستید ، لطفاً به واحد مالی مراجعه فرمایید"}])
+
+Student.create(f_name:"مهدی",l_name:"علیزاده",father_name:"نام",meli_code:"0018146104",city:"تهران",field:1,student_code:"123456789",password:"0018146104")
