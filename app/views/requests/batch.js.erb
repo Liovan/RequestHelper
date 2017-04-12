@@ -1,5 +1,3 @@
-var el='<%= j render partial: "layouts/flash_message" %>';
-$("#alert_respond").html(el);
-$("#alert_respond").fadeOut(4000);
+$("#alert_respond").html("<%= j render partial: "layouts/flash_message" %>");
 $("#count_batch").text(parseInt(<%=@batch.count %>));
 $("#count_batch").fadeOut(100).fadeIn(1000);

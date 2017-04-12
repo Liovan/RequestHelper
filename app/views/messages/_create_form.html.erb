@@ -1,0 +1,11 @@
+<%= form_for @message,remote:true do |message| %>
+<div style="margin-top: 5px">
+  <div class="input-group">
+      <span class="input-group-btn">
+        <%=message.submit "ایجاد",class:"btn btn-success"  %>
+      </span>
+    
+    <%=message.text_field :text,class:"form-control",placeholder:"لطفاً پیغام جدید را وارد نمایید ..... "  %>
+  </div>
+</div>
+<%end%>

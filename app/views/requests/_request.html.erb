@@ -1,5 +1,5 @@
 <% feature = get_module_routes(request.feature_id) %>
-<tr>
+<tr class="request_<%=request.id %>">
   <td><%= request.student.f_name %></td>
   <td><%= request.student.l_name %></td>
   <td><%= request.student.student_code %></td>
@@ -20,9 +20,10 @@
           <span>تایید</span>
       <%end%>
     <% end %>
-    <%= link_to request_path(id: request.id, type: "Reject"), method: :put ,class:"btn btn-sm btn-danger" do %>
+    
+    <%= link_to messages_path(request_id:request.id),data: {confirm:"آیا مطمئن هستید که میخواهید این درخواست را لغو کنید ؟"},remote:true,class:"btn btn-sm btn-danger" do   %>
         <i class="fa fa-times"></i>
-        <span>برگشت</span>
+        <span>رد کردن</span>
     <%end%>
   </td>
 </tr>

@@ -1,0 +1,13 @@
+$("#DeleteRequest").modal("hide");
+$("#alert_respond").html("<%= j render partial: "layouts/flash_message" %>");
+<% if @refer.present? %>
+  $("#requests .request_<%= @refer.request_id unless @refer.nil? %>").fadeOut(500).hide(1000);
+<%end%>
+<% if @status_respond==true %>
+  <% @batch.each do |id| %>
+  $("#requests .request_<%= id %>").fadeOut(500).hide(1000);
+  <%end%>
+$("#count_batch").text(parseInt($("#count_batch").text())-<%=@batch.size %>);
+<% clear_batch %>
+<%end%>
+

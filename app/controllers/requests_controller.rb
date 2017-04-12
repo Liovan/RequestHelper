@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  include BatchRequestHelper
   before_action :staff_logged_in ,except: :create
   before_action :student_logged_in ,only: :create
   layout "staff/admin"
@@ -83,8 +84,7 @@ class RequestsController < ApplicationController
 
   def update
 
-
-
+    
     # unless user_type==Staff && req.module_pointer == @current_user.place_id && req.status ==  1  #if you aren't staff user OR insufficient place OR request's status isnt 'in progress'
     #    redirect_to request.referer || requests_path,danger: "شما اجازه تغییر این درخواست را ندارید."
     #   return
@@ -92,51 +92,93 @@ class RequestsController < ApplicationController
     req = Request.find(params[:id]) unless params[:id].to_i==-1 # return request if params[:id] != -1
     case params[:type]
       when "Confirm"
-        unless params[:id]=='-1'     # param[:id] != -1 => Confirm for one requests ( staffs != staff.last)
+        unless params[:id]=='-1'     #note param[:id] != -1 => Confirm for one requests ( staffs != staff.last)
           mod = get_module_routes(req.feature_id)
           if mod.size > mod.index(req.module_pointer)+1
             Request.transaction do
               req.module_pointer = mod[mod.index(req.module_pointer)+1] #Approve
               req.save
-              Refer.create(staff_id: current_user.id, request_id: req.id) #Logging #TODO add message_id
+              respond_to do |format|
+                if Refer.create(staff_id: current_user.id, request_id: req.id) #Logging #TODO add message_id
+                  format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
+                else
+                  format.js{flash.now[:danger]="متاسفانه عملیات با موفقیت انجام نشد"}
+                end
+              end
             end
           else
             Request.transaction do
               req.status = 2 #Certificate
               req.save
-              Refer.create(staff_id:current_user.id, request_id: req.id)#TODO add message_id
+              respond_to do |format|
+                if Refer.create(staff_id:current_user.id, request_id: req.id)#TODO add message_id
+                  format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
+                else
+                  format.js{flash.now[:danger]="متاسفانه عملیات با موفقیت انجام نشد"}
+                end
+              end
             end
           end
           
-        else  # param[:id] : -1=> Confirm for all requests
-          
+        else  #note param[:id] : -1=> Confirm for all requests
+
           get_requests_batch.each do |rq|
             mod = get_module_routes(rq.feature_id)
             if mod.size > mod.index(rq.module_pointer)+1
-
               Request.transaction do
                 rq.module_pointer = mod[mod.index(rq.module_pointer)+1] #Approve
                 rq.save
-                Refer.create(staff_id: current_user.id, request_id: rq.id) #Logging #TODO add message_id
+                
+                respond_to do |format|
+                  if Refer.create(staff_id: current_user.id, request_id: rq.id) #Logging #TODO add message_id
+                    format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
+                    @status_respond=true
+                    @batch=get_batch
+
+                  else
+                    format.js{flash.now[:danger]="متاسفانه عملیات با موفقیت انجام نشد"}
+                  end
+                end
               end
             else
               Request.transaction do
                 rq.status = 2 #Certificate
                 rq.save
-                Refer.create(staff_id:current_user.id, request_id: rq.id)#TODO add message_id
+               
+                respond_to do |format|
+                  if Refer.create(staff_id:current_user.id, request_id: rq.id)#TODO add message_id
+                    format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
+                    @status_respond=true
+                    @batch=get_batch
+                   
+                  else
+                    format.js{flash.now[:danger]="متاسفانه عملیات با موفقیت انجام نشد"}
+                  end
+                end
               end
             end
           end
+           # clear_batch #note clear all element in batch list
         end
+        
     when "Reject"
       Request.transaction do
         req.status = 3 #Rejected
         req.save
-        Refer.create(staff_id: current_user.id, request_id: req.id)#TODO add message_id
+        @refer=Refer.create(staff_id: current_user.id, request_id: req.id,message_id:params[:message])
+        respond_to do |format|
+       if @refer
+         format.js{flash.now[:success]="درخواست انتخابی شما با موفقیت رد شد"}
+         else 
+         format.js{flash.now[:danger]="درخواست انتخابی شما با موفقیت رد شد"}
+         end
+
+        end
       end
 
     end
-    redirect_to request.referer || requests_path
+    @batch=get_batch
+
   end
 
   def destroy
@@ -172,7 +214,7 @@ class RequestsController < ApplicationController
              format.js{flash.now[:success]="درخواست با موفقیت در لیست چاپی قرار گرفت"}
           else
             @batch=get_batch
-            format.js{flash.now[:warning]="این درخواست در لیست قبلاً قرار داده شده"}
+            format.js{flash.now[:warning]="این درخواست قبلاً در لیست  قرار داده شده"}
           end
         end
     end
@@ -190,43 +232,10 @@ class RequestsController < ApplicationController
   def request_params
     params.require(:request).permit(:feature_id)
   end
-
-
-  # Function for batch print and confirm
+  
 
   def get_requests_batch # return requests as type active record into batch
     Request.find_by_array(get_batch).to_a
-  end
-
-  def batch_nil?
-    cookies[:batch_print].nil? || cookies[:batch_print].blank?
-  end
-
-  def get_batch
-    unless batch_nil?
-      cookies[:batch_print].split('&')
-    else
-      return []
-    end
-  end
-
-  def has_batch?(parameter)
-    get_batch.include?(parameter)
-  end
-
-  def add_batch(parameter)
-    return false if parameter.nil?
-    unless batch_nil?
-      # nilnist
-      cookies[:batch_print] += "&#{parameter}"
-    else
-      # nile
-      cookies[:batch_print]=parameter
-    end
-  end
-
-  def clear_batch
-   cookies.delete(:batch_print) unless batch_nil?
   end
 
 

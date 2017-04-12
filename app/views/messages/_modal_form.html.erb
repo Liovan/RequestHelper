@@ -1,0 +1,39 @@
+
+    <div class="modal-dialog modal-xs">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #00C0EF">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="font-family: web_Yekan">  </h4>
+        </div>
+        <div class="modal-body">
+          
+          <%= link_to  new_message_path,remote:true,class:"new_message btn btn-facebook" do %>
+              <span class="icon_new_message pull-right"><i class="glyphicon glyphicon-plus-sign"></i></span>
+              <span class="label_new_message" style="padding: 2px"> پیغام جدید</span>
+          <%end%>
+          <div id="text_new_message"></div> <!--  get input new text for message -->
+          <%= form_for @request,method: :put,remote:true do |requestOfmessage| %>
+          <% if type=="Reject" %>
+           <%= hidden_field_tag :type,"Reject"  %>
+          <%end%>
+          <div class="funkyradio">
+            <% @messages.each do |msg| %>
+                <div class="funkyradio-info">
+                  <%= radio_button_tag :message,msg.id,class:"btn btn-info" %>
+                  <%= label_tag "message_#{msg.id}", msg.text %>
+                </div>
+            <%end%>
+
+          </div>
+
+              <%= requestOfmessage.submit "ثبت",class:"btn btn-success  pull-right",style:"margin-top: 5%" %>
+    
+          <%end%>
+        </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-danger " data-dismiss="modal">بستن</button>
+        </div>
+      </div>
+ 
+    </div>

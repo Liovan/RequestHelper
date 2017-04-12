@@ -1,0 +1,4 @@
+$("#DeleteRequest").html("<%= j render partial:"messages/modal_form",locals: {type:"Reject"} %>");
+$("#DeleteRequest .modal-title").css("color", "#ffffff");
+$("#DeleteRequest .modal-title").text("لطفاً دلیل رد درخواست را مشخص کنید");
+$("#DeleteRequest").modal("show");

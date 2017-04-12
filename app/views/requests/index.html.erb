@@ -5,6 +5,7 @@
 <% javascript "requests" %>
 <% stylesheet "admin/datatables/dataTables.bootstrap.min" %>
 <% stylesheet "requests" %>
+<% stylesheet "messages" %>
 <% script "$(document).ready(function(){$('#requests').DataTable({'language':lng_persian});})"%>
 <section class="content">
   <section style="margin-bottom:4px">
@@ -37,7 +38,7 @@
                   <!--<i class="fa fa-file-pdf-o"></i>-->
               <%#end%>
 
-              <%= link_to request_path(id:-1,type: "Confirm"),method: :put,class:"btn btn-success pull-left",title:"تایید لیست درخواست" do%>
+              <%= link_to request_path(id:-1,type: "Confirm"),remote:true,method: :put,class:"btn btn-success pull-left",title:"تایید لیست درخواست" do%>
                   <i class="fa fa-check-square-o fa-lg"></i>
               <%end%>
 
@@ -93,20 +94,5 @@
 
 
 <div id="DeleteRequest" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: #00C0EF">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="color: #ffffff;font-family: web_Yekan"> student name </h4>
-      </div>
-      <div class="modal-body">
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">بستن</button>
-      </div>
-    </div>
-
-  </div>
+  
 </div>
