@@ -1,4 +1,5 @@
 class Request < ApplicationRecord
+  has_one :refer
   belongs_to :feature
   belongs_to :student
   has_many :needs,through: :result_students

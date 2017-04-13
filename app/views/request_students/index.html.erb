@@ -2,7 +2,7 @@
 
 <% stylesheet "request_students" %>
 <% javascript "admin/datatables/jquery.dataTables.min" %>
-
+<% script "$('.button-collapse').sideNav({edge: 'right'});" %>
 <div style="background-color: #ffffff;">
   <table id="requests" class="highlight centered responsive-table"  border="1" style="direction: rtl">
     <thead>
@@ -17,7 +17,7 @@
     <tbody>
     <% @requests.each do |req| %>
       <tr>
-        <td><%=req.id+12  %></td>
+        <td><%=req.id %></td>
         <td><%= req.feature.name %></td>
         <td><%= req.created_at.to_date.to_parsi.strftime "%A/%d/%B/%Y" %></td>
         <td>
@@ -25,18 +25,33 @@
             <% when 1 %>
           <span class="badge cyan darken-1 white-text" style="margin-right: 45%">در حال بررسی</span>
             <% when 2 %>
-              <span class="badge green white-text" style="margin-right: 45%">تایید شده</span>
+              <% if get_module_routes(req.feature_id).size > get_module_routes(req.feature_id).index(req.module_pointer)+1  %>
+                  <span class="badge green white-text " style="margin-right: 20%;border-radius: 3px">
+                    <span>تایید شده | </span>
+                    <span>تاییدیه های باقی مانده : </span>
+                    <span><%= get_module_routes(req.feature_id).size - (get_module_routes(req.feature_id).index(req.module_pointer)+1) %></span>
+                  </span>
+                  <%else %>
+                  <span class="badge green white-text" style="margin-right: 20%;border-radius: 3px">صادر شده</span>
+              <%end%>
           <% when 3 %>
-              <span class="badge red darken-1 white-text" style="margin-right: 45%">رد شده</span>
+              <span class="badge red darken-1 white-text" style="margin-right: 20%;border-radius: 3px">رد شده</span>
           <% when 4 %>
-              <span class="badge  amber white-text" style="margin-right: 45%">لغو شده</span>
+              <span class="badge  amber white-text" style="margin-right: 20%;border-radius: 3px">لغو شده</span>
           <%end%>
         </td>
-        <td><a href="" class="btn btn-wave">پیغام</a> </td>
+        <td>
+          <%= link_to "پیغام",nil,class:"btn tooltipped",'data-position':"top",'data-delay':"5",'data-tooltip':req.refer.message.text if req.refer.present? %>
       </tr>
         <%end%>
   </table>
   <div class="apple_pagination">
     <%= will_paginate @requests, previous_label:t("قبلی"), next_label: t("بعدی") %>
   </div>
+</div>
+<div class="l12" style="direction: rtl">
+  <span class="col l5 s5">
+    <span style="color: red">نکته : </span>
+    <span>برای دریافت گواهی  صادر شده لطفاً به واحد دبیر خانه مراجعه فرمایید</span>
+  </span>
 </div>

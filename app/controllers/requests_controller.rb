@@ -95,6 +95,7 @@ class RequestsController < ApplicationController
         unless params[:id]=='-1'     #note param[:id] != -1 => Confirm for one requests ( staffs != staff.last)
           mod = get_module_routes(req.feature_id)
           if mod.size > mod.index(req.module_pointer)+1
+            # confrim request and next staff
             Request.transaction do
               req.module_pointer = mod[mod.index(req.module_pointer)+1] #Approve
               req.save
@@ -107,6 +108,7 @@ class RequestsController < ApplicationController
               end
             end
           else
+            #confirm request and create refer (ready for print request)
             Request.transaction do
               req.status = 2 #Certificate
               req.save
