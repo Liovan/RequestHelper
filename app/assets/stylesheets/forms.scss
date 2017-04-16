@@ -7,8 +7,9 @@
   src: font_url('admin/fonts/Far_NazaninBd.ttf');
 }
 
+
 @media all {
-  
+
   .break{
     page-break-after:always;
     page-break-before: always;
@@ -102,5 +103,9 @@
   body{
     margin: 0px !important;
     padding: 0px !important;
+
+    
+
   }
+
 }

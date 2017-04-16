@@ -55,14 +55,15 @@
         </ul>
       </li>
        <%end%>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-bar-chart"></i> <span>بخش آمار</span> <i class="fa fa-angle-left pull-left"></i>
-        </a>
-        <ul class="treeview-menu">
-          <li class="active"><a href="#"><i class="fa fa-toggle-left"></i>آمار دانشجویان</a></li>
-        </ul>
-      </li>
+      <!--<li class="treeview">-->
+        <!--<a href="#">-->
+          <!--<i class="fa fa-bar-chart"></i> <span>بخش آمار</span> <i class="fa fa-angle-left pull-left"></i>-->
+        <!--</a>-->
+        <!--<ul class="treeview-menu">-->
+          <!--<li class="active"><a href="#"><i class="fa fa-toggle-left"></i>آمار دانشجویان</a></li>-->
+        <!--</ul>-->
+      <!--</li>-->
+      <% if current_user.place_id==nil || current_user.place_id==1 || current_user.place_id==6 %>
       <li class="treeview">
         <a href="">
           <i class="fa fa-mortar-board"></i> <span>ورود دانشجو ها</span> <i class="fa fa-angle-left pull-left"></i>
@@ -71,6 +72,7 @@
           <li class="active"><a href="<%= import_students_path %>"><i class="fa fa-toggle-left"></i>دانشجو ها</a></li>
         </ul>
       </li>
+          <%end%>
     </ul>
   </section>
   <!-- /.sidebar -->

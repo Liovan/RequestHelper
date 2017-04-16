@@ -7,8 +7,8 @@
   </div>
   <div class="col-xs-4" style="font-size: 15px;font-family: nastaliq;text-align: center;font-weight: bold">بسمه تعالی</div>
   <div class=" col-xs-4" style="text-align: justify;position: relative;right: 20px">
-    <div style="font-size: 12px;font-family: nastaliq;padding-top: 6px"><span> شماره: </span><span style="font-family: web_Yekan;font-size: 12px"> <%=request.id %> </span></div>
-    <div style="font-size: 12px;font-family: nastaliq;padding-top: 6px"><span> تاریخ: </span> <span style="font-family: web_Yekan"> <%= Date.today.to_date.to_parsi.strftime "%d/%m/%Y" %> </span></div>
+    <div style="font-size: 12px;font-family: nastaliq;padding-top: 6px"><span> شماره: </span><span style="font-family: nazanin;font-size: 12px"> <%= request.id %> </span></div>
+    <div style="font-size: 12px;font-family: nastaliq;padding-top: 6px"><span> تاریخ: </span> <span style="font-family: nazanin"> <%= Date.today.to_date.to_parsi.strftime "%d/%m/%Y" %> </span></div>
     <div style="font-size: 12px;font-family: nastaliq;padding-top: 6px">پیوست:</div>
   </div>
   
@@ -18,8 +18,9 @@
   <p style="text-align: center;font-size: 15px;font-family: nazanin;font-weight: bolder">گواهی اشتغال به تحصیل</p>
 </div>
 
-<div class="col-sm-12" style="text-align: center;line-height: 40px">
+<div class="col-sm-12" style="text-align: justify;line-height: 40px;text-justify: auto">
   <p style="font-size: 12px;font-family: nazanin">
+    
   <span>بدینوسیله گواهی می شود آقای</span>
     <span style="font-weight: bold"><%= request.student.f_name %> </span> 
     <span style="font-weight: bold"><%= request.student.l_name %> </span> 
