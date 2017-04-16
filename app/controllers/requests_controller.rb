@@ -229,7 +229,13 @@ class RequestsController < ApplicationController
       end
   end
 
+  def prints
+    @requests=Request.request_print(current_user.place_id)
+    @batch=get_batch
 
+    
+  end
+ 
   private
   def request_params
     params.require(:request).permit(:feature_id)

@@ -31,9 +31,9 @@
               <i class="glyphicon glyphicon-print"></i>
               <span>لیست تایید ها <strong> : </strong></span>
               <span id="count_batch"> <%=@batch.count%> </span>
-              <% if get_module_routes.map{ |s,key| key.last==current_user.place_id}.first  %>
-                <a class="btn btn-primary pull-left" href="<%= batch_print_requests_path %>" target="_blank" title="چاپ لیست"><i class="fa fa-print" ></i></a>
-              <% end %>
+              <%# if get_module_routes.map{ |s,key| key.last==current_user.place_id}.first  %>
+                <!--<a class="btn btn-primary pull-left" href="<%#= batch_print_requests_path %>" target="_blank" title="چاپ لیست"><i class="fa fa-print" ></i></a>-->
+              <%# end %>
               <%#= link_to batch_pdf_requests_path(format:"pdf"),target:"_blank",class:"btn btn-primary pull-left",title:"دریافت نسخه pdf از لیست" do%>
                   <!--<i class="fa fa-file-pdf-o"></i>-->
               <%#end%>

@@ -1,5 +1,5 @@
 <% title "چاپ درخواست ها" %>
-<% stylesheet "forms"%>
+
 <% script "$(document).ready(function(){ window.print();})" %>
 
 <div id="print_form">
@@ -7,7 +7,7 @@
     <% case req.feature.id %>
       <% when 1 %>
           <%= render partial: "forms/eshteghal",locals: {request:req} %>
-          <p style="page-break-after:always;"></p>
+          <div class="break"></div>
     <%end%>
 
   <%end%>

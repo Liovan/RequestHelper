@@ -1,0 +1,18 @@
+<% feature = get_module_routes(request.feature_id) %>
+<tr class="request_<%=request.id %>">
+  <td><%= request.student.f_name %></td>
+  <td><%= request.student.l_name %></td>
+  <td><%= request.student.student_code %></td>
+  <td><%= field_of_study[request.student.field][:major] %></td>
+  <td><%= link_to "جزئییات",request_path(request.id),remote:true,class:"btn btn-xs btn-warning"%></td>
+  <td><%= request.feature.name %></td>
+  <td>
+    <% if feature.last == request.module_pointer  %>
+        <!-- link for create request to batch -->
+        <%= link_to batch_requests_path(id:request.id),method: :post,remote:true,class:"btn btn-sm btn-success print","data-loading-text":"<i class='fa fa-circle-o-notch fa-spin'></i> در حال پردازش" do %>
+            <i class="fa fa-print"></i>
+            <span>صدور</span>
+        <%end%>
+    <% end %>
+  </td>
+</tr>

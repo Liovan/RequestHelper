@@ -8,18 +8,24 @@
   <td><%= request.feature.name %></td>
   <td>
     <%#= link_to request_path(id: request.id, type: "Certficate"), method: :put ,class:"btn btn-success" do %>
-    <% if feature.last == request.module_pointer  %>
+    <%# if feature.last == request.module_pointer  %>
+
         <!-- link for create request to batch --> 
         <%= link_to batch_requests_path(id:request.id),method: :post,remote:true,class:"btn btn-sm btn-success print","data-loading-text":"<i class='fa fa-circle-o-notch fa-spin'></i> در حال پردازش" do %>
             <i class="fa fa-print"></i>
-            <span>صدور</span>
+            <span>تایید</span>
         <%end%>
-    <% else %>
-      <%= link_to request_path(id: request.id, type: "Confirm"), method: :put, class:"btn btn-sm btn-info" do %>
-          <i class="fa fa-check-square-o"></i>
-          <span>تایید</span>
-      <%end%>
-    <% end %>
+
+      <%#= link_to request_path(id: request.id, type: "Confirm"),remote:true, method: :put, class:"btn btn-sm btn-info" do %>
+          <!--<i class="fa fa-check-square-o"></i>-->
+          <!--<span>تایید</span>-->
+      <%#end%>  
+        <!--<%#= link_to batch_requests_path(id: request.id),remote:true, method: :post, class:"btn btn-sm btn-info" do %>-->
+          <!--<i class="fa fa-check-square-o"></i>-->
+          <!--<span>تایید</span>-->
+      <!--<%#end%>-->
+        
+
     
     <%= link_to messages_path(request_id:request.id),data: {confirm:"آیا مطمئن هستید که میخواهید این درخواست را لغو کنید ؟"},remote:true,class:"btn btn-sm btn-danger" do   %>
         <i class="fa fa-times"></i>

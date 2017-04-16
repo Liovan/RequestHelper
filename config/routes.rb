@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :students
   resources :requests do
     collection do
-      get :batch_pdf
+      get :prints
       get :batch_print
       post :batch
       delete :delete_batch
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :forms
   resources :request_students
-  resources :messages 
+  resources :messages
+  resources :import_students
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

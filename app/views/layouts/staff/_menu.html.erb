@@ -1,7 +1,5 @@
 <aside class="main-sidebar">
-  <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
-    <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-right image">
         <%= image_tag "user",class: "img-circle" %>
@@ -11,10 +9,13 @@
         <span style="font-size: 10px"><i class="fa fa-circle text-success"></i>
         <span>آخرین ورود:</span>
           <span><%= time_ago_in_words(current_user.last_login_date)%></span>
+          <p>
+            <span style="font-size: 10px"><i class="fa fa-circle text-aqua"></i> </span>
+            <%= current_user.place.name %>
+          </p>
         </span>
       </div>
     </div>
-
     <ul class="sidebar-menu">
       <li class="header">فهرست اصلی</li>
       <% if current_user.place_id==nil || current_user.place_id==1 || current_user.place_id==6 %>
@@ -33,7 +34,9 @@
           <i class="fa fa-location-arrow"></i> <span> درخواست دانشجویان</span> <i class="fa fa-angle-left pull-left"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="active"><a href="<%= requests_path %>"><i class="fa fa-toggle-left"></i>  درخواست اشتغال به تحصیل</a></li>
+          <li class="active"><a href="<%= requests_path %>"><i class="fa fa-toggle-left"></i>  درخواست ها</a></li>
+          </li>
+          <li class="active"><a href="<%= prints_requests_path %>"><i class="fa fa-toggle-left"></i>صدور درخواست ها</a></li>
           </li>
         </ul>
       </li>
@@ -61,11 +64,11 @@
         </ul>
       </li>
       <li class="treeview">
-        <a href="#">
+        <a href="">
           <i class="fa fa-mortar-board"></i> <span>ورود دانشجو ها</span> <i class="fa fa-angle-left pull-left"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="active"><a href="#"><i class="fa fa-toggle-left"></i>دانشجو ها</a></li>
+          <li class="active"><a href="<%= import_students_path %>"><i class="fa fa-toggle-left"></i>دانشجو ها</a></li>
         </ul>
       </li>
     </ul>

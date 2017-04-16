@@ -15,12 +15,12 @@
   <%= yield :stylesheet %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'admin/html5shiv.min' , 'data-turbolinks-track': 'reload' %>
-
   <%= yield :javascript %>
 </head>
 <body class="skin-purple sidebar-mini">
+
   <div class="wrapper">
-    <% I18n.locale = :fa %>
+
     <%= render partial:"layouts/staff/header" %>
     <%= render partial:"layouts/staff/menu" %>
     <div class="content-wrapper">
