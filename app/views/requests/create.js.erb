@@ -1,0 +1,22 @@
+len=$("form").length;
+for (var i=0;i<len;i++) { $("form")[i].reset()} // clear all data in the form 
+<% if flash.now[:warning].present? %>
+swal({
+    title:"! هشدار",
+    text:"<%=flash.now[:warning] %>",
+    type:"warning",
+    confirmButtonText:"باشه چشم"});
+<% elsif flash.now[:success].present? %>
+swal({
+    title:"انجام شد",
+    text:"<%=flash.now[:success] %>",
+    type:"success",
+    confirmButtonText:"ممنون"});
+
+<% elsif flash.now[:danger].present? %>
+swal({
+    title:" ! خطا ",
+    text:"<%=flash.now[:danger] %>",
+    type:"danger",
+    confirmButtonText:"باشه چشم"});
+<%end%>

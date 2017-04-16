@@ -24,9 +24,12 @@ class RequestsController < ApplicationController
 
   def create
     student=current_user
+    access=Request.where('created_at >= ?',1.week.ago).where(student_id:current_user.id).count
+      if access > 5 #limit count for request students
     feature=Feature.find(params[:feature_id])
     first_confirm=get_module_routes(feature.id).first # get first value in module routes helper-]
     status=1
+
 
         if !feature.nil?
           valid=false
@@ -52,21 +55,28 @@ class RequestsController < ApplicationController
                 if valid==true
                   Request.transaction do
                       if request=Request.create(student_id:student.id,feature_id:feature.id,status:status,module_pointer: first_confirm)
+                        respond_to do |format|
                           if ResultStudent.create(request_id:request.id,need_id:need.id,value:params[:"form_#{need.id}"])
-                              redirect_to students_path,success:"در خواست شما با موفقیت ارسال شد"
-                            else
-                              redirect_to students_path,danger:"متاسفانه درخواست شما با موفقیت انجام نشد"
+                              format.js{flash.now[:success]="درخواست شما با موفقیت فرستاده شد"}
+                          else
+                            format.js{flash.now[:warning]="متاسفان درخواست شما فرستاده نشد"}
                               raise ActiveRecord::Rollback
                           end
+                                                 
+                        end
                       end
                   end
                 else
                   # when not valid
-                  redirect_to students_path,danger:"اشتباه می باشد لطفاً مقادیر را صحیح وارد کنید #{feature.name} مقادیری پر شده برای درخواست"
+                  respond_to do |format|
+                    format.js{flash.now[:danger]=" اشتباه می باشد لطفاً مقادیر را صحیح وارد کنید #{feature.name} مقادیری پر شده برای درخواست "}
+                  end
                 end
             else
                   # when not correct params for field needs of feature
-              redirect_to students_path,danger:"ارسال درخواست لغو شد"
+              respond_to do |format|
+                format.js{flash.now[:warning]="لطفاً نیازمندی های درخواست مورد نظرتان را به دقت وارد نمایید"}
+              end
               break # break in loop needs of feature
             end
 
@@ -74,8 +84,15 @@ class RequestsController < ApplicationController
           end
         else
            # if not fimd feature in params[:featue_id]
-          redirect_to students_path,danger:"ارسال درخواست لغو شد"
-    end
+          respond_to do |format|
+            format.js{flash.now[:warning]="لطفاً نیازمندی های درخواست مورد نظرتان را به دقت وارد نمایید"}
+          end
+        end
+      else 
+        respond_to do |format|
+          format.js{flash.now[:danger]="محدوده ارسال درخواست توسط شما زیاد بوده است , لطفاً در هفته های آتی درخواست خود را ارسال کنید"}
+        end
+      end
   end
 
 

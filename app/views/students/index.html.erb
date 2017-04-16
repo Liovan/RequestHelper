@@ -1,5 +1,6 @@
 <% title "صفحه اصلی" %>
 <% script "$('.button-collapse').sideNav({edge: 'right'});" %>
+
 <div class="row" >
   <% Feature.all.each do |features| %>
   <div class="col l4 m5 s12" >
@@ -17,7 +18,7 @@
           <span class="card-title grey-text text-darken-4">
            <i class="material-icons right">close</i></span>
         <div style="margin-top: 12%;display: block">
-       <%= form_tag requests_path,style:"direction:rtl" do %>
+       <%= form_tag requests_path,remote:true,style:"direction:rtl" do %>
             <%= hidden_field_tag :feature_id,features.id %>
             <% features.needs.each do |need| %>
               <div class="input-field " >
