@@ -100,7 +100,8 @@ class RequestsController < ApplicationController
               req.module_pointer = mod[mod.index(req.module_pointer)+1] #Approve
               req.save
               respond_to do |format|
-                if Refer.create(staff_id: current_user.id, request_id: req.id) #Logging #TODO add message_id
+                @refer=Refer.create(staff_id: current_user.id, request_id: req.id) #Logging #TODO add message_id
+                if @refer
                   format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
                 else
                   format.js{flash.now[:danger]="متاسفانه عملیات با موفقیت انجام نشد"}
@@ -113,7 +114,8 @@ class RequestsController < ApplicationController
               req.status = 2 #Certificate
               req.save
               respond_to do |format|
-                if Refer.create(staff_id:current_user.id, request_id: req.id)#TODO add message_id
+                @refer=Refer.create(staff_id:current_user.id, request_id: req.id)#TODO add message_id
+                if @refer
                   format.js{flash.now[:success]="عملیات با موفقیت انجام شد"}
                 else
                   format.js{flash.now[:danger]="متاسفانه عملیات با موفقیت انجام نشد"}

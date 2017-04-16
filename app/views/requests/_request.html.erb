@@ -11,7 +11,7 @@
     <%# if feature.last == request.module_pointer  %>
 
         <!-- link for create request to batch --> 
-        <%= link_to batch_requests_path(id:request.id),method: :post,remote:true,class:"btn btn-sm btn-success print","data-loading-text":"<i class='fa fa-circle-o-notch fa-spin'></i> در حال پردازش" do %>
+        <%= link_to request_path(id:request.id,type:"Confirm"),method: :put,remote:true,class:"btn btn-sm btn-success print","data-loading-text":"<i class='fa fa-circle-o-notch fa-spin'></i> در حال پردازش" do %>
             <i class="fa fa-print"></i>
             <span>تایید</span>
         <%end%>

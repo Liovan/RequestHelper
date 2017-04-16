@@ -2,13 +2,12 @@
 
 <% script "$(document).ready(function(){ window.print();})" %>
 
-<div id="print_form">
+
   <% forms.each do |req| %>
     <% case req.feature.id %>
       <% when 1 %>
           <%= render partial: "forms/eshteghal",locals: {request:req} %>
-          <div class="break"></div>
+              <div class="break"></div>
     <%end%>
 
   <%end%>
-</div>
