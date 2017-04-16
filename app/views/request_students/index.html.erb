@@ -23,7 +23,7 @@
         <td>
           <% case req.status %>
             <% when 1 %>
-          <span class="badge cyan darken-1 white-text" style="margin-right: 45%">در حال بررسی</span>
+          <span class="badge cyan darken-1 white-text" style="margin-right: 20%">در حال بررسی</span>
             <% when 2 %>
               <% if get_module_routes(req.feature_id).size > get_module_routes(req.feature_id).index(req.module_pointer)+1  %>
                   <span class="badge green white-text " style="margin-right: 20%;border-radius: 3px">

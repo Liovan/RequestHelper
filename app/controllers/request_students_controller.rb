@@ -3,7 +3,7 @@ class RequestStudentsController < ApplicationController
 
   layout "student/admin"
   def index
-    @requests=Request.requests_student(current_user.id).paginate(:page => params[:page],per_page:6)
+    @requests=Request.requests_student(current_user.id).paginate(:page => params[:page],per_page:10)
   end
 
   def show
