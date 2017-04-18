@@ -18,27 +18,31 @@ class SessionsController < ApplicationController
     else
       user = Staff.find_by(username: params[:session][:username])
     end
-
-    if user && user.authenticate(params[:session][:password])
-      if !user.update_attribute(:last_login_date,Time.now)
-        flash[:danger]  = "عملیات ناموفق بود لطفاً مجدداً تلاش کنید"
-        redirect_to new_session_path
-        return false
-      end
-      #log_in(staff)  check session helper
-      log_in user
-
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      if user_type==Student
-        redirect_to students_path
+    if verify_recaptcha(model:user)
+      if user && user.authenticate(params[:session][:password])
+        if !user.update_attribute(:last_login_date,Time.now)
+          flash[:danger]  = "عملیات ناموفق بود لطفاً مجدداً تلاش کنید"
+          redirect_to new_session_path
+          return false
+        end
+        #log_in(staff)  check session helper
+        log_in user
+  
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        if user_type==Student
+          redirect_to students_path
+        else
+          redirect_to sessions_path
+        end
       else
-        redirect_to sessions_path
+        #flash.now works with rendering (when no redirect)
+        #NOTE for security reason we show same message to both invalid requests
+        flash[:danger]  = "ترکیب نام کاربری/رمز عبور نامعتبر است"
+        redirect_to new_session_path
       end
     else
-      #flash.now works with rendering (when no redirect)
-      #NOTE for security reason we show same message to both invalid requests
-      flash[:danger]  = "ترکیب نام کاربری/رمز عبور نامعتبر است"
-      redirect_to new_session_path
+      flash.now[:danger]="لطفاْ پرسش امنیتی را جواب دهید"
+      render 'new'
     end
   end
 

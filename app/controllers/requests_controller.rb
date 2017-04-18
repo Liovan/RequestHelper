@@ -11,6 +11,7 @@ class RequestsController < ApplicationController
     @batch=get_batch
 
   end
+  
   def show
      @request=Request.find(params[:id])
     respond_to do |format|
