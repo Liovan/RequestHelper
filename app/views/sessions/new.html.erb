@@ -1,76 +1,14 @@
 <% title "صفحه ورود" %>
 <% stylesheet "sessions" %>
+<% javascript_end_page "sessions" %>
 <% script "$(document).ready(function(){
     $('ul.tabs').tabs();
   });" %>
-<div class="row">
-
-  <div id="student" class="col s12" style="direction: rtl" >
-    <div class="col s12 card-panel center-block">
-      <%= form_for :session,url:sessions_path do |item|  %>
-         
-          <div class='input-field col s12'>
-            <div class='input-field col s12'>
-              <%= item.text_field :student_code,required:true,class:"validate" %>
-              <%= item.label :student_code,"لطفاً کد دانشجویی خود را وارد نمایید",class:"right" %>
-            </div>
-          </div>
-          <div class='input-field col s12'>
-            <div class='input-field col s12'>
-              <%= item.password_field :password,required:true,class:"validate" %>
-              <%= item.label :password,"لطفاً رمز عبور خود را وارد نمایید",class:"right" %>
-            </div>
-          </div>
-     
-          <div class='input-field col s6'>
-              <%= item.check_box :remember_me %>
-              <%= item.label :remember_me,"مرا فراموش نکن " %>
-          </div>
-       
-          <div class='input-field col s12'>
-          <%= item.submit  "ورود", class:"btn btn-primary btn-block btn-large" %>
-          </div>
-      <%end%>
-      <div class="col l12">
-      <div class="card-panel cyan accent-4" >
-        <span style="color: #CC0000">*</span>
-        <span class="red-text text-darken-4">نکته :</span>
-        <span class="white-text">برای وارد شدن داخل فیلد رمز عبور ، کد ملی خود را وارد نمایید</span>
-      </div>
-        </div>
-    </div>
-  </div>
-
-  <div id="employee" class="col s12" style="direction: rtl">
-    <div class="col s12 card-panel  center-block" >
-      <%= form_for :session,url:sessions_path do |item| %>
-          <%= item.hidden_field :type,value:true%>
-          <div class='input-field col s12'>
-            <div class='input-field col s12' >
-              <%= item.text_field :username,required:true,class:"validate" %>
-              <%= item.label :usernmae,"لطفاً نام کاربری  خود را وارد نمایید",class:"right" %>
-            </div>
-          </div>
-          <div class='input-field col s12'>
-            <div class='input-field col s12'>
-              <%= item.password_field :password,required:true,class:"validate" %>
-              <%= item.label :password,"لطفاً رمز عبور خود را وارد نمایید",class:"right" %>
-            </div>
-          </div>
-          <div class="input-field col s6">
-            <%= recaptcha_tags %>
-          </div>
-          <div class='input-field col s6'>
-            <%= item.check_box :remember_me %>
-            <%= item.label :remember_me,"مرا فراموش نکن " %>
-          </div>
-          <div class='input-field col s12'>
-            <%= item.submit  "ورود", class:"btn btn-primary btn-block btn-large" %>
-          </div>
-      <%end%>
-
-    </div>
-  </div>
+<div  class="row block-forms">
+  <%= render partial: "sessions/student" %>
+  
+  <%= render partial: "sessions/employee" %>
+  
 </div>
 
 

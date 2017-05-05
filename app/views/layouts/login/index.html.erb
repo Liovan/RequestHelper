@@ -10,6 +10,7 @@
   <%= yield :stylesheet %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'student/materialize.min', 'data-turbolinks-track': 'reload' %>
+
   <%= yield :javascript %>
 </head>
 <body>
@@ -24,8 +25,8 @@
 <div class="row">
 <div class="col offset-l3 offset-m3 s12 m6 l6 center" style="padding: 5px" >
     <ul class="tabs tabs-fixed-width" style="overflow-x: hidden">
-      <li class="tab col  m3 s12"><a class="active" href="#student">ورود دانشجو</a></li>
-      <li class="tab col  m3 s12"><a  href="#employee">ورود کارمند</a></li>
+      <li id="frm_student" class="tab col  m3 s12"><a class="active" href="#student">ورود دانشجو</a></li>
+      <li id="frm_employee" class="tab col  m3 s12"><a  href="#employee">ورود کارمند</a></li>
     </ul>
 <%= yield %>
 </div>
