@@ -1,5 +1,7 @@
 len=$("form").length;
 for (var i=0;i<len;i++) { $("form")[i].reset()} // clear all data in the form 
+swal("init");
+
 <% if flash.now[:warning].present? %>
 swal({
     title:"! هشدار",
@@ -20,3 +22,4 @@ swal({
     type:"danger",
     confirmButtonText:"باشه چشم"});
 <%end%>
+

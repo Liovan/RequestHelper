@@ -11,7 +11,7 @@
           <span><%= time_ago_in_words(current_user.last_login_date)%></span>
           <p>
             <span style="font-size: 10px"><i class="fa fa-circle text-aqua"></i> </span>
-            <%= current_user.place.name %>
+            <%= current_user.place.name if current_user.place.present? %>
           </p>
         </span>
       </div>

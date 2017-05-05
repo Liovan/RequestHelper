@@ -14,11 +14,17 @@ class SessionsController < ApplicationController
     #Type of user
 
     if params[:session][:type] == nil
-      user = Student.find_by(student_code: params[:session][:student_code])
+      user = Student.find_by(student_code:params[:session][:student_code])
     else
       user = Staff.find_by(username: params[:session][:username])
     end
-    if verify_recaptcha(model:user)
+
+    if  user.class==Staff && verify_recaptcha(model:user)==false
+      flash.now[:danger]="لطفاْ پرسش امنیتی را جواب دهید"
+      render 'new'
+      return 0
+    end
+
       if user && user.authenticate(params[:session][:password])
         if !user.update_attribute(:last_login_date,Time.now)
           flash[:danger]  = "عملیات ناموفق بود لطفاً مجدداً تلاش کنید"
@@ -40,10 +46,7 @@ class SessionsController < ApplicationController
         flash[:danger]  = "ترکیب نام کاربری/رمز عبور نامعتبر است"
         redirect_to new_session_path
       end
-    else
-      flash.now[:danger]="لطفاْ پرسش امنیتی را جواب دهید"
-      render 'new'
-    end
+   
   end
 
   def destroy

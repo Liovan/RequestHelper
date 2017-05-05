@@ -1,12 +1,12 @@
 $(document).ready(function () {
     var student=$("#student");
     var employee=$("#employee");
-    
+
     $("#student").remove();
     $("#employee").remove();
-    
+
     $("#frm_student").on("click",function(){
-        
+
         $(".block-forms").html(student);
         $(".block-forms").slideUp(100);
         $(".block-forms").show();
@@ -14,7 +14,7 @@ $(document).ready(function () {
         $("#employee").remove();
 
     })
-    
+
     $("#frm_employee").on("click",function(){
         $(".block-forms").html(employee);
         $(".block-forms").slideUp(100);
@@ -23,7 +23,7 @@ $(document).ready(function () {
         $("#student").remove();
 
     });
-    
-    
-    
+
+
+
 });
