@@ -20,7 +20,7 @@
       <introspection-schemas>request_hepler_test:public</introspection-schemas>
     </data-source>
     <data-source name="Rails RequestHelper: development" uuid="98e4182b-b152-40eb-96dc-bd960429e6b6">
-      <database-info product="PostgreSQL" version="9.4.1" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+      <database-info product="PostgreSQL" version="9.5.6" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
@@ -28,9 +28,12 @@
       <introspection-schemas>request_hepler_development:public</introspection-schemas>
     </data-source>
     <data-source name="Rails RequestHelper: production" uuid="ec0f2498-b00f-41b7-a2b9-931035b822ff">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
-      <first-sync>true</first-sync>
+      <database-info product="PostgreSQL" version="9.5.6" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <user-name>postgres</user-name>
+      <introspection-schemas>request_hepler_production:public</introspection-schemas>
     </data-source>
   </component>
 </project>

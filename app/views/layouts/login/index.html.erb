@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'http://fonts.googleapis.com/icon?family=Material+Icons', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'student/materialize', 'data-turbolinks-track': 'reload' %>
+
   <%= yield :stylesheet %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'student/materialize.min', 'data-turbolinks-track': 'reload' %>
@@ -25,15 +26,12 @@
 <div class="row">
 <div class="col offset-l3 offset-m3 s12 m6 l6 center" style="padding: 5px" >
     <ul class="tabs tabs-fixed-width" style="overflow-x: hidden">
-      <li id="frm_student" class="tab col  m3 s12"><a class="active" href="#student">ورود دانشجو</a></li>
-      <li id="frm_employee" class="tab col  m3 s12"><a  href="#employee">ورود کارمند</a></li>
+      <li id="frm_student" class="tab col  m3 s12"><a class="active" style="font-family: byaken" href="#student">ورود دانشجو</a></li>
+      <li id="frm_employee" class="tab col  m3 s12"><a  style="font-family: byaken"  href="#employee">ورود کارمند</a></li>
     </ul>
 <%= yield %>
 </div>
 </div>
-<footer dir="ltr">
-  <%= debug(params) if Rails.env.development? %>
-</footer>
 <%= yield :javascript_end_page %>
 <%= yield :script_end_page %>
 </body>

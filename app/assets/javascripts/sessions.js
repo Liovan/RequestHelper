@@ -8,18 +8,16 @@ $(document).ready(function () {
     $("#frm_student").on("click",function(){
 
         $(".block-forms").html(student);
-        $(".block-forms").slideUp(100);
-        $(".block-forms").show();
-        $(".block-forms").slideDown(500);
+        $(".block-forms").hide();
+        $(".block-forms").fadeIn(800);
         $("#employee").remove();
 
-    })
+    });
 
     $("#frm_employee").on("click",function(){
         $(".block-forms").html(employee);
-        $(".block-forms").slideUp(100);
-        $(".block-forms").show();
-        $(".block-forms").slideDown(500);
+        $(".block-forms").hide();
+        $(".block-forms").fadeIn(800);
         $("#student").remove();
 
     });

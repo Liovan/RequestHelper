@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509184057) do
+ActiveRecord::Schema.define(version: 20170510205344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "files_file_name"
+    t.string   "files_content_type"
+    t.integer  "files_file_size"
+    t.datetime "files_updated_at"
+  end
 
   create_table "features", force: :cascade do |t|
     t.string   "name",       limit: 45, null: false
@@ -111,6 +118,21 @@ ActiveRecord::Schema.define(version: 20170509184057) do
     t.index ["field"], name: "index_students_on_field", using: :btree
     t.index ["meli_code"], name: "index_students_on_meli_code", unique: true, using: :btree
     t.index ["student_code"], name: "index_students_on_student_code", unique: true, using: :btree
+  end
+
+  create_table "temps", force: :cascade do |t|
+    t.string   "f_name"
+    t.string   "l_name"
+    t.string   "father_name"
+    t.string   "meli_code"
+    t.string   "city"
+    t.integer  "field"
+    t.string   "student_code"
+    t.string   "password_digest"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   add_foreign_key "features_places", "features"

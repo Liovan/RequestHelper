@@ -1,5 +1,10 @@
 <section class="content">
-  <div class="box box-info">
+  <section style="margin-bottom:4px">
+    <%= link_to  new_import_student_path,class:"btn btn-lg btn-success" do %>
+        <i class="glyphicon glyphicon-level-up"></i>
+    <%end%>
+  </section>
+  <div class="box box-warning">
     <div class="box-header with-border">
       <h3 class="box-title" style="font-family: byaken"> وارد کردن دانشجو ها</h3>
       <div class="box-tools pull-right">
@@ -7,7 +12,40 @@
       </div>
     </div>
     <div class="box-body" style="display: block;">
-
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>نام فایل</th>
+            <th>تاریخ آپلود</th>
+            <th>زمان آپلود</th>
+            <th>عملیات</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% i=0 %>
+         <% @attachment.each do |file|  %> 
+          <tr>
+            <td><%= i+=1 %></td>
+            <td><%= file.files.name %></td>
+            <td><%= file.files_updated_at.to_parsi.strftime "%A/%d/%B/%Y" %></td>
+            <td style="color: #d500ff"> <%= file.files_updated_at.to_parsi.strftime "%H:%M:%S" %></td>
+            <td>
+              <%= link_to import_students_path,class:"btn btn-primary" do  %>
+                  <i class="glyphicon glyphicon-retweet"></i>
+              <%end%> 
+              <%= link_to import_students_path,class:"btn btn-danger" do  %>
+                  <i class="glyphicon glyphicon-trash"></i>
+              <%end%>
+        
+            </td>
+          </tr>
+         <%end%>
+        </tbody>
+      </table>
+      
+      
+      
     </div>
   </div>
 </section>

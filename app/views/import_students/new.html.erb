@@ -1,2 +1,19 @@
-<h1>ImportStudents#new</h1>
-<p>Find me in app/views/import_students/new.html.erb</p>
+<section class="content ">
+
+  <div class="box box-warning col-lg-5">
+    <div class="box-header with-border">
+      <h3 class="box-title" style="font-family: byaken"> وارد کردن دانشجو ها</h3>
+      <div class="box-tools pull-right">
+        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+      </div>
+    </div>
+    <div class="box-body" style="display: block;">
+      <%= form_for :import_students,url:import_students_path, html: { multipart: true }  do |f| %>
+          <p>
+            <%= f.file_field :files,class:"form-control" %>
+          </p>
+          <p><%= f.submit "درج",class:"btn btn-success" %></p>
+      <% end %>
+    </div>
+  </div>
+</section>

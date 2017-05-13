@@ -36,19 +36,20 @@ gem 'parsi-date', '~> 0.3.1' # for convert miladi to shamsi date
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 # gem 'wicked_pdf'
 # gem 'wkhtmltopdf-binary', '~> 0.9.9.3'
-gem 'wicked_pdf', '~> 1.1'
-gem 'wkhtmltopdf-binary', '~> 0.12.3.1'
+#gem 'wicked_pdf', '~> 1.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'smarter_csv', '~> 1.1', '>= 1.1.4'
 gem "recaptcha", require: "recaptcha/rails"
-
+gem 'paperclip', '~> 5.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'listen',                '3.0.8'
   gem 'spring',                '1.7.2'
   gem 'spring-watcher-listen', '2.0.0'
+  #gem 'wkhtmltopdf-binary', '~> 0.12.3.1'
 end
 
 group :development do
