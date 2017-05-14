@@ -121,18 +121,14 @@ ActiveRecord::Schema.define(version: 20170510205344) do
   end
 
   create_table "temps", force: :cascade do |t|
-    t.string   "f_name"
-    t.string   "l_name"
-    t.string   "father_name"
-    t.string   "meli_code"
-    t.string   "city"
-    t.integer  "field"
-    t.string   "student_code"
-    t.string   "password_digest"
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
-    t.datetime "attachment_updated_at"
+    t.string  "f_name"
+    t.string  "l_name"
+    t.string  "father_name"
+    t.string  "meli_code"
+    t.string  "city"
+    t.integer "field"
+    t.string  "student_code"
+    t.string  "password_digest"
   end
 
   add_foreign_key "features_places", "features"

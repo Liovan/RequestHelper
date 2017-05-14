@@ -12,6 +12,7 @@
       </div>
     </div>
     <div class="box-body" style="display: block;">
+      <%= render partial:"layouts/flash_without_now_message" %>
       <table class="table table-responsive">
         <thead>
           <tr>
@@ -24,17 +25,17 @@
         </thead>
         <tbody>
         <% i=0 %>
-         <% @attachment.each do |file|  %> 
+         <% @attachments.each do |file|  %> 
           <tr>
             <td><%= i+=1 %></td>
             <td><%= file.files.name %></td>
             <td><%= file.files_updated_at.to_parsi.strftime "%A/%d/%B/%Y" %></td>
             <td style="color: #d500ff"> <%= file.files_updated_at.to_parsi.strftime "%H:%M:%S" %></td>
             <td>
-              <%= link_to import_students_path,class:"btn btn-primary" do  %>
+              <%= link_to import_student_path(file.id),method: :put,class:"btn btn-primary" do  %>
                   <i class="glyphicon glyphicon-retweet"></i>
               <%end%> 
-              <%= link_to import_students_path,class:"btn btn-danger" do  %>
+              <%= link_to import_student_path(file.id),method: :delete,class:"btn btn-danger" do  %>
                   <i class="glyphicon glyphicon-trash"></i>
               <%end%>
         
