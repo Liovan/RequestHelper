@@ -17,7 +17,7 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>نام فایل</th>
+            <th> فایل</th>
             <th>تاریخ آپلود</th>
             <th>زمان آپلود</th>
             <th>عملیات</th>
@@ -28,7 +28,7 @@
          <% @attachments.each do |file|  %> 
           <tr>
             <td><%= i+=1 %></td>
-            <td><%= file.files.name %></td>
+            <td><%= file.files_file_name %></td>
             <td><%= file.files_updated_at.to_parsi.strftime "%A/%d/%B/%Y" %></td>
             <td style="color: #d500ff"> <%= file.files_updated_at.to_parsi.strftime "%H:%M:%S" %></td>
             <td>
