@@ -14,9 +14,9 @@ class SessionsController < ApplicationController
     #Type of user
 
     if params[:session][:type] == nil
-      user = Student.find_by(student_code:params[:session][:student_code])
+      user = Student.where("student_code = ?","#{params[:session][:student_code]}")
     else
-      user = Staff.find_by(username: params[:session][:username])
+      user = Staff.where("username = ?","#{params[:session][:username]}")
     end
 
     if  user.class==Staff && verify_recaptcha(model:user)==false
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
       return 0
     end
 
-      if user && user.authenticate(params[:session][:password])
+      if user.present? && user.authenticate(params[:session][:password])
         if !user.update_attribute(:last_login_date,Time.now)
           flash[:danger]  = "عملیات ناموفق بود لطفاً مجدداً تلاش کنید"
           redirect_to new_session_path
