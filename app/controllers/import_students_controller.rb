@@ -60,7 +60,10 @@ class ImportStudentsController < ApplicationController
                end
             end
           end
-        
+          if is_error==false
+            flash[:success]="عملیات همگام سازی با موفقیت انجام شد"
+            redirect_to import_students_path
+          end
         #todo add sync temp and students 
         
         
