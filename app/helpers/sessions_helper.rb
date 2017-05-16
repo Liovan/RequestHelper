@@ -29,20 +29,20 @@ module SessionsHelper
     if (student_id = session[:student_id])           #student via session
       #Prevent database call spam by using an
       #instance variable *(memoization)*
-      @current_user ||= Student.find_by(id: student_id)
+      @current_user ||= Student.where("id = ?", student_id)
 
     elsif (staff_id = session[:staff_id])            #staff via session
-      @current_user ||= Staff.find_by(id: staff_id)
+      @current_user ||= Staff.where("id = ?", staff_id)
 
     elsif (student_id = cookies.signed[:student_id]) #student via remember_token
-      student = Student.find_by(id: student_id)
+      student = Student.where("id = ?", student_id)
       if student && student.authenticated?(cookies[:remember_token])
         log_in student
         @current_user = student
       end
 
     elsif (staff_id = cookies.signed[:staff_id])    #staff via remember_token
-      staff = Staff.find_by(id: staff_id)
+      staff = Staff.where("id = ?", staff_id)
       if staff && staff.authenticated?(cookies[:remember_token])
         log_in staff
         @current_user = staff
