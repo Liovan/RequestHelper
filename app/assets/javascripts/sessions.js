@@ -1,8 +1,7 @@
 $(document).ready(function () {
     var student=$("#student");
-    var employee=$("#employee");
-
     $("#student").remove();
+    var employee=$("#employee");
     $("#employee").remove();
 
     $("#frm_student").on("click",function(){
@@ -22,6 +21,7 @@ $(document).ready(function () {
 
     });
 
-
+    $(".block-forms").html(student);
+   
 
 });
