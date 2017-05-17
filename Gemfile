@@ -41,7 +41,8 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'smarter_csv', '~> 1.1', '>= 1.1.4'
-gem "recaptcha", require: "recaptcha/rails"
+
+gem 'invisible_captcha', '~> 0.9.2'
 gem 'paperclip', '~> 5.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

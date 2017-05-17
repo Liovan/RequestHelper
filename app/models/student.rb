@@ -1,7 +1,7 @@
 class Student < ApplicationRecord
   has_many :requests
   attr_accessor :remember_token
-
+  
   VALID_FARSI_REGEX = /\A[اآبپتثئجچحخدذرزژسشصضطظعغفقکگلمنوهیءأؤّ\s]+\z/
   validates :f_name, presence: {message: "نام نمی تواند خالی باشد."},
                      length: { maximum: 25, message:"نام می تواند حداکثر ۲۵ نویسه باشد" },

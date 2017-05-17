@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="input-field col s6">
-          <%= recaptcha_tags  %>
+          <%= item.invisible_captcha :employee_captcha, visual_honeypots: false %>
         </div>
         <div class='input-field col s6'>
           <%= item.check_box :remember_me %>

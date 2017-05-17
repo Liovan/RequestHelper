@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
+
  before_action :staff_logged_in,only: :index
  before_action :auto_login,only: :new
-
+ invisible_captcha only: [:create], honeypot: :student_captcha, on_spam: :spam , on_timestamp_spam: :submit_quick
+ invisible_captcha only: [:create], honeypot: :employee_captcha, on_spam: :spam , on_timestamp_spam: :submit_quick
   layout "login/index"
   def index
     render layout: "staff/admin"
@@ -19,12 +21,6 @@ class SessionsController < ApplicationController
       user = Staff.where("username = ?","#{params[:session][:username]}").first
     end
     
-    if  user.class==Staff && verify_recaptcha(model:user)==false
-      flash.now[:danger]="لطفاْ پرسش امنیتی را جواب دهید"
-      render 'new'
-      return 0
-    end
-
       if user && user.authenticate(params[:session][:password])
         if !user.update_attribute(:last_login_date,Time.now)
           flash[:danger]  = "عملیات ناموفق بود لطفاً مجدداً تلاش کنید"
@@ -63,5 +59,11 @@ class SessionsController < ApplicationController
            current_user
           redirect_to sessions_path
       end
-    end
+  end
+  def spam
+    render text: "در خواست غیر مجاز فرستادید !!!!"
+  end
+  def submit_quick
+    render text:"  درخواست های غیر مجاز متعددی فرستاده اید !!!"
+  end
 end

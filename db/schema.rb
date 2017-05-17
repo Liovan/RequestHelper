@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170514183300) do
+ActiveRecord::Schema.define(version: 20170517181056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,14 @@ ActiveRecord::Schema.define(version: 20170514183300) do
     t.datetime "updated_at",             null: false
     t.index ["need_id"], name: "index_result_students_on_need_id", using: :btree
     t.index ["request_id"], name: "index_result_students_on_request_id", using: :btree
+  end
+
+  create_table "simple_captcha_data", force: :cascade do |t|
+    t.string   "key",        limit: 40
+    t.string   "value",      limit: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["key"], name: "idx_key", using: :btree
   end
 
   create_table "staffs", force: :cascade do |t|
