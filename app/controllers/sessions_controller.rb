@@ -18,14 +18,14 @@ class SessionsController < ApplicationController
     else
       user = Staff.where("username = ?","#{params[:session][:username]}").first
     end
-
+    
     if  user.class==Staff && verify_recaptcha(model:user)==false
       flash.now[:danger]="لطفاْ پرسش امنیتی را جواب دهید"
       render 'new'
       return 0
     end
 
-      if user.present? && user.authenticate(params[:session][:password])
+      if user && user.authenticate(params[:session][:password])
         if !user.update_attribute(:last_login_date,Time.now)
           flash[:danger]  = "عملیات ناموفق بود لطفاً مجدداً تلاش کنید"
           redirect_to new_session_path

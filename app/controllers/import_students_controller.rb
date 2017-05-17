@@ -19,8 +19,9 @@ class ImportStudentsController < ApplicationController
       file_location =request.base_url+attach.files.url
       is_error=false
       open(file_location, 'r:utf-8') do |f|  
-        data = SmarterCSV.process(f)
+        data = SmarterCSV.process(f,{:convert_values_to_numeric=>false})
           data.each do |student|
+            
             if is_error
               flash[:danger]="متاسفانه در هنگام بهنگام سازی دچار خطا شده است ، لطفاْ با راهبر تماس بگیرید"
               redirect_to import_students_path
