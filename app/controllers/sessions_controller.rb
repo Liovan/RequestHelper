@@ -14,13 +14,11 @@ class SessionsController < ApplicationController
 
   def create
     #Type of user
-
     if params[:session][:type] == nil
       user = Student.where("student_code = ?","#{params[:session][:student_code]}").first
     else
       user = Staff.where("username = ?","#{params[:session][:username]}").first
     end
-    
       if user && user.authenticate(params[:session][:password])
         if !user.update_attribute(:last_login_date,Time.now)
           flash[:danger]  = "عملیات ناموفق بود لطفاً مجدداً تلاش کنید"
