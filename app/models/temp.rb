@@ -1,6 +1,7 @@
 class Temp < ApplicationRecord
   
   def self.sync_students
+    self.transaction do
     sql_execute("UPDATE students SET enabled=false WHERE meli_code NOT IN (select meli_code from temps);")
     sql_execute("DELETE FROM temps WHERE meli_code IN (SELECT meli_code FROM students);")
     temp=self.all
@@ -10,17 +11,23 @@ class Temp < ApplicationRecord
     sql_execute("INSERT INTO students (f_name,l_name,father_name,meli_code,city,field,student_code,created_at,updated_at)
               (SELECT f_name,l_name,father_name,meli_code,city,field,student_code,(SELECT CURRENT_TIMESTAMP),(SELECT CURRENT_TIMESTAMP)
               FROM temps);")
+    end
   end
 
   
-  
   private
   def self.sql_execute(sql)
-    results = ActiveRecord::Base.connection.execute(sql)
-    if results.present? 
-      return true
-    else
-      return false
+    begin
+      results = ActiveRecord::Base.connection.execute(sql)
+      if results.present?
+        return true
+      else
+         ActiveRecord::Rollback 
+        return false
+      end
+    rescue Exception
+      ActiveRecord::Rollback
+        return false
     end
   end
 end

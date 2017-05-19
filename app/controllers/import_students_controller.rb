@@ -63,16 +63,14 @@ class ImportStudentsController < ApplicationController
                end
             end
           end
-        
-        
           if is_error==false
             Temp.sync_students # sync student in temp and students table
-
-            flash[:success]="عملیات همگام سازی با موفقیت انجام شد"
+            flash[:success]="#{Time.now.strftime("%H:%M:%S")} عملیات همگام سازی با موفقیت انجام شد"
+            redirect_to import_students_path
+          else
+            flash[:danger]="متاسغانه عملیات همگام سازی ناموفق بودs"
             redirect_to import_students_path
           end
-        #todo add sync temp and students 
-        
         
       end
     end

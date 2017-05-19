@@ -20,7 +20,8 @@
 # Ignore schema
 /db/migrate/schema.rb
 
-
+# Ignore public/system
+/public/system/*
 
 # Ignore Byebug command history file.
 .byebug_history
