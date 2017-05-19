@@ -2,10 +2,15 @@
 <section class="content">
     <div class="box-body" style="display: block;">
       <div class="">
+        <% if flash[:last_login].present? %>
+          <div class="alert alert-warning alert-dismissable fade in text-center" role="alert" style="font-size: 15px">
+            <span> زمان آخرین ورود شما به سیستم</span>
+            <span style="font-weight: bold;color: #4e5ac9;">  <%= time_ago_in_words(flash[:last_login])  %> پیش  </span>
+           <span> است</span>
+          </div>
+        <%end%>
         <div class="alert alert-info  alert-dismissable fade in text-center" role="alert">
-
           <span><b><%= current_user.f_name %> <%= current_user.l_name %></b> به سامانه <%= $APP_NAME %> خوش آمدید</span>
-            
         </div>
       </div>
   </div>

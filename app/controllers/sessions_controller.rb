@@ -20,14 +20,15 @@ class SessionsController < ApplicationController
       user = Staff.where("username = ?","#{params[:session][:username]}").first
     end
       if user && user.authenticate(params[:session][:password])
+        flash[:last_login]=user.last_login_date if present?
         if !user.update_attribute(:last_login_date,Time.now)
           flash[:danger]  = "عملیات ناموفق بود لطفاً مجدداً تلاش کنید"
           redirect_to new_session_path
           return false
         end
-        #log_in(staff)  check session helper
+       
         log_in user
-  
+        
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         if user_type==Student
           redirect_to students_path
